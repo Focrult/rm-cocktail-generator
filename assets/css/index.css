@@ -1,0 +1,17 @@
+ 
+:root {
+       --brown: #44281d (68,40,29);
+       --salmonpink: #e4a788 (228,167,136);
+       --yellow: #f0e14a (240,225,74);
+       --green: #97ce4c (151,206,76);
+       --pink: #e89ac7 (232,154,199);
+    }
+
+.blue-colours { /* blueish colours that we can use: "https://www.color-hex.com/color-palette/10375" */  
+    color: #318bbe	rgb(49, 139, 190);	
+    color: #92c5dd	rgb(146, 197, 221);	
+    color: #0f3c80	rgb(15, 60, 128);	
+    color: #598fac	rgb(89, 143, 172);	
+    color: #80acbb	rgb(128, 172, 187);	
+    color: #232137	rgb(35, 33, 55); 
+}
