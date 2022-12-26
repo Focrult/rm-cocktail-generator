@@ -1,4 +1,4 @@
-// Ingredient Lists
+// Ingredient List
 var ingredientList =
     [
         category = ['Cocktail', 'Shot', 'Shake', 'Any'],
