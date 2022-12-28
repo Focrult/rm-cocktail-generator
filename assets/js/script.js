@@ -50,9 +50,9 @@ writeIngredientBtn(questionIndex)
 
 
 // //Global Declarations
-// const startBtn = document.getElementById('startBtn');
-// const resetBtn = document.getElementById('resetBtn');
-// const quizContainer = document.getElementById('quiz-container');
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+const quizContainer = document.getElementById('quiz-container');
 
 var APIKey = "TBD";
 
@@ -60,24 +60,24 @@ var APIKey = "TBD";
 // // TO BE USED WITH FINAL ARRAY // var ingredientArray = "Gin,Dry_Vermouth, Anis";
 
 // //Start the game state
-// startBtn.addEventListener('click', function() {
-//     startQuiz();
-// })
+startBtn.addEventListener('click', function() {
+    startQuiz();
+})
 
 // //Reset the game state
-// resetBtn.addEventListener('click', function(){
+resetBtn.addEventListener('click', function(){
 
-// })
+})
 
 // //Initiate the quiz
-// function startQuiz(){
-//     startBtn.classList.add('hide');
+function startQuiz(){
+    startBtn.classList.add('hide');
 
-//     //reveals the first question
-//     quizContainer.classlist.remove('hide');
-//     //another function to pass through questions?
+    //reveals the first question
+    quizContainer.classlist.remove('hide');
+    //another function to pass through questions?
 
-// }
+}
 
 
 //Questions and where each would direct user
