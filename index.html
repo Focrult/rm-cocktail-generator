@@ -4,24 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Creepy Morty <!-- bar's name from an episode --> </title>
+    <title>The Creepy Morty  </title> <!-- bar's name from an episode -->
     <!-- <link rel="stylesheet" href="./assets/css/reset.css">  I'll leave this link as a comment just in case we need to use a reset.css, 
     if we do there's already a css file attached to it.-->
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
 <body>
-
     <header>
         <!-- logo, header -->
         <!-- nav -->
         <!-- ul, li -->
     </header>
-
     <main>
+        <!--Main container-->
+    <div class="container">
+    <div class="main-btn"> <!--Buttons for main page-->
+    <button type="button" id="startBtn">Start Quiz</button>
+    <button type="button" id="resetBtn">Try Again</button>
+    </div>
+
         <!-- hero-image (or background image) -->
         <!-- content -->
         <!-- quiz box -->
+
+    <div id="quiz-container" class="hide">
+        <div id="question-container">Question-Title</div><!--This will be emptied and replaced with text inside JS file-->
+            <button type="button" class="btn">Box1</button>
+            <button type="button" class="btn">Box2</button>
+            <button type="button" class="btn">Box3</button>
+            <button type="button" class="btn">Box4</button>
+        </div>
+    </div>
+</div>
     </main>
 
     <aside>
@@ -33,4 +48,5 @@
     </footer>
     
 </body>
+<script src="assets/js/script.js"></script>
 </html>
