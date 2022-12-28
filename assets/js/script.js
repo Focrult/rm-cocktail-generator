@@ -94,7 +94,9 @@ const questions = [
 
   //------------------------Fetch Cocktail---------------------------------
 
-  
+  var cocktailName = "blank";
+
+
 
   function getCocktail(ingArray){
 
@@ -115,14 +117,25 @@ const questions = [
         })
         .then(function (data) {
 
-            var cocktailName = data.drinks[0].strDrink;
+            console.log(data);
 
+            cocktailName = data.drinks[0].strDrink;
             console.log(cocktailName);
+
+            localStorage.setItem("cocktailName", cocktailName);
         });
+
+    
     
   }
 
-getCocktail("Margarita");
+  getCocktail("Margarita");
+
+
+
+
+
+
 
 
 
