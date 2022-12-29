@@ -143,10 +143,8 @@ const questions = [
 
   //------------------------Fetch Cocktail---------------------------------
 
-  var cocktailName = "blank";
-
-
-
+  var cocktailName = "cocktailblank";
+  
   function getCocktail(ingArray){
 
     //return function if array is null
@@ -166,8 +164,6 @@ const questions = [
         })
         .then(function (data) {
 
-            console.log(data);
-
             cocktailName = data.drinks[0].strDrink;
             console.log(cocktailName);
 
@@ -178,7 +174,42 @@ const questions = [
     
   }
 
+  //------------------------Fetch Character---------------------------------
+
+  var characterNumber = "2";
+
+  function getCharacter(){
+
+    var characterUrl = "https://rickandmortyapi.com/api/character/" + characterNumber;
+
+    fetch(characterUrl)
+        .then(function (response) {
+        return response.json();
+        })
+        .then(function (data) {
+
+          //Create character object for character tile
+            var characterObject = {
+              name: data.name,
+              species: data.species,
+              gender: data.gender,
+              origin: data.origin.name,
+            }
+
+            console.log(characterObject);
+            localStorage.setItem("characterName", JSON.stringify(characterObject));
+        });
+
+    
+    
+  }
+
+
   getCocktail("Margarita");
+  getCharacter();
+
+
+
 
 
 
