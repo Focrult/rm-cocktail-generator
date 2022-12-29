@@ -2,45 +2,67 @@
 // Ingredient List
 var ingredientList =
     [
-        category = ['Cocktail', 'Shot', 'Shake', 'Any'],
+        category =  [
+                    question = 'type',
+                    types = ['Cocktail', 'Shot', 'Shake', 'Any'],
+                    filterDefinition = 'c'
+                    ],
 
-        spirits = ['Vodka', 'Gin', 'Whiskey', 'Absinthe', 'Rum',
-                    'Wine', 'Beer', 'Liqueur', 'Champagne', 'Tequila',
-                    'Any'  ],
+        spirits = [  
+                  question = 'spirit',
+                  types = [ 'Vodka', 'Gin', 'Whiskey', 'Absinthe', 'Rum',
+                            'Wine', 'Beer', 'Liqueur', 'Champagne', 'Tequila',
+                            'Any'  ],
+                  filterDefinition = 'i',
+                  ],
+        mixers = [
+                  question = 'mixer',
+                  types = [ 'Orange Juice', 'Milk', 'Lemon Juice', 'Orange Bitters', 
+                            'Coffee', 'Any' ],
+                  filterDefinition = 'i',
+                  ],
+        glassType = [
+                    question = 'glass type',
+                    types = [ 'Coupe Glass', 'Martini Glass', 
+                              'Highball Glass', 'Margarita Glass', 'Shot Glass',
+                              'Any'   ],
+                    filterDefinition = 'g',
+                    ],
 
-        mixers = [  'Orange Juice', 'Milk', 'Lemon Juice', 'Orange Bitters', 
-                    'Coffee', 'Any'   ],
-
-        glassType = [   'Coupe Glass', 'Martini Glass', 
-                        'Highball Glass', 'Margarita Glass', 'Shot Glass',
-                        'Any'   ],
-
-        firstLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
-                        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
-                        'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',    ],
+        // firstLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
+        //                 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
+        //                 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',    ],
     ]
 
 
-var quizEl = document.getElementById('quiz-box')
+var quizLi = document.getElementById('quiz-list')
 
-console.log(quizEl)
 var questionIndex = 0
+var drinkFilter = []
 
 console.log(ingredientList[questionIndex][0])
-//Input User Answer
-function inputAns (event) {
 
+//Save User Answer
+function inputAns (event) {
+  var ans = 'hello'
+  console.log(ans)
+}
+
+// Clear Answer List
+function clearList() {
+  for (let i = 0; i < quizLi.childNodes.length; i++ )
+  
 }
 
 // Write New and Answer Set
 function writeIngredientBtn(questionIndex) {
-    for (let i = 0; i < ingredientList[questionIndex].length; i++ ) {
-        console.log(ingredientList[questionIndex])
+    for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
+        console.log(ingredientList[questionIndex][1])
         var answerEl = document.createElement('button');
-        answerEl.textContent = ingredientList[questionIndex][i];
+        answerEl.textContent = ingredientList[questionIndex][1][i];
 
         // answerEl.append(btnText)
-        quizEl.append(answerEl)
+        quizLi.append(answerEl)
     }
     
 }
@@ -179,7 +201,18 @@ const questions = [
   }
 
   getCocktail("Margarita");
-
+  
+ // Answer Button Listener 
+ quizLi.addEventListener("click", function(event)  { 
+                                                      console.log(event.target.textContent)
+                                                      var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
+                                                      drinkFilter.push(ans)
+                                                      console.log(drinkFilter)
+                                                      questionIndex++
+                                                      clearList()
+                                                      writeIngredientBtn(questionIndex)
+                                                    })    
+//  $('#city-list').on('click', function(event){
 
 
 
