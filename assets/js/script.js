@@ -42,12 +42,6 @@ var drinkFilter = []
 
 console.log(ingredientList[questionIndex][0])
 
-//Save User Answer
-function inputAns (event) {
-  var ans = 'hello'
-  console.log(ans)
-}
-
 // Clear Answer List
 function clearList() {
 
@@ -59,11 +53,25 @@ function clearList() {
   //   quizLi.removeChild(quizLi.firstChild)
  }
 
+ function createFilter () {
+  // Make all filters lowercase
+
+
+  // Replace spaces with -
+
+  // Join ingredient array
+  var filters = drinkFilter.join('&')
+    
+  // Make all filters lowercase
+    // Replace spaces with -
+    filters = filters.replaceAll(' ', '_').toLowerCase();
+  console.log(filters)
+ }
 
 // Write New and Answer Set
 function writeIngredientBtn(questionIndex) {
     for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
-        console.log(ingredientList[questionIndex][1])
+        // console.log(ingredientList[questionIndex][1])
         var answerEl = document.createElement('button');
         answerEl.textContent = ingredientList[questionIndex][1][i];
 
@@ -112,62 +120,62 @@ function startQuiz(){
 //This will minimise html code and make it easier to assign questions to API requests
 //Review with team members
 //Get elements add attributes? try 
-const questions = [
-    {
-      question: 'Question Here',
-      answers: [
-        { text: 'Choice here', correct: true },
-        { text: 'Choice here', correct: false },
-        { text: 'Choice here', correct: false },
-        { text: 'Choice here', correct: false }
-      ]
-    },
-    {
-      question: 'Question Here',
-      answers: [
-        { text: 'Choice here', correct: true },
-        { text: 'Choice here', correct: false },
-        { text: 'Choice here', correct: false },
-        { text: 'Choice here', correct: false }
-      ]
-    },
-    {
-      question: 'Question Here',
-      answers: [
-        { text: 'Choice here', correct: true },
-        { text: 'Choice here', correct: false},
-        { text: 'Choice here', correct: false },
-        { text: 'Choice here', correct: false }
-    ]
-    },
-    {
-        question: 'Question Here',
-        answers: [
-          { text: 'Choice here', correct: true },
-          { text: 'Choice here', correct: false},
-          { text: 'Choice here', correct: false },
-          { text: 'Choice here', correct: false }
-        ]
-    },
-    {
-        question: 'Question Here',
-        answers: [
-          { text: 'Choice here', correct: true },
-          { text: 'Choice here', correct: false},
-          { text: 'Choice here', correct: false },
-          { text: 'Choice here', correct: false }
-        ]
-    },
-    {
-      question: 'Question Here',
-      answers: [
-        { text: 'Choice here', correct: true },
-        { text: 'Choice here', correct: false },
-        { text: 'Choice here', correct: false },
-        { text: 'Choice here', correct: false }
-      ]
-    }
-  ]
+// const questions = [
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//       ]
+//     },
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//       ]
+//     },
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false},
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//     ]
+//     },
+//     {
+//         question: 'Question Here',
+//         answers: [
+//           { text: 'Choice here', correct: true },
+//           { text: 'Choice here', correct: false},
+//           { text: 'Choice here', correct: false },
+//           { text: 'Choice here', correct: false }
+//         ]
+//     },
+//     {
+//         question: 'Question Here',
+//         answers: [
+//           { text: 'Choice here', correct: true },
+//           { text: 'Choice here', correct: false},
+//           { text: 'Choice here', correct: false },
+//           { text: 'Choice here', correct: false }
+//         ]
+//     },
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//       ]
+//     }
+//   ]
 
   //------------------------Fetch Cocktail---------------------------------
 
@@ -216,9 +224,15 @@ const questions = [
                                                       console.log(drinkFilter)
                                                       questionIndex++
                                                       clearList()
-                                                      writeIngredientBtn(questionIndex)
+                                                      
+                                                      if (questionIndex > 3) {
+                                                        createFilter()
+                                                      }
+                                                      else {
+                                                        writeIngredientBtn(questionIndex)
+                                                      }
                                                     })    
-//  $('#city-list').on('click', function(event){
+
 
 
 
