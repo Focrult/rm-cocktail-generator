@@ -50,9 +50,15 @@ function inputAns (event) {
 
 // Clear Answer List
 function clearList() {
-  for (let i = 0; i < quizLi.childNodes.length; i++ )
-  
-}
+
+  while (quizLi.hasChildNodes()){
+    quizLi.removeChild(quizLi.firstChild)
+  }
+  // console.log(quizLi.childNodes.length)
+  // for (let i = 0; i < quizLi.childNodes.length; i++)  {
+  //   quizLi.removeChild(quizLi.firstChild)
+ }
+
 
 // Write New and Answer Set
 function writeIngredientBtn(questionIndex) {
