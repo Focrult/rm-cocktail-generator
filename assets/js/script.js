@@ -89,8 +89,11 @@ writeIngredientBtn(questionIndex)
 const startBtn = document.getElementById('startBtn');
 const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
+var scoreSpan = document.getElementById('score-span');
 
 var APIKey = "TBD";
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<LOCAL STORAGE
+
 
 // // TO BE USED WITH FINAL ARRAY // var APIUrl = "www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientArray;
 // // TO BE USED WITH FINAL ARRAY // var ingredientArray = "Gin,Dry_Vermouth, Anis";
@@ -98,13 +101,13 @@ var APIKey = "TBD";
 // //Start the game state
 startBtn.addEventListener('click', function() {
     startQuiz();
+    document.getElementById('main-btn').classList.add('hide');
+
 })
 
 // //Reset the game state
 resetBtn.addEventListener('click', function(){
-
 })
-
 // //Initiate the quiz
 function startQuiz(){
     startBtn.classList.add('hide');
@@ -112,14 +115,25 @@ function startQuiz(){
     //reveals the first question
     quizContainer.classlist.remove('hide');
     //another function to pass through questions?
-
 }
+
+//function to pass questions - show + hide
+function showQuestion(){
+  for(var i=0; i > questions.length; i++){
+    question.classList.remove("hide");
+    question.classList.add("hide")
+   
+  }
+}
+
+
 
 
 //Questions and where each would direct user
 //This will minimise html code and make it easier to assign questions to API requests
 //Review with team members
 //Get elements add attributes? try 
+
 // const questions = [
 //     {
 //       question: 'Question Here',
@@ -177,12 +191,59 @@ function startQuiz(){
 //     }
 //   ]
 
+const questions = [
+    {
+      question: 'Question Here',
+      answers: [
+        { text: 'Choice here', correct: true },
+        { text: 'Choice here', correct: false },
+        { text: 'Choice here', correct: false },
+        { text: 'Choice here', correct: false }
+      ]
+    },
+    {
+      question: 'Question Here',
+      answers: [
+        { text: 'Choice here', correct: true },
+        { text: 'Choice here', correct: false },
+        { text: 'Choice here', correct: false },
+        { text: 'Choice here', correct: false }
+      ]
+    },
+    {
+      question: 'Question Here',
+      answers: [
+        { text: 'Choice here', correct: true },
+        { text: 'Choice here', correct: false},
+        { text: 'Choice here', correct: false },
+        { text: 'Choice here', correct: false }
+    ]
+    },
+    {
+        question: 'Question Here',
+        answers: [
+          { text: 'Choice here', correct: true },
+          { text: 'Choice here', correct: false},
+          { text: 'Choice here', correct: false },
+          { text: 'Choice here', correct: false }
+        ]
+    },
+    {
+        question: 'Question Here',
+        answers: [
+          { text: 'Choice here', correct: true },
+          { text: 'Choice here', correct: false},
+          { text: 'Choice here', correct: false },
+          { text: 'Choice here', correct: false }
+        ]
+    }
+  ]
+
+
   //------------------------Fetch Cocktail---------------------------------
 
-  var cocktailName = "blank";
-
-
-
+  var cocktailName = "cocktailblank";
+  
   function getCocktail(ingArray){
 
     //return function if array is null
@@ -202,8 +263,6 @@ function startQuiz(){
         })
         .then(function (data) {
 
-            console.log(data);
-
             cocktailName = data.drinks[0].strDrink;
             console.log(cocktailName);
 
@@ -214,7 +273,39 @@ function startQuiz(){
     
   }
 
+  //------------------------Fetch Character---------------------------------
+
+  var characterNumber = "2";
+
+  function getCharacter(){
+
+    var characterUrl = "https://rickandmortyapi.com/api/character/" + characterNumber;
+
+    fetch(characterUrl)
+        .then(function (response) {
+        return response.json();
+        })
+        .then(function (data) {
+
+          //Create character object for character tile
+            var characterObject = {
+              name: data.name,
+              species: data.species,
+              gender: data.gender,
+              origin: data.origin.name,
+            }
+
+            console.log(characterObject);
+            localStorage.setItem("characterName", JSON.stringify(characterObject));
+        });
+
+    
+    
+  }
+
+
   getCocktail("Margarita");
+
   
  // Answer Button Listener 
  quizLi.addEventListener("click", function(event)  { 
@@ -232,6 +323,12 @@ function startQuiz(){
                                                         writeIngredientBtn(questionIndex)
                                                       }
                                                     })    
+
+  getCharacter();
+
+
+
+
 
 
 
