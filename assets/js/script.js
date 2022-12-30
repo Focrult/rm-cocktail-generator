@@ -2,45 +2,81 @@
 // Ingredient List
 var ingredientList =
     [
-        category = ['Cocktail', 'Shot', 'Shake', 'Any'],
+        category =  [
+                    question = 'type',
+                    types = ['Cocktail', 'Shot', 'Shake', 'Any'],
+                    filterDefinition = 'c'
+                    ],
 
-        spirits = ['Vodka', 'Gin', 'Whiskey', 'Absinthe', 'Rum',
-                    'Wine', 'Beer', 'Liqueur', 'Champagne', 'Tequila',
-                    'Any'  ],
+        spirits = [  
+                  question = 'spirit',
+                  types = [ 'Vodka', 'Gin', 'Whiskey', 'Absinthe', 'Rum',
+                            'Wine', 'Beer', 'Liqueur', 'Champagne', 'Tequila',
+                            'Any'  ],
+                  filterDefinition = 'i',
+                  ],
+        mixers = [
+                  question = 'mixer',
+                  types = [ 'Orange Juice', 'Milk', 'Lemon Juice', 'Orange Bitters', 
+                            'Coffee', 'Any' ],
+                  filterDefinition = 'i',
+                  ],
+        glassType = [
+                    question = 'glass type',
+                    types = [ 'Coupe Glass', 'Martini Glass', 
+                              'Highball Glass', 'Margarita Glass', 'Shot Glass',
+                              'Any'   ],
+                    filterDefinition = 'g',
+                    ],
 
-        mixers = [  'Orange Juice', 'Milk', 'Lemon Juice', 'Orange Bitters', 
-                    'Coffee', 'Any'   ],
-
-        glassType = [   'Coupe Glass', 'Martini Glass', 
-                        'Highball Glass', 'Margarita Glass', 'Shot Glass',
-                        'Any'   ],
-
-        firstLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
-                        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
-                        'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',    ],
+        // firstLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
+        //                 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
+        //                 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',    ],
     ]
 
 
-var quizEl = document.getElementById('quiz-box')
+var quizLi = document.getElementById('quiz-list')
 
-console.log(quizEl)
 var questionIndex = 0
+var drinkFilter = []
 
 console.log(ingredientList[questionIndex][0])
-//Input User Answer
-function inputAns (event) {
 
-}
+// Clear Answer List
+function clearList() {
+
+  while (quizLi.hasChildNodes()){
+    quizLi.removeChild(quizLi.firstChild)
+  }
+  // console.log(quizLi.childNodes.length)
+  // for (let i = 0; i < quizLi.childNodes.length; i++)  {
+  //   quizLi.removeChild(quizLi.firstChild)
+ }
+
+ function createFilter () {
+  // Make all filters lowercase
+
+
+  // Replace spaces with -
+
+  // Join ingredient array
+  var filters = drinkFilter.join('&')
+    
+  // Make all filters lowercase
+    // Replace spaces with -
+    filters = filters.replaceAll(' ', '_').toLowerCase();
+  console.log(filters)
+ }
 
 // Write New and Answer Set
 function writeIngredientBtn(questionIndex) {
-    for (let i = 0; i < ingredientList[questionIndex].length; i++ ) {
-        console.log(ingredientList[questionIndex])
+    for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
+        // console.log(ingredientList[questionIndex][1])
         var answerEl = document.createElement('button');
-        answerEl.textContent = ingredientList[questionIndex][i];
+        answerEl.textContent = ingredientList[questionIndex][1][i];
 
         // answerEl.append(btnText)
-        quizEl.append(answerEl)
+        quizLi.append(answerEl)
     }
     
 }
@@ -97,6 +133,64 @@ function showQuestion(){
 //This will minimise html code and make it easier to assign questions to API requests
 //Review with team members
 //Get elements add attributes? try 
+
+// const questions = [
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//       ]
+//     },
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//       ]
+//     },
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false},
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//     ]
+//     },
+//     {
+//         question: 'Question Here',
+//         answers: [
+//           { text: 'Choice here', correct: true },
+//           { text: 'Choice here', correct: false},
+//           { text: 'Choice here', correct: false },
+//           { text: 'Choice here', correct: false }
+//         ]
+//     },
+//     {
+//         question: 'Question Here',
+//         answers: [
+//           { text: 'Choice here', correct: true },
+//           { text: 'Choice here', correct: false},
+//           { text: 'Choice here', correct: false },
+//           { text: 'Choice here', correct: false }
+//         ]
+//     },
+//     {
+//       question: 'Question Here',
+//       answers: [
+//         { text: 'Choice here', correct: true },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false },
+//         { text: 'Choice here', correct: false }
+//       ]
+//     }
+//   ]
+
 const questions = [
     {
       question: 'Question Here',
@@ -144,6 +238,7 @@ const questions = [
         ]
     }
   ]
+
 
   //------------------------Fetch Cocktail---------------------------------
 
@@ -210,7 +305,27 @@ const questions = [
 
 
   getCocktail("Margarita");
+
+  
+ // Answer Button Listener 
+ quizLi.addEventListener("click", function(event)  { 
+                                                      console.log(event.target.textContent)
+                                                      var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
+                                                      drinkFilter.push(ans)
+                                                      console.log(drinkFilter)
+                                                      questionIndex++
+                                                      clearList()
+                                                      
+                                                      if (questionIndex > 3) {
+                                                        createFilter()
+                                                      }
+                                                      else {
+                                                        writeIngredientBtn(questionIndex)
+                                                      }
+                                                    })    
+
   getCharacter();
+
 
 
 
