@@ -1,14 +1,18 @@
 *{ /*Trying this font for the error page*/
     font-family: 'Hanalei Fill', cursive;
     font-family: 'Space Mono', monospace;
+    padding: 0;
+    margin: 0;
 }
-img.background{
+.background{
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: -1;
     width: 100%;
     height: 100%;
+    background-size: cover;
+    object-fit: cover;
     /* -webkit-filter: blur(5px);
     filter: blur(5px); */
 }
@@ -22,8 +26,10 @@ img.background{
 }
 .error-text{
     text-align: center;
+    
 }
 h1{ /*Error 404 Text */
+    
     color: white;
     font-size: 100px;
     margin-top: 100px;
@@ -32,20 +38,23 @@ h1{ /*Error 404 Text */
     text-decoration-line: underline;
 }
 h3{ /*Comment below error 404*/
+    padding-top: 50px;
     margin-top: -70px;
-    padding-top: 0;
+    
     color: white;
     font-size: 50px;
 }
-
-.container{/*Container for the button + paragraph*/
+.container{/*Container for the button + paragraph*/ /*Container causing issue with button*/
     width: 30%;
+    /* margin-top: 70px; */
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 p{
+    margin: auto;
+    position: absolute;
     font-size: 25px;
     color: white;
     vertical-align: middle;
@@ -54,17 +63,18 @@ p{
 }
 .returnBtn{ /*Button styles and position*/
     position: absolute;
-    top: 72%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
 /* Styling of button */
-    border: 0;
+    border: none;
     padding: 10px 20px;
     background-color: #f7633e;
     color: white;
     border-radius: 50px;
     font-weight: 800;
     transition: 300ms ease-out;
+
 }
 .returnBtn:hover{ /*Hover effect for the return button*/
     font-size: 18px;
@@ -73,3 +83,39 @@ p{
     transition: 300ms ease-in;
     cursor:pointer;
 }
+/*ISSUE HERE, */
+@media only screen and (max-width: 680px) {
+
+    .returnBtn{/*moved button into max width*/
+    top: 95%;
+    display: flex;
+    flex-wrap: nowrap;
+    }
+  }
+@media only screen and (max-width: 1050px) {
+    h1,h3{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center; /*h1 wouldn't center on a certain size, this fixes that problem*/
+    }
+    .returnBtn{/*moved button into max width*/
+    top: 85%;
+    display: flex;
+    flex-wrap: nowrap;
+    }
+    p{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        top: 90%;
+    }
+  }
+  @media only screen and (max-height: 769px) {
+    p{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+  }
+
