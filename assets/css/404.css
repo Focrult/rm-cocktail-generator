@@ -26,10 +26,8 @@
 }
 .error-text{
     text-align: center;
-    
 }
 h1{ /*Error 404 Text */
-    
     color: white;
     font-size: 100px;
     margin-top: 100px;
@@ -61,7 +59,7 @@ p{
     text-align: center;
     font-weight: 800;
 }
-.returnBtn{ /*Button styles and position*/
+#returnBtn{ /*Button styles and position*/
     position: absolute;
     top: 85%;
     left: 50%;
@@ -74,9 +72,8 @@ p{
     border-radius: 50px;
     font-weight: 800;
     transition: 300ms ease-out;
-
 }
-.returnBtn:hover{ /*Hover effect for the return button*/
+#returnBtn:hover{ /*Hover effect for the return button*/
     font-size: 18px;
     transition: font-size .2s ease;
     transition: 300ms ease-out;
@@ -86,7 +83,7 @@ p{
 /*ISSUE HERE, */
 @media only screen and (max-width: 680px) {
 
-    .returnBtn{/*moved button into max width*/
+    #returnBtn{/*moved button into max width*/
     top: 95%;
     display: flex;
     flex-wrap: nowrap;
@@ -99,7 +96,7 @@ p{
         flex-wrap: nowrap;
         justify-content: center; /*h1 wouldn't center on a certain size, this fixes that problem*/
     }
-    .returnBtn{/*moved button into max width*/
+    #returnBtn{/*moved button into max width*/
     top: 85%;
     display: flex;
     flex-wrap: nowrap;
@@ -118,4 +115,3 @@ p{
         flex-wrap: nowrap;
     }
   }
-
