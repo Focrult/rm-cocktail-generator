@@ -256,16 +256,37 @@ const questions = [
 
     fetch(APIUrl)
         .then(function (response) {
-        return response.json();
+          if(response.status === 404){
+            document.location.replace("./404.html");
+
+          } else {
+            return response.json();
+          }
+
+          
+
+          
+          
+
+
         })
         .then(function (data) {
 
-            console.log(data);
+            console.log(data.drinks);
 
-            cocktailName = data.drinks[0].strDrink;
-            console.log(cocktailName);
+            if(data.drinks == "None Found"){
+              document.location.replace("./404.html");
 
-            localStorage.setItem("cocktailName", cocktailName);
+            } else {
+              cocktailName = data.drinks[0].strDrink;
+              console.log(cocktailName);
+
+              localStorage.setItem("cocktailName", cocktailName);
+            }
+
+            
+
+            
         });
 
     
@@ -302,7 +323,7 @@ const questions = [
     
   }
 
-
+  // Dry_Vermouth,Gin,Anis
   getCocktail("Dry_Vermouth,Gin,Anis");
 
   
