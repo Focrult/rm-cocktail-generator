@@ -1,4 +1,5 @@
-
+//Added redirect URL request if error occurs
+var redirectURL = './404.html'
 // Ingredient List
 var ingredientList =
     [
