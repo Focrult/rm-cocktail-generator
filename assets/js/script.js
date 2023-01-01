@@ -91,12 +91,8 @@ const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 
-var APIKey = "TBD";
+var APIKey = "9973533";
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<LOCAL STORAGE
-
-
-// // TO BE USED WITH FINAL ARRAY // var APIUrl = "www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientArray;
-// // TO BE USED WITH FINAL ARRAY // var ingredientArray = "Gin,Dry_Vermouth, Anis";
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
@@ -254,7 +250,7 @@ const questions = [
     } else {
       
       var ingredients = ingArray;
-      var APIUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + ingredients;
+      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
     }
 
     fetch(APIUrl)
@@ -262,6 +258,8 @@ const questions = [
         return response.json();
         })
         .then(function (data) {
+
+            console.log(data);
 
             cocktailName = data.drinks[0].strDrink;
             console.log(cocktailName);
@@ -304,7 +302,7 @@ const questions = [
   }
 
 
-  getCocktail("Margarita");
+  getCocktail("Dry_Vermouth,Gin,Anis");
 
   
  // Answer Button Listener 
