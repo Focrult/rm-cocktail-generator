@@ -12,11 +12,11 @@ var redirectURL = './404.html'
 // Ingredient List
 var ingredientList =
     [
-        category =  [
-                    question = 'type',
-                    types = ['Cocktail', 'Shot', 'Shake', 'Any'],
-                    filterDefinition = 'c'
-                    ],
+        // category =  [
+        //             question = 'type',
+        //             types = ['Cocktail', 'Shot', 'Shake', 'Any'],
+        //             filterDefinition = 'c'
+        //             ],
 
         spirits = [  
                   question = 'spirit',
@@ -31,13 +31,13 @@ var ingredientList =
                             'Coffee', 'Any' ],
                   filterDefinition = 'i',
                   ],
-        glassType = [
-                    question = 'glass type',
-                    types = [ 'Coupe Glass', 'Martini Glass', 
-                              'Highball Glass', 'Margarita Glass', 'Shot Glass',
-                              'Any'   ],
-                    filterDefinition = 'g',
-                    ],
+        // glassType = [
+        //             question = 'glass type',
+        //             types = [ 'Coupe Glass', 'Martini Glass', 
+        //                       'Highball Glass', 'Margarita Glass', 'Shot Glass',
+        //                       'Any'   ],
+        //             filterDefinition = 'g',
+        //             ],
 
         // firstLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
         //                 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
@@ -70,7 +70,7 @@ function clearList() {
   // Replace spaces with -
 
   // Join ingredient array
-  var filters = drinkFilter.join('&')
+  var filters = drinkFilter.join(',')
     
   // Make all filters lowercase
     // Replace spaces with -
@@ -355,13 +355,14 @@ const questions = [
  // Answer Button Listener 
  quizLi.addEventListener("click", function(event)  { 
                                                       console.log(event.target.textContent)
-                                                      var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
+                                                      // var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
+                                                      var ans =  event.target.textContent
                                                       drinkFilter.push(ans)
                                                       console.log(drinkFilter)
                                                       questionIndex++
                                                       clearList()
                                                       
-                                                      if (questionIndex > 3) {
+                                                      if (questionIndex > ingredientList[questionIndex][1].length) {
                                                         createFilter()
                                                       }
                                                       else {
