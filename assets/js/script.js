@@ -274,10 +274,18 @@ const questions = [
     } else {
       
       var ingredients = ingArray;
-      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+     
+
+      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
 
       
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
+
+      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+
+      
+      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
+
     }
 
     fetch(APIUrl)
@@ -292,12 +300,17 @@ const questions = [
         })
         .then(function (data) {
 
+
           // console.log(data)
+
+
+
 
             if(data.drinks == "None Found"){
               document.location.replace("./404.html");
 
             } else {
+
 
 
               var cocktailObject = {
@@ -308,6 +321,13 @@ const questions = [
               
               console.log(cocktailObject);
               localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
+
+              
+              cocktailName = data.drinks[0].strDrink;
+              console.log(cocktailName);
+
+              localStorage.setItem("cocktailName", cocktailName);
+
             }
          
         });
