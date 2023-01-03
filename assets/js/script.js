@@ -19,7 +19,7 @@ var ingredientList =
           question = 'mixer',
           types = [ 'Aperol', 'Apple Cider', 'Carbonated Water', 'Club Soda', 'Coca-Cola', 'Cranberry Juice',
                     'Dr-Pepper', 'Ginger Ale', 'Orange Juice', 'Red Bull',],
-          ],   
+                  ],   
           fruit = [
             question = 'fruit',
             types = [  'Apple', 'Apprictot', 'Berries', 'Blackberries', 'Blueberries',
@@ -351,8 +351,8 @@ const questions = [
                                                       console.log(drinkFilter)
                                                       questionIndex++
                                                       clearList()
-                                                      
-                                                      if (questionIndex > ingredientList[questionIndex][1].length) {
+                                                      console.log(questionIndex)
+                                                      if (questionIndex > ingredientList.length - 1) {
                                                         createFilter()
                                                       }
                                                       else {
@@ -362,8 +362,7 @@ const questions = [
 
   getCharacter();
 
-  console.log(ingredientList.length)
-
+  console.log()
 
 
 
