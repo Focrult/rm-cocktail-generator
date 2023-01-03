@@ -81,7 +81,7 @@ function clearList() {
   // Make all filters lowercase
   // Replace spaces with -
   filters = filters.replaceAll(' ', '_').toLowerCase();
-  
+  getCocktail(filters);
   console.log(filters)
  }
 
@@ -270,7 +270,7 @@ const questions = [
 
   var cocktailName = "cocktailblank";
   
-  function getCocktail(ingArray){
+  function getCocktail(filters){
 
     //return function if array is null
     if(ingArray == "" || ingArray == null){
@@ -279,7 +279,7 @@ const questions = [
       
     } else {
       
-      var ingredients = ingArray;
+      var ingredients = filters;
      
 
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
@@ -290,7 +290,7 @@ const questions = [
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
 
       
-      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
+      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water" + ingredients;
 
     }
 
