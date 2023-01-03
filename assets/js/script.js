@@ -81,8 +81,9 @@ function clearList() {
   // Make all filters lowercase
   // Replace spaces with -
   filters = filters.replaceAll(' ', '_').toLowerCase();
-  
+  ingArray = filters
   console.log(filters)
+  getCocktail(ingArray)
  }
 
  var questionCount = 0;
@@ -290,8 +291,8 @@ const questions = [
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
 
       
-      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
-
+      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+    console.log(APIUrl)
     }
 
     fetch(APIUrl)
@@ -381,7 +382,7 @@ const questions = [
 
   // Dry_Vermouth,Gin,Anis
   // Vodka,Orange_Juice,Lemon_Juice
-  getCocktail("Dry_Vermouth,Gin,Anis");
+  // getCocktail("Dry_Vermouth,Gin,Anis");
 
   
  // Answer Button Listener 
