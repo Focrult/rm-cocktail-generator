@@ -130,8 +130,9 @@ startBtn.addEventListener('click', function() {
 // //Initiate the quiz
 function startQuiz(){
     startBtn.classList.add('hide');
-    writeIngredientBtn(questionIndex)
-    //reveals the first question
+    callPopDrinks()
+    // writeIngredientBtn(questionIndex)
+    // //reveals the first question
     quizContainer.classlist.remove('hide');
     //another function to pass through questions?
 }
@@ -427,9 +428,77 @@ close2.addEventListener('click', function() {
 //End of popup
 
 //When user clicks start quiz
+function writeCatButton(data, questionIndex) {
+  if (questionIndex = 0)
+  console.log(data.drinks[1].strCategory)
+  var quizLst = []
+  for (let i = 0; i < data.drinks.length; i++ ) {
+      
+      console.log(quizLst)
+      
+      // Check if value is already a child
+      var checkValue = quizLst.includes(data.drinks[i].strCategory);
+
+      if (!checkValue) {
+      var answerEl = document.createElement('button');
+      answerEl.textContent = data.drinks[i].strCategory;
+      quizLi.append(answerEl)
+      quizLst.push(data.drinks[i].strCategory)
+      }
+
+      //Update page count element textcontent with page increment values
+      countEl.texcontent = questionCount;
+      answerEl.addEventListener("click", function(){
+        questionCount++;
+        setCounterText();
+  })
+  }
+}
+
+
+// Popular Drinks API Call
+
+function callPopDrinks () {
+var popURL = "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php"
+
+fetch(popURL)
+    .then(function (response) {
+        return response.json();
+      }
+
+    )
+    .then(function (data) {
+      console.log(data)
+      var popCall = data
+      writeCatButton(popCall)
+    })
+  }
+
+// Write values of category
+
+// Write values of ingredients
+
+// Remove object if no matching value
 
 
 
+
+
+// function writeIngredientBtn(questionIndex) {
+//   for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
+//       var answerEl = document.createElement('button');
+//       answerEl.textContent = ingredientList[questionIndex][1][i];
+
+//       quizLi.append(answerEl)
+
+//       //Update page count element textcontent with page increment values
+//       countEl.texcontent = questionCount;
+//       answerEl.addEventListener("click", function(){
+//         questionCount++;
+//         setCounterText();
+//   })
+//   }
+// }
 
 
 
