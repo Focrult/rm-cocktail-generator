@@ -323,10 +323,10 @@ const questions = [
               localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
 
               
-              cocktailName = data.drinks[0].strDrink;
+              cocktailName = cocktailObject.name;
               console.log(cocktailName);
 
-              localStorage.setItem("cocktailName", cocktailName);
+              
 
             }
          
