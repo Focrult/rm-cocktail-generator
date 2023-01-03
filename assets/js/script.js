@@ -19,18 +19,33 @@ var ingredientList =
         //             ],
 
         spirits = [  
-                  question = 'spirit',
-                  types = [ 'Vodka', 'Gin', 'Whiskey', 'Absinthe', 'Rum',
-                            'Wine', 'Beer', 'Liqueur', 'Champagne', 'Tequila',
-                            'Any'  ],
-                  filterDefinition = 'i',
+          question = 'spirit',
+          types = [ 'Vodka', 'Gin', 'Rum', 'Tequila', 'Scotch', 'Apple Brandy', 'Apple Schnaps', 
+                    'Apricot Brandy', 'Bacardi', 'Baileys Irish Cream', 'Black Rum', 'Brandy', 
+                    'Coconut Rum', 'Coffee Liquer', 'Dry Vermouth', 'Jack Daniels'  ],
                   ],
         mixers = [
-                  question = 'mixer',
-                  types = [ 'Orange Juice', 'Milk', 'Lemon Juice', 'Orange Bitters', 
-                            'Coffee', 'Any' ],
-                  filterDefinition = 'i',
+          question = 'mixer',
+          types = [ 'Aperol', 'Apple Cider', 'Carbonated Water', 'Club Soda', 'Coca-Cola', 'Cranberry Juice',
+                    'Dr-Pepper', 'Ginger Ale', 'Orange Juice', 'Red Bull',],
+                  ],   
+          fruit = [
+            question = 'fruit',
+            types = [  'Apple', 'Apprictot', 'Berries', 'Blackberries', 'Blueberries',
+                       'Cherries', 'Cranberries', 'Watermelon', 'Blood Orange'],
                   ],
+          
+          vegetable = [
+            question = 'vegetable/herb',
+            types = [ 'Celery', 'Cucumber', 'Basil', 'Coriander', 'Thyme' ],
+            ],
+
+            additive = [
+              question = 'additive',
+              types = [   'Agave Syrup', 'Allspice', 'Amaretto', 'Angostura Bitters',
+                          'Apricot Nectar', 'Bitters', 'Lemon Lime', 'Tabasco Sauce', ],
+              ],
+            ]
         // glassType = [
         //             question = 'glass type',
         //             types = [ 'Coupe Glass', 'Martini Glass', 
@@ -42,7 +57,7 @@ var ingredientList =
         // firstLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
         //                 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
         //                 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',    ],
-    ]
+    
 
 
 var quizLi = document.getElementById('quiz-list')
@@ -387,8 +402,8 @@ const questions = [
                                                       console.log(drinkFilter)
                                                       questionIndex++
                                                       clearList()
-                                                      
-                                                      if (questionIndex > ingredientList[questionIndex][1].length) {
+                                                      console.log(questionIndex)
+                                                      if (questionIndex > ingredientList.length - 1) {
                                                         createFilter()
                                                       }
                                                       else {
@@ -399,8 +414,12 @@ const questions = [
   getCharacter();
 
 
+  console.log()
+
+
   
                                               
+
 
 
 
