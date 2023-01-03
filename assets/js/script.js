@@ -1,5 +1,6 @@
 //Added redirect URL request if error occurs
 var redirectURL = './404.html'
+
 // Ingredient List
 var ingredientList =
     [
@@ -34,7 +35,6 @@ var ingredientList =
         //                 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
         //                 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',    ],
     ]
-
 
 var quizLi = document.getElementById('quiz-list')
 
@@ -100,10 +100,6 @@ startBtn.addEventListener('click', function() {
     startQuiz();
     document.getElementById('main-btn').classList.add('hide');
 
-})
-
-// //Reset the game state
-resetBtn.addEventListener('click', function(){
 })
 // //Initiate the quiz
 function startQuiz(){
@@ -326,7 +322,6 @@ const questions = [
   // Dry_Vermouth,Gin,Anis
   getCocktail("Dry_Vermouth,Gin,Anis");
 
-  
  // Answer Button Listener 
  quizLi.addEventListener("click", function(event)  { 
                                                       console.log(event.target.textContent)
@@ -349,7 +344,23 @@ const questions = [
 
 
 
+//Start of popup 
+//GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
+const close2 = document.getElementById('closeBtn');
+const overlay = document.getElementById('overlay');
+const instructions = document.getElementById('instructions');
+const title = document.getElementById('body');
+setTimeout(function(){ //function to reveal pop-up after a few seconds
+  overlay.style.visibility = 'visible';
+},4000);
+//Add click event when user clicks lets go
+close2.addEventListener('click', function() {
+  console.log('User clicked lets go!');
+    overlay.style.display = "none"; //Makes overlay + Instructions disappear
+});
+//End of popup
 
+//When user clicks start quiz
 
 
 
