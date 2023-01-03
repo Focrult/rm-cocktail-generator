@@ -73,23 +73,15 @@ function clearList() {
   while (quizLi.hasChildNodes()){
     quizLi.removeChild(quizLi.firstChild)
   }
-  // console.log(quizLi.childNodes.length)
-  // for (let i = 0; i < quizLi.childNodes.length; i++)  {
-  //   quizLi.removeChild(quizLi.firstChild)
  }
 
  function createFilter () {
-  // Make all filters lowercase
-
-
-  // Replace spaces with -
-
-  // Join ingredient array
   var filters = drinkFilter.join(',')
     
   // Make all filters lowercase
-    // Replace spaces with -
-    filters = filters.replaceAll(' ', '_').toLowerCase();
+  // Replace spaces with -
+  filters = filters.replaceAll(' ', '_').toLowerCase();
+  
   console.log(filters)
  }
 
@@ -103,11 +95,9 @@ function clearList() {
 // Write New and Answer Set
 function writeIngredientBtn(questionIndex) {
     for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
-        // console.log(ingredientList[questionIndex][1])
         var answerEl = document.createElement('button');
         answerEl.textContent = ingredientList[questionIndex][1][i];
 
-        // answerEl.append(btnText)
         quizLi.append(answerEl)
 
         //Update page count element textcontent with page increment values
@@ -122,7 +112,8 @@ function writeIngredientBtn(questionIndex) {
     
 }
 
-writeIngredientBtn(questionIndex)
+// Start quiz call
+// 
 
 
 
@@ -142,20 +133,20 @@ resetBtn.addEventListener('click', function(){
 // //Initiate the quiz
 function startQuiz(){
     startBtn.classList.add('hide');
-
+    writeIngredientBtn(questionIndex)
     //reveals the first question
     quizContainer.classlist.remove('hide');
     //another function to pass through questions?
 }
 
 //function to pass questions - show + hide
-function showQuestion(){
-  for(var i=0; i > questions.length; i++){
-    question.classList.remove("hide");
-    question.classList.add("hide")
+// function showQuestion(){
+//   for(var i=0; i > questions.length; i++){
+//     question.classList.remove("hide");
+//     question.classList.add("hide")
    
-  }
-}
+//   }
+// }
 
 
 
