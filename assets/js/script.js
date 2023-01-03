@@ -1,3 +1,12 @@
+// //Global Declarations
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+const quizContainer = document.getElementById('quiz-container');
+var scoreSpan = document.getElementById('score-span');
+var countEl = document.querySelector("#count");
+
+var APIKey = "9973533";
+
 //Added redirect URL request if error occurs
 var redirectURL = './404.html'
 // Ingredient List
@@ -84,6 +93,13 @@ function clearList() {
   console.log(filters)
  }
 
+ var questionCount = 0;
+
+ //Update page count
+ function setCounterText() {
+  countEl.textContent = questionCount + "/4";
+}
+
 // Write New and Answer Set
 function writeIngredientBtn(questionIndex) {
     for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
@@ -93,7 +109,16 @@ function writeIngredientBtn(questionIndex) {
 
         // answerEl.append(btnText)
         quizLi.append(answerEl)
+
+        //Update page count element textcontent with page increment values
+        countEl.texcontent = questionCount;
+        answerEl.addEventListener("click", function(){
+          questionCount++;
+          setCounterText();
+    })
     }
+
+    
     
 }
 
@@ -101,13 +126,7 @@ writeIngredientBtn(questionIndex)
 
 
 
-// //Global Declarations
-const startBtn = document.getElementById('startBtn');
-const resetBtn = document.getElementById('resetBtn');
-const quizContainer = document.getElementById('quiz-container');
-var scoreSpan = document.getElementById('score-span');
 
-var APIKey = "9973533";
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<LOCAL STORAGE
 
 // //Start the game state
@@ -137,6 +156,10 @@ function showQuestion(){
    
   }
 }
+
+
+
+
 
 
 
@@ -266,7 +289,18 @@ const questions = [
     } else {
       
       var ingredients = ingArray;
-      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+     
+
+      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+
+      
+      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
+
+      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+
+      
+      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
+
     }
 
     fetch(APIUrl)
@@ -278,35 +312,50 @@ const questions = [
             return response.json();
           }
 
-          
-
-          
-          
-
-
         })
         .then(function (data) {
 
-            console.log(data.drinks);
+
+          // console.log(data)
+
+
+
 
             if(data.drinks == "None Found"){
               document.location.replace("./404.html");
 
             } else {
+
+
+
+              var cocktailObject = {
+                name: data.drinks[0].strDrink,
+                image: data.drinks[0].strDrinkThumb,
+              }
+              
+              
+              console.log(cocktailObject);
+              localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
+
+              
               cocktailName = data.drinks[0].strDrink;
               console.log(cocktailName);
 
               localStorage.setItem("cocktailName", cocktailName);
+
             }
-
-            
-
-            
+         
         });
 
-    
-    
   }
+
+  //Experiment with looking for similarities in API calls. Potential to be used to increase success rate for viable cocktails, dynamically culling cocktails from each ingredient-based-Array API call.
+  var array1 = ["cat", "sum","fun", "run"];
+  var array2 = ["bat", "cat","dog","sun", "hut", "gut"];
+
+  const intersection = array1.filter(element => array2.includes(element));
+
+  console.log("Intersections = " + intersection);    
 
   //------------------------Fetch Character---------------------------------
 
@@ -328,6 +377,7 @@ const questions = [
               species: data.species,
               gender: data.gender,
               origin: data.origin.name,
+              image: data.image,
             }
 
             console.log(characterObject);
@@ -339,6 +389,7 @@ const questions = [
   }
 
   // Dry_Vermouth,Gin,Anis
+  // Vodka,Orange_Juice,Lemon_Juice
   getCocktail("Dry_Vermouth,Gin,Anis");
 
   
@@ -362,7 +413,15 @@ const questions = [
 
   getCharacter();
 
+
   console.log()
+
+
+  
+                                              
+
+
+
 
 
 
