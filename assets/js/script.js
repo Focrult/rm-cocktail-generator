@@ -4,7 +4,7 @@ const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
-
+var drinkData = []
 var APIKey = "9973533";
 
 //Added redirect URL request if error occurs
@@ -62,7 +62,7 @@ var ingredientList =
 
 var quizLi = document.getElementById('quiz-list')
 
-var questionIndex = 0
+var questionIndex = 1
 var drinkFilter = []
 
 console.log(ingredientList[questionIndex][0])
@@ -382,22 +382,22 @@ const questions = [
   // getCocktail("Dry_Vermouth,Gin,Anis");
 
  // Answer Button Listener 
- quizLi.addEventListener("click", function(event)  { 
-                                                      console.log(event.target.textContent)
-                                                      // var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
-                                                      var ans =  event.target.textContent
-                                                      drinkFilter.push(ans)
-                                                      console.log(drinkFilter)
-                                                      questionIndex++
-                                                      clearList()
-                                                      console.log(questionIndex)
-                                                      if (questionIndex > ingredientList.length - 1) {
-                                                        createFilter()
-                                                      }
-                                                      else {
-                                                        writeIngredientBtn(questionIndex)
-                                                      }
-                                                    })    
+//  quizLi.addEventListener("click", function(event)  { 
+//                                                       console.log(event.target.textContent)
+//                                                       // var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
+//                                                       var ans =  event.target.textContent
+//                                                       drinkFilter.push(ans)
+//                                                       console.log(drinkFilter)
+//                                                       questionIndex++
+//                                                       clearList()
+//                                                       console.log(questionIndex)
+//                                                       if (questionIndex > ingredientList.length - 1) {
+//                                                         createFilter()
+//                                                       }
+//                                                       else {
+//                                                         writeIngredientBtn(questionIndex)
+//                                                       }
+//                                                     })    
 
   getCharacter();
 
@@ -428,22 +428,19 @@ close2.addEventListener('click', function() {
 //End of popup
 
 //When user clicks start quiz
-function writeCatButton(data, questionIndex) {
-  if (questionIndex = 0)
-  console.log(data.drinks[1].strCategory)
+function writeCatButton(data) {
   var quizLst = []
   for (let i = 0; i < data.drinks.length; i++ ) {
       
-      console.log(quizLst)
-      
       // Check if value is already a child
-      var checkValue = quizLst.includes(data.drinks[i].strCategory);
+
+      var checkValue = quizLst.includes(eval('data.drinks[i].strIngredient'+questionIndex));
 
       if (!checkValue) {
       var answerEl = document.createElement('button');
-      answerEl.textContent = data.drinks[i].strCategory;
+      answerEl.textContent = eval('data.drinks[i].strIngredient'+questionIndex)
       quizLi.append(answerEl)
-      quizLst.push(data.drinks[i].strCategory)
+      quizLst.push(eval('data.drinks[i].strIngredient'+questionIndex))
       }
 
       //Update page count element textcontent with page increment values
@@ -454,6 +451,35 @@ function writeCatButton(data, questionIndex) {
   })
   }
 }
+
+
+function removeNonAns(ans) {
+  var childCount = drinkData.drinks.length - 1
+  console.log(childCount)
+  for (let i = childCount; i >=0; i--) {
+    // var drinkVal = eval('drinkData.drinks[i].strIngredient'+questionIndex)
+    var drinkVal = drinkData.drinks[i].strIngredient1
+
+    var checkAnsMatch = ans === drinkVal
+    console.log(ans + drinkVal + checkAnsMatch)
+    if (!checkAnsMatch) {
+      drinkData.drinks.splice(i, 1)
+    }
+   
+
+  }
+  console.log(drinkData)
+}
+
+// Answer event listener 
+quizLi.addEventListener("click", function(event)  { 
+  console.log(event.target.textContent)
+  var ans =  event.target.textContent
+  
+  // Remove objects not containing answer
+  removeNonAns(ans)
+
+})    
 
 
 // Popular Drinks API Call
@@ -469,36 +495,10 @@ fetch(popURL)
     )
     .then(function (data) {
       console.log(data)
-      var popCall = data
-      writeCatButton(popCall)
+      drinkData = data
+      writeCatButton(data)
     })
   }
-
-// Write values of category
-
-// Write values of ingredients
-
-// Remove object if no matching value
-
-
-
-
-
-// function writeIngredientBtn(questionIndex) {
-//   for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
-//       var answerEl = document.createElement('button');
-//       answerEl.textContent = ingredientList[questionIndex][1][i];
-
-//       quizLi.append(answerEl)
-
-//       //Update page count element textcontent with page increment values
-//       countEl.texcontent = questionCount;
-//       answerEl.addEventListener("click", function(){
-//         questionCount++;
-//         setCounterText();
-//   })
-//   }
-// }
 
 
 
