@@ -298,7 +298,6 @@ const questions = [
           for(var i =  0; i < 10; i++){
             cocktailArray.push(data.drinks[i]);
           }
-
           
           console.log(cocktailArray);
 
