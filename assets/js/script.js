@@ -122,17 +122,30 @@ function writeIngredientBtn(questionIndex) {
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
+  const test = document.documentElement;
+  var op = document.getElementById("overlay2");
+  startBtn.style.visibility = "hidden";
+  // test.classList.add('fadeOut');
+    op.style.opacity = 0.8;
     startQuiz();
+  
     document.getElementById('main-btn').classList.add('hide');
 
 })
 // //Initiate the quiz
 function startQuiz(){
+
     startBtn.classList.add('hide');
     callPopDrinks()
     // writeIngredientBtn(questionIndex)
     // //reveals the first question
     quizContainer.classlist.remove('hide');
+
+    Instructions();
+    
+    
+    
+
     //another function to pass through questions?
 }
 
@@ -413,15 +426,17 @@ const close2 = document.getElementById('closeBtn');
 const overlay = document.getElementById('overlay');
 const instructions = document.getElementById('instructions');
 const title = document.getElementById('body');
-setTimeout(function(){ //function to reveal pop-up after a few seconds
+
+function Instructions(){ //function to reveal pop-up after a few seconds
   overlay.style.visibility = 'visible';
-},4000);
+};
 //Add click event when user clicks lets go
 close2.addEventListener('click', function() {
   console.log('User clicked lets go!');
     overlay.style.display = "none"; //Makes overlay + Instructions disappear
 });
 //End of popup
+
 
 //When user clicks start quiz
 function writeCatButton(drinkData, questionIndex) {
@@ -474,6 +489,8 @@ function removeNonAns(ans) {
     
    
   }
+
+
 
 }
 
