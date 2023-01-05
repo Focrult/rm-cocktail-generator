@@ -6,6 +6,7 @@ var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
 var drinkData = []
 var APIKey = "9973533";
+var cocktailArray = []
 
 //Added redirect URL request if error occurs
 var redirectURL = './404.html'
@@ -288,35 +289,35 @@ const questions = [
 
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
 
-      var cocktailArray = [];
+      // var cocktailArray = [];
 
-      for(var i = 0; i < 3; i++){
+      // for(var i = 0; i < 3; i++){
 
-        var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
+      //   var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
 
 
-        fetch(APIUrl)
-        .then(function(response){
-         return response.json();
-        })
-        .then(function(data){
+      //   fetch(APIUrl)
+      //   .then(function(response){
+      //    return response.json();
+      //   })
+      //   .then(function(data){
 
-          for(var i =  0; i < 10; i++){
-            cocktailArray.push(data.drinks[i]);
-          }
+      //     for(var i =  0; i < 10; i++){
+      //       cocktailArray.push(data.drinks[i]);
+      //     }
 
           
-          console.log(cocktailArray);
+      //     console.log(cocktailArray);
 
-        })
+      //   })
 
-      }
+      // }
       
       
       
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
-    console.log(APIUrl)
+  
     }
 
     fetch(APIUrl)
@@ -492,7 +493,7 @@ function removeNonAns(ans) {
     clearList()
     // Display drink
     } else {
-   
+    clearList()
     questionIndex++
     writeCatButton(drinkData, questionIndex)
     
@@ -517,19 +518,39 @@ quizLi.addEventListener("click", function(event)  {
 // Popular Drinks API Call
 
 function callPopDrinks () {
-var popURL = "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php"
-fetch(popURL)
-    .then(function (response) {
-        return response.json();
-      }
+  var cocktailArray = [];
 
-    )
-    .then(function (data) {
-      console.log(data)
-      drinkData = data
-      writeCatButton(drinkData, questionIndex)
+  for(var i = 0; i < 3; i++){
+
+    var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
+
+
+
+    fetch(APIUrl)
+    .then(function(response){
+     return response.json();
     })
+    .then(function(data){
+      console.log(data.drinks)
+      for(var i =  0; i < 10; i++){
+        cocktailArray.push(data.drinks[i]);
+      }
+    if (i === 2) {
+      console.log(drinkData[0].length)
+    }
+    })
+
+ 
   }
+
+  drinkData.push(cocktailArray.length);
+  console.log(cocktailArray)
+  console.log(drinkData)
+  
+    writeCatButton(drinkData, questionIndex)
+}
+
+  
 
 
 
