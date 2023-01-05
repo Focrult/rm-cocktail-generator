@@ -113,12 +113,6 @@ function writeIngredientBtn(questionIndex) {
 }
 
 // Start quiz call
-// 
-
-
-
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<LOCAL STORAGE
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
@@ -294,13 +288,34 @@ const questions = [
 
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
 
-      
-      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
+      var cocktailArray = [];
 
+      for(var i = 0; i < 3; i++){
+
+        var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
+
+
+
+        fetch(APIUrl)
+        .then(function(response){
+         return response.json();
+        })
+        .then(function(data){
+
+          for(var i =  0; i < 10; i++){
+            cocktailArray.push(data.drinks[i]);
+          }
+
+          
+          console.log(cocktailArray);
+
+        })
+
+      }
+      
+      
+      
       // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
-
-      
-      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
     console.log(APIUrl)
     }
 
@@ -332,6 +347,7 @@ const questions = [
               var cocktailObject = {
                 name: data.drinks[0].strDrink,
                 image: data.drinks[0].strDrinkThumb,
+                image: data.drinks[0].strInstructions,
               }
               
               
@@ -349,14 +365,7 @@ const questions = [
         });
 
   }
-
-  //Experiment with looking for similarities in API calls. Potential to be used to increase success rate for viable cocktails, dynamically culling cocktails from each ingredient-based-Array API call.
-  var array1 = ["cat", "sum","fun", "run"];
-  var array2 = ["bat", "cat","dog","sun", "hut", "gut"];
-
-  const intersection = array1.filter(element => array2.includes(element));
-
-  console.log("Intersections = " + intersection);    
+ 
 
   //------------------------Fetch Character---------------------------------
 
@@ -391,7 +400,7 @@ const questions = [
 
   // Dry_Vermouth,Gin,Anis
   // Vodka,Orange_Juice,Lemon_Juice
-  // getCocktail("Dry_Vermouth,Gin,Anis");
+  getCocktail("Vodka,Orange_Juice,Lemon_Juice");
 
  // Answer Button Listener 
 //  quizLi.addEventListener("click", function(event)  { 
