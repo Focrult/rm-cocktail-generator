@@ -405,10 +405,7 @@ const questions = [
 
 
   
-                                              
-
-
-
+var questionIndex = 1
 
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
@@ -458,7 +455,7 @@ function removeNonAns(ans) {
   var childCount = drinkData.drinks.length - 1
   console.log(childCount)
   for (let i = childCount; i >=0; i--) {
-    var drinkVal = drinkData.drinks[i].strIngredient1
+    var drinkVal = eval('drinkData.drinks[i].strIngredient' + questionIndex )
 
     var checkAnsMatch = ans === drinkVal
     if (!checkAnsMatch) {
@@ -466,13 +463,14 @@ function removeNonAns(ans) {
     }
   }
   console.log(drinkData)
-
+  console.log(childCount)
   if (drinkData.drinks.length <= 1) {
-    // display drink
-  } else {
-    questionIndex++
     clearList()
-    writeCatButton(drinkData)
+    // Display drink
+    } else {
+   
+    questionIndex++
+    writeCatButton(drinkData, questionIndex)
     
    
   }
@@ -494,7 +492,6 @@ quizLi.addEventListener("click", function(event)  {
 
 function callPopDrinks () {
 var popURL = "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php"
-var questionIndex = 1
 fetch(popURL)
     .then(function (response) {
         return response.json();
