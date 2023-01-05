@@ -62,10 +62,9 @@ var ingredientList =
 
 var quizLi = document.getElementById('quiz-list')
 
-var questionIndex = 1
 var drinkFilter = []
 
-console.log(ingredientList[questionIndex][0])
+// console.log(ingredientList[questionIndex][0])
 
 // Clear Answer List
 function clearList() {
@@ -428,19 +427,21 @@ close2.addEventListener('click', function() {
 //End of popup
 
 //When user clicks start quiz
-function writeCatButton(data) {
+function writeCatButton(drinkData, questionIndex) {
+  console.log(questionIndex)
+  console.log(drinkData)
   var quizLst = []
-  for (let i = 0; i < data.drinks.length; i++ ) {
+  for (let i = 0; i < drinkData.drinks.length; i++ ) {
       
       // Check if value is already a child
 
-      var checkValue = quizLst.includes(eval('data.drinks[i].strIngredient'+questionIndex));
+      var checkValue = quizLst.includes(eval('drinkData.drinks[i].strIngredient'+questionIndex));
 
       if (!checkValue) {
       var answerEl = document.createElement('button');
-      answerEl.textContent = eval('data.drinks[i].strIngredient'+questionIndex)
+      answerEl.textContent = eval('drinkData.drinks[i].strIngredient'+questionIndex)
       quizLi.append(answerEl)
-      quizLst.push(eval('data.drinks[i].strIngredient'+questionIndex))
+      quizLst.push(eval('drinkData.drinks[i].strIngredient'+questionIndex))
       }
 
       //Update page count element textcontent with page increment values
@@ -457,18 +458,25 @@ function removeNonAns(ans) {
   var childCount = drinkData.drinks.length - 1
   console.log(childCount)
   for (let i = childCount; i >=0; i--) {
-    // var drinkVal = eval('drinkData.drinks[i].strIngredient'+questionIndex)
     var drinkVal = drinkData.drinks[i].strIngredient1
 
     var checkAnsMatch = ans === drinkVal
-    console.log(ans + drinkVal + checkAnsMatch)
     if (!checkAnsMatch) {
       drinkData.drinks.splice(i, 1)
     }
-   
-
   }
   console.log(drinkData)
+
+  if (drinkData.drinks.length <= 1) {
+    // display drink
+  } else {
+    questionIndex++
+    clearList()
+    writeCatButton(drinkData)
+    
+   
+  }
+
 }
 
 // Answer event listener 
@@ -486,7 +494,7 @@ quizLi.addEventListener("click", function(event)  {
 
 function callPopDrinks () {
 var popURL = "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php"
-
+var questionIndex = 1
 fetch(popURL)
     .then(function (response) {
         return response.json();
@@ -496,7 +504,7 @@ fetch(popURL)
     .then(function (data) {
       console.log(data)
       drinkData = data
-      writeCatButton(data)
+      writeCatButton(drinkData, questionIndex)
     })
   }
 
