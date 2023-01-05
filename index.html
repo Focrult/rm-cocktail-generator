@@ -12,6 +12,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 </head>
+
+
+
+
+
+
+
 <section>
 <div id="overlay">
     <div id="instructions">
@@ -21,51 +28,37 @@
         <li>Step 1: Press start to begin quiz.</li>
         <li>Step 2: Pick your cocktail ingredients.</li>
         <li>Step 3: After all the questions, your Rick & Morty Character and your drink will be revealed!</li>
-        <!-- <p>You will be presented a series of questions, so you can make your Rickastic cocktail!</p>
-        <p>After choosing your cocktail preferences, you will be shown what cocktail you made</p>
-        <p>and which Rick and Morty character best suits your drink!</p>
-        <p>In the wise words of Rick Sanchez, Wubba Lubba Dub Dub!</p> -->
-    </div>
+        </div>
     <button id="closeBtn">Let's Go!</button>
     </div>
 </div>
 </section>
+
+
+
+
+
+
+
 <body>
-    <header>
-        <h1 id="logo">INSERT LOGO</h1>
-        <!-- logo, header -->
-        <!-- nav -->
-        <!-- ul, li -->
-    </header>
+    <div id="overlay2">
+<header>
+    <h1 id="logo">INSERT LOGO</h1>
+</header>
     <main>
         <!--Main container-->
     <div class="container">
     <div class="main-btn"> <!--Buttons for main page-->
-
-
 <!-- <img class="portal" src="./assets/media/rick and morty portal.png" alt="portal"> -->
         <button type="button" id="startBtn">Start Quiz</button>
-        <button type="button" id="resetBtn">Try Again</button>
         <h4>Question Count: <span id="count"></span></h4>
-
-    </div>
-
-        <!-- hero-image (or background image) -->
-        <!-- content -->
-        <!-- <section id="quiz-box">
-
-        </section> -->
-        <!-- quiz box -->
+         </div>
 
     <div id="quiz-container" class="hide">
-        <div id="question-container">Question-Title</div>
+        <div id="question-container"></div>
             <ul id="quiz-list">
 
             </ul><!--This will be emptied and replaced with text inside JS file-->
-            <!-- <button type="button" class="btn">Box1</button>
-            <button type="button" class="btn">Box2</button>
-            <button type="button" class="btn">Box3</button>
-            <button type="button" class="btn">Box4</button> -->
         </div>
     </div>
 </div>
@@ -73,46 +66,20 @@
 <p>Score: <span id="score-span"></span></p><!--To keep track of score?-->
 
 <!--Error Page-->
-    <section>
-        <div class = "card" id="cocktail-card">
-            <div class="card-image">
-                <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg">
-            </div>
-         <div class="title">
-                <h2>Cocktail name</h2>
-            </div>
-            <div class="card-text">
-                <ul>
-                    <li></li>
-                    <li>spirit:</li>
-                    <li>mixer:</li>
-                    <li>fruit:</li>
-                    <li>vegetable:</li>
-                    <li>additive:</li>
-                </ul>
-            </div>
-        </div> 
+<section>
 
-        <div class = "card">
-            <div class="card-image">
-                <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg">
-            </div>
-            <div class="title" id="character-title">
-                <h2>Character Name</h2>
-            </div>
-            <div class="card-text" id="character-card-text">
-                <ul>
-                    <li>status:</li>
-                    <li>species:</li>
-                    <li>type:</li>
-                    <li>gender:</li>
-                    <li>origin:</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+</section>
+    <aside>
+        <!--Score in -->
+        <!-- do we need aside bar? -->
+    </aside>
 
-
+    <footer>
+        <!-- credits ? -->
+    </footer>
 </body>
+
+
+
 <script src="assets/js/script.js"></script>
 </html>

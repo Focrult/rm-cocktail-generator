@@ -123,16 +123,22 @@ function writeIngredientBtn(questionIndex) {
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
+  const test = document.documentElement;
+  var op = document.getElementById("overlay2");
+  startBtn.style.visibility = "hidden";
+  // test.classList.add('fadeOut');
+    op.style.opacity = 0.8;
     startQuiz();
+  
     document.getElementById('main-btn').classList.add('hide');
 
 })
 // //Initiate the quiz
 function startQuiz(){
-    startBtn.classList.add('hide');
+    Instructions();
     writeIngredientBtn(questionIndex)
     //reveals the first question
-    quizContainer.classlist.remove('hide');
+    quizContainer.classList.remove('hide');
     //another function to pass through questions?
 }
 
@@ -416,9 +422,10 @@ const close2 = document.getElementById('closeBtn');
 const overlay = document.getElementById('overlay');
 const instructions = document.getElementById('instructions');
 const title = document.getElementById('body');
-setTimeout(function(){ //function to reveal pop-up after a few seconds
+
+function Instructions(){ //function to reveal pop-up after a few seconds
   overlay.style.visibility = 'visible';
-},4000);
+};
 //Add click event when user clicks lets go
 close2.addEventListener('click', function() {
   console.log('User clicked lets go!');
@@ -426,7 +433,6 @@ close2.addEventListener('click', function() {
 });
 //End of popup
 
-//When user clicks start quiz
 
 
 
