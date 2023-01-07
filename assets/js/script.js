@@ -451,7 +451,7 @@ const questions = [
 
 
   
-var questionIndex = 1
+var questionIndex = 0
 
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
@@ -474,8 +474,36 @@ close2.addEventListener('click', function() {
 //When user clicks start quiz
 function writeCatButton(cocktailArray, questionIndex) {
   console.log(questionIndex)
-  console.log(cocktailArray)
   var quizLst = []
+  if (questionIndex == 0) {
+    for (let i = 0; i < cocktailArray.length; i++ ) {
+      console.log(cocktailArray[i].strCategory)
+      // Check if value is already a child
+
+      var checkValue = quizLst.includes(cocktailArray[i].strCategory)
+
+      if (!checkValue) {
+      var answerEl = document.createElement('button');
+      answerEl.textContent = cocktailArray[i].strCategory
+      
+      quizLi.append(answerEl)
+      quizLst.push(cocktailArray[i].strCategory)
+      
+    }
+
+      //Update page count element textcontent with page increment values
+      countEl.texcontent = questionCount;
+      answerEl.addEventListener("click", function(){
+        questionCount++;
+        setCounterText();
+  })
+  }
+  }
+  
+  else {
+  console.log(questionIndex)
+  console.log(cocktailArray)
+ 
   for (let i = 0; i < cocktailArray.length; i++ ) {
       
       // Check if value is already a child
@@ -497,12 +525,33 @@ function writeCatButton(cocktailArray, questionIndex) {
   })
   }
 }
+}
 
 
 function removeNonAns(ans) {
   var childCount = cocktailArray.length - 1
-  console.log(childCount)
-
+  
+  if (questionIndex == 0 ) {
+    for (let i = childCount; i >=0; i--) {
+      var drinkVal = cocktailArray[i].strCategory
+  
+      var checkAnsMatch = ans === drinkVal
+      if (!checkAnsMatch) {
+        cocktailArray.splice(i, 1)
+      }
+    }
+    console.log(cocktailArray)
+    console.log(childCount)
+    if (cocktailArray.length <= 1) {
+      clearList()
+      // Display drink
+      } else {
+      clearList()
+      questionIndex++
+      writeCatButton(cocktailArray, questionIndex)
+    }
+  
+  } else {
   for (let i = childCount; i >=0; i--) {
     var drinkVal = eval('cocktailArray[i].strIngredient' + questionIndex )
 
@@ -520,9 +569,9 @@ function removeNonAns(ans) {
     clearList()
     questionIndex++
     writeCatButton(cocktailArray, questionIndex)
-    
-   
   }
+}
+ 
 
 
 
