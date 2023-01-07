@@ -204,16 +204,16 @@ body{
     padding: 15px; 
 }  
 
-.card-text {     
+.card-ul {     
     text-decoration: underline;     
     text-decoration-color: #f7633e; 
 }  
 
-#character-card-text {     
+#character-card-ul {     
     text-decoration-color: rgb(49, 139, 190);
 }  
 
-#character-title {      
+#character-name {      
     text-decoration-color: rgb(49, 139, 190);
 }  
 
