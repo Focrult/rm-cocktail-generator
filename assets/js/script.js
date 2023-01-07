@@ -326,10 +326,16 @@ const questions = [
   //     //   })
   //     //   .then(function(data){
 
+<<<<<<< HEAD
+          for(var i =  0; i < 10; i++){
+            cocktailArray.push(data.drinks[i]);
+          }
+=======
   //     //     for(var i =  0; i < 10; i++){
   //     //       cocktailArray.push(data.drinks[i]);
   //     //     }
 
+>>>>>>> ab2ae09e8f1a0b66fe988080751cdb85f277a999
           
   //     //     console.log(cocktailArray);
 
@@ -339,6 +345,26 @@ const questions = [
       
       
       
+<<<<<<< HEAD
+      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+    console.log(APIUrl)
+    }
+// ---OLD--- APIfetch for first cocktail build method.
+    // fetch(APIUrl)
+    //     .then(function (response) {
+    //       if(response.status === 404){
+    //         document.location.replace("./404.html");
+
+    //       } else {
+    //         return response.json();
+    //       }
+
+    //     })
+    //     .then(function (data) {
+
+
+    //       // console.log(data)
+=======
   //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
   
   //   }
@@ -357,10 +383,39 @@ const questions = [
 
 
   //         // console.log(data)
+>>>>>>> ab2ae09e8f1a0b66fe988080751cdb85f277a999
 
 
 
 
+<<<<<<< HEAD
+    //         if(data.drinks == "None Found"){
+    //           document.location.replace("./404.html");
+
+    //         } else {
+
+
+
+    //           var cocktailObject = {
+    //             name: data.drinks[0].strDrink,
+    //             image: data.drinks[0].strDrinkThumb,
+    //             image: data.drinks[0].strInstructions,
+    //           }
+              
+              
+    //           console.log(cocktailObject);
+    //           localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
+
+              
+    //           cocktailName = cocktailObject.name;
+    //           console.log(cocktailName);
+
+              
+
+    //         }
+         
+    //     });
+=======
   //           if(data.drinks == "None Found"){
   //             document.location.replace("./404.html");
 
@@ -387,6 +442,7 @@ const questions = [
   //           }
          
   //       });
+>>>>>>> ab2ae09e8f1a0b66fe988080751cdb85f277a999
 
   // }
  
@@ -516,10 +572,26 @@ function removeNonAns(ans) {
   if (cocktailArray.length <= 1) {
     clearList()
     // Display drink
+
+    console.log("Drink Data Reached!");
+    console.log(drinkData.drinks[0]);
+
+    var cocktailObject = {
+      name: drinkData.drinks[0].strDrink,
+      image: drinkData.drinks[0].strDrinkThumb,
+      image: drinkData.drinks[0].strInstructions,
+    }
+
+    console.log(cocktailObject);
+
+    localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
+    cocktailName = cocktailObject.name;
+    
     } else {
     clearList()
     questionIndex++
     writeCatButton(cocktailArray, questionIndex)
+    
     
    
   }
