@@ -19,6 +19,9 @@
     color: #80acbb	rgb(128, 172, 187);
     color: #232137	rgb(35, 33, 55);
 }
+#render-page{ /*HIDDEN RENDER PAGE*/
+    visibility: hidden;
+}
 /*Main Page*/
 body{
     background-color: black;
@@ -109,7 +112,7 @@ body{
     background: linear-gradient(rgba(1, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
     border: none;
     transition: 300ms ease-out;
-    bottom: 30%;
+    bottom: 50%;
     left: 65%;
     border-radius: 10px;
     font-size: larger;
@@ -134,7 +137,7 @@ body{
 }
 #instructions li{
     padding: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
 }
 /*End of pop-up*/
 /*Portal Animation*/
@@ -192,53 +195,6 @@ body{
     grid-template-columns: repeat(2, auto);
     align-items: center;
 }
-
-.card {     
-    width: 20%;     
-    height: 70%;     
-    background-color: white;     
-    border-radius: 10px;     
-    margin: 40px;	     
-    display: inline-block; 
-}  
-
-.card:hover {     
-    box-shadow: 5px 5px 60px rgb(49, 139, 190);	 
-}  
-
-.title {     
-    text-align: center;     
-    text-decoration: underline;     
-    text-decoration-color: #f7633e;     
-    padding: 15px; 
-}  
-
-.card-ul {     
-    text-decoration: underline;     
-    text-decoration-color: #f7633e; 
-}  
-
-#character-card-ul {     
-    text-decoration-color: rgb(49, 139, 190);
-}  
-
-#character-name {      
-    text-decoration-color: rgb(49, 139, 190);
-}  
-
-ul {     
-    list-style: none; 
-}  
-
-.card-image img {     
-    width: 100%;     
-    border-radius: 10px; 
-}  
-
-#cocktail-card:hover {     
-    box-shadow: 5px 5px 60px #f7633e;
-}
-=======
 #quiz-container{
     /* border: solid green; */
     position: absolute;
@@ -308,6 +264,11 @@ body {
         opacity: 0;
     }
 }
+@media only screen and (max-height: 900px){
+    #closeBtn{
+        bottom: 30%
+    }
+}
 @media only screen and (max-height: 1050px){
     #logo{
         position: static;
@@ -315,6 +276,9 @@ body {
         flex-wrap: nowrap;
         justify-content: center;
         margin-top: -100px;
+    }
+    #closeBtn{
+        bottom: 35%
     }
 }
 @media only screen and (max-width: 2505px){
@@ -353,9 +317,51 @@ body {
         justify-content: center;
     }
   }
+.card {     
+    width: 20%;     
+    height: 70%;     
+    background-color: white;     
+    border-radius: 10px;     
+    margin: 40px;	     
+    display: inline-block; 
+}  
 
-=======
+.card:hover {     
+    box-shadow: 5px 5px 60px rgb(49, 139, 190);	 
+}  
 
+.title {     
+    text-align: center;     
+    text-decoration: underline;     
+    text-decoration-color: #f7633e;     
+    padding: 15px; 
+}  
+
+.card-ul {     
+    text-decoration: underline;     
+    text-decoration-color: #f7633e; 
+}  
+
+#character-card-ul {     
+    text-decoration-color: rgb(49, 139, 190);
+}  
+
+#character-name {      
+    text-decoration-color: rgb(49, 139, 190);
+}  
+
+ul {     
+    list-style: none; 
+}  
+
+.card-image img {     
+    width: 100%;     
+    border-radius: 10px; 
+}  
+
+#cocktail-card:hover {     
+    box-shadow: 5px 5px 60px #f7633e;
+}
 .card {
     width: 20%;
     height: 70%;

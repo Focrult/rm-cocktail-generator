@@ -166,13 +166,9 @@ function startQuiz(){
     callPopDrinks(cocktailArray)
     // writeIngredientBtn(questionIndex)
     // //reveals the first question
-    quizContainer.classlist.remove('hide');
+    quizContainer.classList.remove('hide');
 
     Instructions();
-    
-    
-    
-
     //another function to pass through questions?
 }
 const questions = [
@@ -296,7 +292,7 @@ const questions = [
 
 
 
-=======
+
   //           if(data.drinks == "None Found"){
   //             document.location.replace("./404.html");
 
