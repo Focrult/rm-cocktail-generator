@@ -19,7 +19,7 @@
     color: #80acbb	rgb(128, 172, 187);
     color: #232137	rgb(35, 33, 55);
 }
-#render-page{
+#render-page{ /*HIDDEN RENDER PAGE*/
     visibility: hidden;
 }
 /*Main Page*/
