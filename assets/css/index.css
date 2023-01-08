@@ -12,12 +12,15 @@
        --pink: #e89ac7 (232,154,199);
     }
 .blue-colours { /* blueish colours that we can use: "https://www.color-hex.com/color-palette/10375" */  
-    color: #318bbe	rgb(49, 139, 190);	
-    color: #92c5dd	rgb(146, 197, 221);	
-    color: #0f3c80	rgb(15, 60, 128);	
-    color: #598fac	rgb(89, 143, 172);	
-    color: #80acbb	rgb(128, 172, 187);	
-    color: #232137	rgb(35, 33, 55); 
+    color: #318bbe	rgb(49, 139, 190);
+    color: #92c5dd	rgb(146, 197, 221);
+    color: #0f3c80	rgb(15, 60, 128);
+    color: #598fac	rgb(89, 143, 172);
+    color: #80acbb	rgb(128, 172, 187);
+    color: #232137	rgb(35, 33, 55);
+}
+#render-page{ /*HIDDEN RENDER PAGE*/
+    visibility: hidden;
 }
 /*Main Page*/
 body{
@@ -29,24 +32,36 @@ body{
 }
 #startBtn{
     border: none;
-    padding: 10px 20px;
+    padding: 20px 40px;
+    font-size: 17px;
     background-color: #f7633e;
     color: white;
     border-radius: 50px;
     font-weight: 800;
     transition: 300ms ease-out;
-    display: absolute;
+    align-items: center;
 }
-.main-btn{
-    width: 50%;
+#main-btn{
     position: absolute;
-    text-align: center;
-    top: 70%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+}
+.container{
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 #startBtn:hover{
-    font-size: 18px;
+    font-size: 22px;
     transition: font-size .2s ease;
     transition: 300ms ease-out;
     transition: 300ms ease-in;
@@ -61,14 +76,14 @@ body{
     position: absolute;
     top: 0px;
     left: 0px;
-    visibility: hidden; /*CHANGE BACK TO HIDDEN!*/
-
+    z-index: 3;
+    visibility: hidden;
 }
 #instructions{
     background-color: rgb(197, 196, 196);
     position: absolute;
     width: 30%;
-    height: 40%;
+    height: 50%;
     color: black;
     top: 45%;
     left: 50%;
@@ -76,6 +91,11 @@ body{
     box-shadow: 2px rgb(48, 48, 48);
     transition: 200ms ease-in;
     border-radius: 20px;
+ 
+}
+.strong-overlay{
+  animation: fadeIn 3s ease-in;
+  opacity: 1;
 }
 .text h2{
    text-align: center;
@@ -92,8 +112,8 @@ body{
     background: linear-gradient(rgba(1, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
     border: none;
     transition: 300ms ease-out;
-    bottom: 30%;
-    left: 520px;
+    bottom: 50%;
+    left: 65%;
     border-radius: 10px;
     font-size: larger;
 }
@@ -101,6 +121,7 @@ body{
     opacity: 60%;
     transition: 300ms ease-out;
     transition: 300ms ease-in;
+    cursor: pointer;
 }
 #closeBtn:active{
     background-color: white;
@@ -116,16 +137,19 @@ body{
 }
 #instructions li{
     padding: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 }
 /*End of pop-up*/
 /*Portal Animation*/
 .portal{
     animation: spin 150s linear infinite;
-    height: 400px;
+    height: 250px;
     border-radius: 100px;
     position: absolute;
     transition: 300ms ease-out;
+    text-align: center;
+    top: 70%;
+    left: 50%;
 }
 .portal:hover{
     transition: 300ms ease-out;
@@ -164,18 +188,6 @@ body{
     transition: 300ms ease-in;
     cursor:pointer;
 }
-/* #quiz-container{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    object-fit: cover;
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-} */
 #quiz-list{
     margin: 20px 0;
     gap: 10px;
@@ -183,7 +195,128 @@ body{
     grid-template-columns: repeat(2, auto);
     align-items: center;
 }
-<<<<<<< HEAD
+#quiz-container{
+    /* border: solid green; */
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    height: 45%;
+    visibility: hidden;
+    /* z-index: -1; */
+}
+#question-container{
+      /* border: solid green; */
+    color: white;
+    position: inline;
+}
+#question-count{
+    background: none;;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}
+/*Try key frames again for the fade effects*/ 
+.fadeinanimated{
+    animation: fadeIn 10s ease-in-out;
+}
+.fadeOut{
+    animation: fadeIn 7s ease-in-out;
+}
+body {
+    animation: fadeIn 3s ease-in-out;
+}
+#background{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -5;
+}
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#question-count{
+    visibility: hidden;
+}
+.BlackCoverChange{
+    transition-delay: 2s;
+    animation: fadeIn 500ms forwards;
+}
+@keyframes fadeIn{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeCard{
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0;
+    }
+}
+@media only screen and (max-height: 900px){
+    #closeBtn{
+        bottom: 30%
+    }
+}
+@media only screen and (max-height: 1050px){
+    #logo{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin-top: -100px;
+    }
+    #closeBtn{
+        bottom: 35%
+    }
+}
+@media only screen and (max-width: 2505px){
+    .closeBtn{
+    position: static;
+    display: flex;
+    flex-wrap: nowrap;
+    }
+    .text{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 2250px){
+.text{
+    font-size: 14px;
+}
+}
+@media only screen and (max-width: 1440px){
+ .h1-popup{
+    font-size: 30px;
+ }
+    }
+@media only screen and (max-width: 1050px){
+#logo{
+    position: static;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+}
+@media only screen and (max-width: 680px) {
+    #logo{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+  }
 .card {     
     width: 20%;     
     height: 70%;     
@@ -229,62 +362,6 @@ ul {
 #cocktail-card:hover {     
     box-shadow: 5px 5px 60px #f7633e;
 }
-=======
-#quiz-container{
-    /* border: solid green; */
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 45%;
-    height: 45%;
-    z-index: -1;
-}
-#question-container{
-      /* border: solid green; */
-    color: white;
-    position: inline;
-}
-#overlay2{ /*Adding shade over background image SECTION-1*/
-    background: rgba(0,0,0,1);
-    width:100%;
-    height:100%;
-    /* background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)); */
-    background-size: cover;
-    object-fit: cover;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -1;
-}
-#QuizImg{
-    position: absolute;
-    z-index: -3;
-    width: 100%;
-    height: 98%;
-    background-size: cover;
-    object-fit: cover;
-    overflow: hidden;
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
-}
-
-/*Try key frames again for the fade effects*/ 
-.fadeinanimated{
-    animation: fadeIn 10s ease-in-out;
-}
-.fadeOut{
-    animation: fadeOut 7s ease-in-out;
-}
-body {
-    animation: fadeOut 3s ease-in-out;
-}
-@keyframes fadeOut{
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
 .card {
     width: 20%;
     height: 70%;
@@ -331,4 +408,4 @@ ul {
     box-shadow: 5px 5px 60px #f7633e;
 
 }
->>>>>>> 95bae25d6c74856b8869cdbf1f329156a5dec2dc
+
