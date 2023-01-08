@@ -108,9 +108,6 @@ function writeIngredientBtn(questionIndex) {
           setCounterText();
     })
     }
-
-    
-    
 }
 
 // Start quiz call
@@ -123,11 +120,22 @@ function writeIngredientBtn(questionIndex) {
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
+  const quizContainer = document.getElementById('quiz-container');
   const test = document.documentElement;
   var op = document.getElementById("overlay2");
+  const stars = document.getElementById("stars");
+  const logo = document.getElementById("logo");
+const instructions = document.getElementById("instructions");
+
+
+
+  // const logo = document.getElementById("logo")
+  instructions.classList.add("BlackCoverChange");
+  logo.style.display = "none";
   startBtn.style.visibility = "hidden";
+  quizContainer.style.visibility = "visible";
   // test.classList.add('fadeOut');
-    op.style.opacity = 0.8;
+    // op.style.opacity = 0.5;
     startQuiz();
   
     document.getElementById('main-btn').classList.add('hide');
@@ -141,85 +149,6 @@ function startQuiz(){
     quizContainer.classList.remove('hide');
     //another function to pass through questions?
 }
-
-//function to pass questions - show + hide
-// function showQuestion(){
-//   for(var i=0; i > questions.length; i++){
-//     question.classList.remove("hide");
-//     question.classList.add("hide")
-   
-//   }
-// }
-
-
-
-
-
-
-
-
-//Questions and where each would direct user
-//This will minimise html code and make it easier to assign questions to API requests
-//Review with team members
-//Get elements add attributes? try 
-
-// const questions = [
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//       ]
-//     },
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//       ]
-//     },
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false},
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//     ]
-//     },
-//     {
-//         question: 'Question Here',
-//         answers: [
-//           { text: 'Choice here', correct: true },
-//           { text: 'Choice here', correct: false},
-//           { text: 'Choice here', correct: false },
-//           { text: 'Choice here', correct: false }
-//         ]
-//     },
-//     {
-//         question: 'Question Here',
-//         answers: [
-//           { text: 'Choice here', correct: true },
-//           { text: 'Choice here', correct: false},
-//           { text: 'Choice here', correct: false },
-//           { text: 'Choice here', correct: false }
-//         ]
-//     },
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//       ]
-//     }
-//   ]
-
 const questions = [
     {
       question: 'Question Here',
@@ -423,8 +352,14 @@ const overlay = document.getElementById('overlay');
 const instructions = document.getElementById('instructions');
 const title = document.getElementById('body');
 
+// setTimeout(function () {
+
+// },4000);
+
+
 function Instructions(){ //function to reveal pop-up after a few seconds
-  overlay.style.visibility = 'visible';
+ console.log("instructions displayed");
+ overlay.style.visibility = 'visible';
 };
 //Add click event when user clicks lets go
 close2.addEventListener('click', function() {
