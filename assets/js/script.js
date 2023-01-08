@@ -326,6 +326,8 @@ const questions = [
   //     //   })
   //     //   .then(function(data){
 
+
+
   //     //     for(var i =  0; i < 10; i++){
   //     //       cocktailArray.push(data.drinks[i]);
   //     //     }
@@ -339,6 +341,7 @@ const questions = [
       
       
       
+
   //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
   
   //   }
@@ -361,6 +364,9 @@ const questions = [
 
 
 
+
+
+=======
   //           if(data.drinks == "None Found"){
   //             document.location.replace("./404.html");
 
@@ -387,6 +393,7 @@ const questions = [
   //           }
          
   //       });
+
 
   // }
  
@@ -561,10 +568,27 @@ function removeNonAns(ans) {
   if (cocktailArray.length <= 1) {
     clearList()
     // Display drink
+
+    console.log("Drink Data Reached!");
+    console.log(drinkData.drinks[0]);
+
+    var cocktailObject = {
+      name: drinkData.drinks[0].strDrink,
+      image: drinkData.drinks[0].strDrinkThumb,
+      image: drinkData.drinks[0].strInstructions,
+    }
+
+    console.log(cocktailObject);
+
+    localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
+    cocktailName = cocktailObject.name;
+    
     } else {
     clearList()
     questionIndex++
     writeCatButton(cocktailArray, questionIndex)
+      
+
   }
 }
  
