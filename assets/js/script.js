@@ -4,13 +4,13 @@ const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
-var drinkData = []
+var drinksSaved = []
 var APIKey = "9973533";
 var cocktailArray = []
 
 // Load Cocktail Array when program starts
-function loadCocktails(cocktailArray) {
-  for (var i = 0; i < 10; i++) {
+function loadCocktails(drinksSaved) {
+  for (var i = 0; i < 50; i++) {
 
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
@@ -22,12 +22,12 @@ function loadCocktails(cocktailArray) {
     })
     .then(function(data){
       console.log(data.drinks)
-      for(var i =  0; i < 10; i++){
-        cocktailArray.push(data.drinks[i]);
+      for (var i =  0; i < 10; i++){
+        drinksSaved.push(data.drinks[i]);
       }
     })
   }
-  console.log(cocktailArray)
+  console.log(drinksSaved)
 }
 
 var cocktailArray = []
@@ -163,7 +163,7 @@ const instructions = document.getElementById("instructions");
 function startQuiz(){
 
     startBtn.classList.add('hide');
-    callPopDrinks()
+    callPopDrinks(cocktailArray)
     // writeIngredientBtn(questionIndex)
     // //reveals the first question
     quizContainer.classlist.remove('hide');
@@ -416,11 +416,9 @@ close2.addEventListener('click', function() {
 
 //When user clicks start quiz
 function writeCatButton(cocktailArray, questionIndex) {
-  console.log(questionIndex)
   var quizLst = []
   if (questionIndex == 0) {
     for (let i = 0; i < cocktailArray.length; i++ ) {
-      console.log(cocktailArray[i].strCategory)
       // Check if value is already a child
 
       var checkValue = quizLst.includes(cocktailArray[i].strCategory)
@@ -444,8 +442,7 @@ function writeCatButton(cocktailArray, questionIndex) {
   }
   
   else {
-  console.log(questionIndex)
-  console.log(cocktailArray)
+
  
   for (let i = 0; i < cocktailArray.length; i++ ) {
       
@@ -483,11 +480,11 @@ function removeNonAns(ans) {
         cocktailArray.splice(i, 1)
       }
     }
-    console.log(cocktailArray)
-    console.log(childCount)
+   
     if (cocktailArray.length <= 1) {
       clearList()
       // Display drink
+      console.log(cocktailArray)
       } else {
       clearList()
       questionIndex++
@@ -503,8 +500,7 @@ function removeNonAns(ans) {
       cocktailArray.splice(i, 1)
     }
   }
-  console.log(cocktailArray)
-  console.log(childCount)
+ 
   if (cocktailArray.length <= 1) {
     clearList()
     // Display drink
@@ -539,7 +535,6 @@ function removeNonAns(ans) {
 
 // Answer event listener 
 quizLi.addEventListener("click", function(event)  { 
-  console.log(event.target.textContent)
   var ans =  event.target.textContent
   
   // Remove objects not containing answer
@@ -550,7 +545,47 @@ quizLi.addEventListener("click", function(event)  {
 
 // Popular Drinks API Call
 
-function callPopDrinks () {
+function callPopDrinks (cocktailArray) {
+ 
+  // for each method
+  // console.log(drinksSaved)
+  // drinksSaved.forEach(element => {
+  //   if (!cocktailArray.includes(element)) {
+  //     cocktailArray.push(element);
+  //   } else {
+  //     console.log('dupe detected')
+  //   }
+  // })
+
+  //using object variable
+  var uniqueObject = {};
+  for (i in drinksSaved) {
+    
+    objID = drinksSaved[i].idDrink;
+    console.log(drinksSaved[i])
+    uniqueObject[objID] = drinksSaved[i]
+
+  
+  }
+
+  for (i in uniqueObject) {
+    cocktailArray.push(uniqueObject[i])
+  }
+
+  console.log(uniqueObject[1])
+  console.log(cocktailArray)
+  
+  // for (let i = 0; i < drinksSaved.length; i++) {
+  //   var checkDupe = cocktailArray.includes(drinksSaved[i].idDrink)
+  //   console.log(checkDupe)
+  //   if (checkDupe) {
+  //     console.log('dupe detected')
+  //   } else {
+  //     cocktailArray.push(drinksSaved[i])
+  //   }
+
+    
+  // }
   // var cocktailArray = [];
 
   // for(var i = 0; i < 3; i++){
@@ -582,7 +617,7 @@ function callPopDrinks () {
 }
 
   
-loadCocktails(cocktailArray);
+loadCocktails(drinksSaved);
 
 
 
