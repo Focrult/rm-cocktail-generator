@@ -4,8 +4,32 @@ const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
-
+var drinkData = []
 var APIKey = "9973533";
+var cocktailArray = []
+
+// Load Cocktail Array when program starts
+function loadCocktails(cocktailArray) {
+  for (var i = 0; i < 10; i++) {
+
+    var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
+
+
+
+    fetch(APIUrl)
+    .then(function(response){
+     return response.json();
+    })
+    .then(function(data){
+      console.log(data.drinks)
+      for(var i =  0; i < 10; i++){
+        cocktailArray.push(data.drinks[i]);
+      }
+    })
+  }
+  console.log(cocktailArray)
+}
+
 
 //Added redirect URL request if error occurs
 var redirectURL = './404.html'
@@ -62,10 +86,9 @@ var ingredientList =
 
 var quizLi = document.getElementById('quiz-list')
 
-var questionIndex = 0
 var drinkFilter = []
 
-console.log(ingredientList[questionIndex][0])
+// console.log(ingredientList[questionIndex][0])
 
 // Clear Answer List
 function clearList() {
@@ -111,12 +134,6 @@ function writeIngredientBtn(questionIndex) {
 }
 
 // Start quiz call
-// 
-
-
-
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<LOCAL STORAGE
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
@@ -143,10 +160,18 @@ const instructions = document.getElementById("instructions");
 })
 // //Initiate the quiz
 function startQuiz(){
+
+    startBtn.classList.add('hide');
+    callPopDrinks()
+    // writeIngredientBtn(questionIndex)
+    // //reveals the first question
+    quizContainer.classlist.remove('hide');
+
     Instructions();
-    writeIngredientBtn(questionIndex)
-    //reveals the first question
-    quizContainer.classList.remove('hide');
+    
+    
+    
+
     //another function to pass through questions?
 }
 const questions = [
@@ -200,85 +225,107 @@ const questions = [
 
   //------------------------Fetch Cocktail---------------------------------
 
-  var cocktailName = "cocktailblank";
+  // var cocktailName = "cocktailblank";
   
-  function getCocktail(ingArray){
+  // function getCocktail(ingArray){
 
-    //return function if array is null
-    if(ingArray == "" || ingArray == null){
+  //   //return function if array is null
+  //   if(ingArray == "" || ingArray == null){
         
-      return;
+  //     return;
       
-    } else {
+  //   } else {
       
-      var ingredients = ingArray;
+  //     var ingredients = ingArray;
      
 
-      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+  //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
 
+  //     // var cocktailArray = [];
+
+  //     // for(var i = 0; i < 3; i++){
+
+  //     //   var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
+
+
+
+  //     //   fetch(APIUrl)
+  //     //   .then(function(response){
+  //     //    return response.json();
+  //     //   })
+  //     //   .then(function(data){
+
+
+
+  //     //     for(var i =  0; i < 10; i++){
+  //     //       cocktailArray.push(data.drinks[i]);
+  //     //     }
+
+          
+  //     //     console.log(cocktailArray);
+
+  //     //   })
+
+  //     // }
       
-      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=Tonic_Water";
-
-      // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
-
       
-      var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
-    console.log(APIUrl)
-    }
+      
 
-    fetch(APIUrl)
-        .then(function (response) {
-          if(response.status === 404){
-            document.location.replace("./404.html");
+  //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
+  
+  //   }
 
-          } else {
-            return response.json();
-          }
+  //   fetch(APIUrl)
+  //       .then(function (response) {
+  //         if(response.status === 404){
+  //           document.location.replace("./404.html");
 
-        })
-        .then(function (data) {
+  //         } else {
+  //           return response.json();
+  //         }
 
-
-          // console.log(data)
-
+  //       })
+  //       .then(function (data) {
 
 
-
-            if(data.drinks == "None Found"){
-              document.location.replace("./404.html");
-
-            } else {
+  //         // console.log(data)
 
 
 
-              var cocktailObject = {
-                name: data.drinks[0].strDrink,
-                image: data.drinks[0].strDrinkThumb,
-              }
+
+
+
+=======
+  //           if(data.drinks == "None Found"){
+  //             document.location.replace("./404.html");
+
+  //           } else {
+
+
+
+  //             var cocktailObject = {
+  //               name: data.drinks[0].strDrink,
+  //               image: data.drinks[0].strDrinkThumb,
+  //               image: data.drinks[0].strInstructions,
+  //             }
               
               
-              console.log(cocktailObject);
-              localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
+  //             console.log(cocktailObject);
+  //             localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
 
               
-              cocktailName = cocktailObject.name;
-              console.log(cocktailName);
+  //             cocktailName = cocktailObject.name;
+  //             console.log(cocktailName);
 
               
 
-            }
+  //           }
          
-        });
+  //       });
 
-  }
 
-  //Experiment with looking for similarities in API calls. Potential to be used to increase success rate for viable cocktails, dynamically culling cocktails from each ingredient-based-Array API call.
-  var array1 = ["cat", "sum","fun", "run"];
-  var array2 = ["bat", "cat","dog","sun", "hut", "gut"];
-
-  const intersection = array1.filter(element => array2.includes(element));
-
-  console.log("Intersections = " + intersection);    
+  // }
+ 
 
   //------------------------Fetch Character---------------------------------
 
@@ -313,25 +360,25 @@ const questions = [
 
   // Dry_Vermouth,Gin,Anis
   // Vodka,Orange_Juice,Lemon_Juice
-  // getCocktail("Dry_Vermouth,Gin,Anis");
+  // getCocktail("Vodka,Orange_Juice,Lemon_Juice");
 
  // Answer Button Listener 
- quizLi.addEventListener("click", function(event)  { 
-                                                      console.log(event.target.textContent)
-                                                      // var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
-                                                      var ans =  event.target.textContent
-                                                      drinkFilter.push(ans)
-                                                      console.log(drinkFilter)
-                                                      questionIndex++
-                                                      clearList()
-                                                      console.log(questionIndex)
-                                                      if (questionIndex > ingredientList.length - 1) {
-                                                        createFilter()
-                                                      }
-                                                      else {
-                                                        writeIngredientBtn(questionIndex)
-                                                      }
-                                                    })    
+//  quizLi.addEventListener("click", function(event)  { 
+//                                                       console.log(event.target.textContent)
+//                                                       // var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
+//                                                       var ans =  event.target.textContent
+//                                                       drinkFilter.push(ans)
+//                                                       console.log(drinkFilter)
+//                                                       questionIndex++
+//                                                       clearList()
+//                                                       console.log(questionIndex)
+//                                                       if (questionIndex > ingredientList.length - 1) {
+//                                                         createFilter()
+//                                                       }
+//                                                       else {
+//                                                         writeIngredientBtn(questionIndex)
+//                                                       }
+//                                                     })    
 
   getCharacter();
 
@@ -340,10 +387,7 @@ const questions = [
 
 
   
-                                              
-
-
-
+var questionIndex = 0
 
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
@@ -369,9 +413,175 @@ close2.addEventListener('click', function() {
 //End of popup
 
 
+//When user clicks start quiz
+function writeCatButton(cocktailArray, questionIndex) {
+  console.log(questionIndex)
+  var quizLst = []
+  if (questionIndex == 0) {
+    for (let i = 0; i < cocktailArray.length; i++ ) {
+      console.log(cocktailArray[i].strCategory)
+      // Check if value is already a child
+
+      var checkValue = quizLst.includes(cocktailArray[i].strCategory)
+
+      if (!checkValue) {
+      var answerEl = document.createElement('button');
+      answerEl.textContent = cocktailArray[i].strCategory
+      
+      quizLi.append(answerEl)
+      quizLst.push(cocktailArray[i].strCategory)
+      
+    }
+
+      //Update page count element textcontent with page increment values
+      countEl.texcontent = questionCount;
+      answerEl.addEventListener("click", function(){
+        questionCount++;
+        setCounterText();
+  })
+  }
+  }
+  
+  else {
+  console.log(questionIndex)
+  console.log(cocktailArray)
+ 
+  for (let i = 0; i < cocktailArray.length; i++ ) {
+      
+      // Check if value is already a child
+
+      var checkValue = quizLst.includes(eval('cocktailArray[i].strIngredient'+questionIndex));
+
+      if (!checkValue) {
+      var answerEl = document.createElement('button');
+      answerEl.textContent = eval('cocktailArray[i].strIngredient'+questionIndex)
+      quizLi.append(answerEl)
+      quizLst.push(eval('cocktailArray[i].strIngredient'+questionIndex))
+      }
+
+      //Update page count element textcontent with page increment values
+      countEl.texcontent = questionCount;
+      answerEl.addEventListener("click", function(){
+        questionCount++;
+        setCounterText();
+  })
+  }
+}
+}
+
+
+function removeNonAns(ans) {
+  var childCount = cocktailArray.length - 1
+  
+  if (questionIndex == 0 ) {
+    for (let i = childCount; i >=0; i--) {
+      var drinkVal = cocktailArray[i].strCategory
+  
+      var checkAnsMatch = ans === drinkVal
+      if (!checkAnsMatch) {
+        cocktailArray.splice(i, 1)
+      }
+    }
+    console.log(cocktailArray)
+    console.log(childCount)
+    if (cocktailArray.length <= 1) {
+      clearList()
+      // Display drink
+      } else {
+      clearList()
+      questionIndex++
+      writeCatButton(cocktailArray, questionIndex)
+    }
+  
+  } else {
+  for (let i = childCount; i >=0; i--) {
+    var drinkVal = eval('cocktailArray[i].strIngredient' + questionIndex )
+
+    var checkAnsMatch = ans === drinkVal
+    if (!checkAnsMatch) {
+      cocktailArray.splice(i, 1)
+    }
+  }
+  console.log(cocktailArray)
+  console.log(childCount)
+  if (cocktailArray.length <= 1) {
+    clearList()
+    // Display drink
+
+    console.log("Drink Data Reached!");
+    console.log(drinkData.drinks[0]);
+
+    var cocktailObject = {
+      name: drinkData.drinks[0].strDrink,
+      image: drinkData.drinks[0].strDrinkThumb,
+      image: drinkData.drinks[0].strInstructions,
+    }
+
+    console.log(cocktailObject);
+
+    localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
+    cocktailName = cocktailObject.name;
+    
+    } else {
+    clearList()
+    questionIndex++
+    writeCatButton(cocktailArray, questionIndex)
+      
+
+  }
+}
+ 
 
 
 
+}
+
+// Answer event listener 
+quizLi.addEventListener("click", function(event)  { 
+  console.log(event.target.textContent)
+  var ans =  event.target.textContent
+  
+  // Remove objects not containing answer
+  removeNonAns(ans)
+
+})    
+
+
+// Popular Drinks API Call
+
+function callPopDrinks () {
+  // var cocktailArray = [];
+
+  // for(var i = 0; i < 3; i++){
+
+  //   var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
+
+
+
+  //   fetch(APIUrl)
+  //   .then(function(response){
+  //    return response.json();
+  //   })
+  //   .then(function(data){
+  //     console.log(data.drinks)
+  //     for(var i =  0; i < 10; i++){
+  //       cocktailArray.push(data.drinks[i]);
+  //     }
+  //   })
+
+ 
+  // }
+
+  // console.log(cocktailArray)
+
+  // console.log(cocktailArray)
+  // console.log(drinkData)
+  
+    writeCatButton(cocktailArray, questionIndex)
+}
+
+  
+loadCocktails(cocktailArray);
 
 
 
