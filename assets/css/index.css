@@ -85,11 +85,12 @@ body{
     width:100%;
     height:100%;
     background:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.9)); 
-    position: absolute;
+    position: absolute;    
     top: 0px;
     left: 0px;
     z-index: 3;
     visibility: hidden;
+
 }
 
 #instructions{
@@ -223,57 +224,87 @@ body{
 }
   /*End of portal*/
   /*Quiz page*/
-#quiz-container {
-    background-image: url('./assets/media/bar image.webp');
-}
 
-#quiz-list button{
-    border: none;
+    #quiz-list button{
+    text-transform: uppercase;
+    letter-spacing: 2px;
     padding: 10px 20px;
-    background-color: #f7633e;
+    background-color: #060a1b;
     color: white;
-    border-radius: 50px;
     font-weight: 800;
-    transition: 300ms ease-out;
-    /* display: grid;
-    grid-template-columns: repeat(2);
-    gap: 10px; */
-}
+
+    position:relative;
+    z-index: 1;
+    background: linear-gradient(45deg, rgb(4, 175, 4),#1a234d,#990a99) 0px 0px repeat-x;
+    /* animation: borderReturn 5s linear alternate infinite; */
+    transition: 3s ease-out;
+  }
+  #quiz-list button::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #060a1b;
+    z-index: -1;
+
+  }
 
 #quiz-list button:hover{
-    font-size: 18px;
-    transition: font-size .2s ease;
-    transition: 300ms ease-out;
-    transition: 300ms ease-in;
+    transition: 3s ease-in-out;
     cursor:pointer;
+    box-shadow: 0 0 35px purple;
+    transition: all 2s ease-in-out;
+    /* animation: borderMove 3s linear alternate infinite; */
+    animation: filterColours 3s infinite;
+   
 }
 
 #quiz-list{
     margin: 20px 0;
-    gap: 10px;
+    gap: 30px;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, auto);
     align-items: center;
-}
+    } 
 
 #quiz-container{
-    /* border: solid green; */
     position: absolute;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 45%;
-    height: 45%;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     visibility: hidden;
-    /* z-index: -1; */
+    transition: 6s forwards linear;
+} 
 
-}
 #question-container {
+
       /* border: solid green; */
     color: white;
     position: inline;
+}
+
+#question-count{
+    background: none;;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}
+@keyframes filterColours{
+0%{filter: hue-rotate(0deg)}
+100%{filter: hue-rotate(360deg)}
+}
+@keyframes borderMove{
+    from{background-position: 0px 0px;}
+    to{background-position: 800px 0px;}
+  }
+@keyframes borderReturn{
+    from{background-position: 800px 0px}
+    to{background-position: 0px 0px;}
 }
 
 
