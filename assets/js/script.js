@@ -9,7 +9,7 @@ const btn = document.getElementById('returnBtn');
 //Cocktail Card Elements
 var cocktailImageEl = document.querySelector("#cocktail-image");
 var cocktailNameEl = document.querySelector("#cocktail-name");
-var instructionContentEl = document.querySelector("#instruction-content");
+
 //Character Card Elements
 var characterImageEl = document.querySelector("#character-image");
 var characterNameEl = document.querySelector("#character-name");
@@ -26,7 +26,7 @@ var cocktailArray = [];
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < 10; i++) {
     var callIndex = 0
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
@@ -52,11 +52,6 @@ var redirectURL = './404.html'
 // Ingredient List
 var ingredientList =
     [
-        // category =  [
-        //             question = 'type',
-        //             types = ['Cocktail', 'Shot', 'Shake', 'Any'],
-        //             filterDefinition = 'c'
-        //             ],
 
         spirits = [  
           question = 'spirit',
@@ -86,17 +81,6 @@ var ingredientList =
                           'Apricot Nectar', 'Bitters', 'Lemon Lime', 'Tabasco Sauce', ],
               ],
             ]
-        // glassType = [
-        //             question = 'glass type',
-        //             types = [ 'Coupe Glass', 'Martini Glass', 
-        //                       'Highball Glass', 'Margarita Glass', 'Shot Glass',
-        //                       'Any'   ],
-        //             filterDefinition = 'g',
-        //             ],
-
-        // firstLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
-        //                 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
-        //                 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',    ],
     
 
 var quizLi = document.getElementById('quiz-list')
@@ -126,11 +110,6 @@ function clearList() {
 
  var questionCount = 0;
 
- //Update page count
- function setCounterText() {
-  countEl.textContent = questionCount + "/4";
-}
-
 // Write New and Answer Set
 function writeIngredientBtn(questionIndex) {
     for (let i = 0; i < ingredientList[questionIndex][1].length; i++ ) {
@@ -143,7 +122,7 @@ function writeIngredientBtn(questionIndex) {
         countEl.texcontent = questionCount;
         answerEl.addEventListener("click", function(){
           questionCount++;
-          setCounterText();
+          
     })
     }
 }
@@ -158,7 +137,6 @@ startBtn.addEventListener('click', function() {
   const stars = document.getElementById("stars");
   const logo = document.getElementById("logo");
 const instructions = document.getElementById("instructions");
-
 
 
   // const logo = document.getElementById("logo")
@@ -233,140 +211,7 @@ const questions = [
     }
   ]
 
-
-  //------------------------Fetch Cocktail---------------------------------
-
-  // var cocktailName = "cocktailblank";
-  
-  // function getCocktail(ingArray){
-
-  //   //return function if array is null
-  //   if(ingArray == "" || ingArray == null){
-        
-  //     return;
-      
-  //   } else {
-      
-  //     var ingredients = ingArray;
-     
-
-  //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
-
-  //     // var cocktailArray = [];
-
-  //     // for(var i = 0; i < 3; i++){
-
-  //     //   var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
-
-
-
-  //     //   fetch(APIUrl)
-  //     //   .then(function(response){
-  //     //    return response.json();
-  //     //   })
-  //     //   .then(function(data){
-
-
-  //     //     for(var i =  0; i < 10; i++){
-  //     //       cocktailArray.push(data.drinks[i]);
-  //     //     }
-
-          
-  //     //     console.log(cocktailArray);
-
-  //     //   })
-
-  //     // }
-      
-      
-      
-  //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
-  
-  //   }
-
-  //   fetch(APIUrl)
-  //       .then(function (response) {
-  //         if(response.status === 404){
-  //           document.location.replace("./404.html");
-
-  //         } else {
-  //           return response.json();
-  //         }
-
-  //       })
-  //       .then(function (data) {
-
-
-  //         // console.log(data)
-
-
-
-
-
-
-
-  //           if(data.drinks == "None Found"){
-  //             document.location.replace("./404.html");
-
-  //           } else {
-
-
-
-  //             var cocktailObject = {
-  //               name: data.drinks[0].strDrink,
-  //               image: data.drinks[0].strDrinkThumb,
-  //               image: data.drinks[0].strInstructions,
-  //             }
-              
-              
-  //             console.log(cocktailObject);
-  //             localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
-
-              
-  //             cocktailName = cocktailObject.name;
-  //             console.log(cocktailName);
-
-              
-
-  //           }
-         
-  //       });
-
-  // }
- 
-
-  
-
-  // Dry_Vermouth,Gin,Anis
-  // Vodka,Orange_Juice,Lemon_Juice
-  // getCocktail("Vodka,Orange_Juice,Lemon_Juice");
-
- // Answer Button Listener 
-//  quizLi.addEventListener("click", function(event)  { 
-//                                                       console.log(event.target.textContent)
-//                                                       // var ans = ingredientList[questionIndex][2] + '=' + event.target.textContent
-//                                                       var ans =  event.target.textContent
-//                                                       drinkFilter.push(ans)
-//                                                       console.log(drinkFilter)
-//                                                       questionIndex++
-//                                                       clearList()
-//                                                       console.log(questionIndex)
-//                                                       if (questionIndex > ingredientList.length - 1) {
-//                                                         createFilter()
-//                                                       }
-//                                                       else {
-//                                                         writeIngredientBtn(questionIndex)
-//                                                       }
-//                                                     })    
-
-  
-
-
-  console.log()
-
-
-  
-var questionIndex = 1
+var questionIndex = 1;
 
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
@@ -394,27 +239,7 @@ close2.addEventListener('click', function() {
 
 //When user clicks start quiz
 function writeCatButton(cocktailArray, questionIndex) {
-  var quizLst = []
-  // if (questionIndex == 0) {
-  //   for (let i = 0; i < cocktailArray.length; i++ ) {
-  //     // Check if value is already a child
-
-  //     var checkValue = quizLst.includes(cocktailArray[i].strCategory)
-
-  //     if (!checkValue) {
-  //     var answerEl = document.createElement('button');
-  //     answerEl.textContent = cocktailArray[i].strCategory
-      
-  //     quizLi.append(answerEl)
-  //     quizLst.push(cocktailArray[i].strCategory)
-      
-  //   }
-
-  // }
-  // }
-  
-  // else {
-
+  var quizLst = [];
  
   for (let i = 0; i < cocktailArray.length; i++ ) {
       
@@ -433,7 +258,6 @@ function writeCatButton(cocktailArray, questionIndex) {
       countEl.texcontent = questionCount;
       answerEl.addEventListener("click", function(){
         questionCount++;
-        setCounterText();
   })
 
   // }
@@ -511,11 +335,6 @@ function removeNonAns(ans) {
       }
     }
 
-    // var checkAnsMatch = ans === drinkVal
-    // if (!checkAnsMatch) {
-    //   cocktailArray.splice(i, 1)
-    
-  
  
   if (cocktailArray.length <= 1) {
 
@@ -541,7 +360,6 @@ function removeNonAns(ans) {
     //Set cocktail card information using retrieved cocktail information
     cocktailImageEl.setAttribute("src", fetchCocktail.image);
     cocktailNameEl.textContent = fetchCocktail.name;
-    instructionContentEl.textContent = fetchCocktail.instructions;
 
     //Remove hidden class
     renderCardEl.classList.remove("hidden");
@@ -584,17 +402,7 @@ quizLi.children[i].addEventListener("click", function(event)  {
 // Popular Drinks API Call
 
 function callPopDrinks (cocktailArray) {
- 
-  // for each method
-  // console.log(drinksSaved)
-  // drinksSaved.forEach(element => {
-  //   if (!cocktailArray.includes(element)) {
-  //     cocktailArray.push(element);
-  //   } else {
-  //     console.log('dupe detected')
-  //   }
-  // })
-  //using object variable
+
   var uniqueObject = {};
   for (i in drinksSaved) {
     
@@ -609,46 +417,8 @@ function callPopDrinks (cocktailArray) {
 
   console.log(uniqueObject[1]);
   console.log(cocktailArray);
-  
-  // for (let i = 0; i < drinksSaved.length; i++) {
-  //   var checkDupe = cocktailArray.includes(drinksSaved[i].idDrink)
-  //   console.log(checkDupe)
-  //   if (checkDupe) {
-  //     console.log('dupe detected')
-  //   } else {
-  //     cocktailArray.push(drinksSaved[i])
-  //   }
 
-    
-  // }
-  // var cocktailArray = [];
-
-  // for(var i = 0; i < 3; i++){
-
-  //   var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
-
-
-
-  //   fetch(APIUrl)
-  //   .then(function(response){
-  //    return response.json();
-  //   })
-  //   .then(function(data){
-  //     console.log(data.drinks)
-  //     for(var i =  0; i < 10; i++){
-  //       cocktailArray.push(data.drinks[i]);
-  //     }
-  //   })
-
- 
-  // }
-
-  // console.log(cocktailArray)
-
-  // console.log(cocktailArray)
-  // console.log(drinkData)
-  
-    writeCatButton(cocktailArray, questionIndex)
+  writeCatButton(cocktailArray, questionIndex)
     
 }
 
