@@ -4,24 +4,38 @@ const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
-var drinksSaved = []
+var renderCardEl = document.querySelector("#render-page")
+const btn = document.getElementById('returnBtn');
+//Cocktail Card Elements
+var cocktailImageEl = document.querySelector("#cocktail-image");
+var cocktailNameEl = document.querySelector("#cocktail-name");
+var instructionContentEl = document.querySelector("#instruction-content");
+//Character Card Elements
+var characterImageEl = document.querySelector("#character-image");
+var characterNameEl = document.querySelector("#character-name");
+var characterSpeciesEl = document.querySelector("#species");
+var characterGenderEl = document.querySelector("#gender");
+var characterOriginEl = document.querySelector("#origin");
+
+
 var APIKey = "9973533";
-var cocktailArray = []
+var drinksSaved = [];
+var cocktailArray = [];
+
+
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 10; i++) {
 
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
-
-
 
     fetch(APIUrl)
     .then(function(response){
      return response.json();
     })
     .then(function(data){
-      console.log(data.drinks)
+      // console.log(data.drinks)
       for (var i =  0; i < 10; i++){
         drinksSaved.push(data.drinks[i]);
       }
@@ -252,7 +266,6 @@ const questions = [
   //     //   .then(function(data){
 
 
-
   //     //     for(var i =  0; i < 10; i++){
   //     //       cocktailArray.push(data.drinks[i]);
   //     //     }
@@ -266,7 +279,6 @@ const questions = [
       
       
       
-
   //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
   
   //   }
@@ -319,40 +331,10 @@ const questions = [
          
   //       });
 
-
   // }
  
 
-  //------------------------Fetch Character---------------------------------
-
-  var characterNumber = "2";
-
-  function getCharacter(){
-
-    var characterUrl = "https://rickandmortyapi.com/api/character/" + characterNumber;
-
-    fetch(characterUrl)
-        .then(function (response) {
-        return response.json();
-        })
-        .then(function (data) {
-
-          //Create character object for character tile
-            var characterObject = {
-              name: data.name,
-              species: data.species,
-              gender: data.gender,
-              origin: data.origin.name,
-              image: data.image,
-            }
-
-            console.log(characterObject);
-            localStorage.setItem("characterName", JSON.stringify(characterObject));
-        });
-
-    
-    
-  }
+  
 
   // Dry_Vermouth,Gin,Anis
   // Vodka,Orange_Juice,Lemon_Juice
@@ -376,7 +358,7 @@ const questions = [
 //                                                       }
 //                                                     })    
 
-  getCharacter();
+  
 
 
   console.log()
@@ -427,12 +409,6 @@ function writeCatButton(cocktailArray, questionIndex) {
       
     }
 
-      //Update page count element textcontent with page increment values
-      countEl.texcontent = questionCount;
-      answerEl.addEventListener("click", function(){
-        questionCount++;
-        setCounterText();
-  })
   }
   }
   
@@ -461,6 +437,55 @@ function writeCatButton(cocktailArray, questionIndex) {
   }
 }
 }
+
+  //------------------------Fetch Character---------------------------------
+  
+
+  var randomNumber = Math.floor(Math.random() * 825);
+
+  var characterNumber = randomNumber;
+
+  function getCharacter(){
+
+    var characterUrl = "https://rickandmortyapi.com/api/character/" + characterNumber;
+
+    fetch(characterUrl)
+        .then(function (response) {
+        return response.json();
+        })
+        .then(function (data) {
+
+          //Create character object for character tile
+            var characterObject = {
+              name: data.name,
+              species: data.species,
+              gender: data.gender,
+              origin: data.origin.name,
+              image: data.image,
+            }
+
+            //Set Character Object to  local storage
+            console.log(characterObject);
+            localStorage.setItem("characterName", JSON.stringify(characterObject));
+
+            //Retrieve character Object from local storage
+            var retrieveCharacter = JSON.parse(localStorage.getItem('characterName'));
+
+            //Update Character Card details based on retrieved values
+            characterImageEl.setAttribute("src", retrieveCharacter.image);
+            characterNameEl.textContent = retrieveCharacter.name;
+            characterSpeciesEl.textContent = retrieveCharacter.species;
+            characterGenderEl.textContent = retrieveCharacter.gender;
+            characterOriginEl.textContent = retrieveCharacter.origin;
+
+            
+
+
+        });
+
+    
+    
+  }
 
 
 function removeNonAns(ans) {
@@ -497,22 +522,40 @@ function removeNonAns(ans) {
   }
  
   if (cocktailArray.length <= 1) {
-    clearList()
-    // Display drink
 
-    console.log("Drink Data Reached!");
-    console.log(drinkData.drinks[0]);
-
+    clearList();
+    
+    // Retrieve Character API Details
+    getCharacter();
+    
+    //Save cocktail object to local storage based on selected ingredients
     var cocktailObject = {
-      name: drinkData.drinks[0].strDrink,
-      image: drinkData.drinks[0].strDrinkThumb,
-      image: drinkData.drinks[0].strInstructions,
+      name: cocktailArray[0].strDrink,
+      image: cocktailArray[0].strDrinkThumb,
+      instructions: cocktailArray[0].strInstructions,
+      
     }
 
     console.log(cocktailObject);
-
     localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
-    cocktailName = cocktailObject.name;
+
+    //Retrieve cocktail information from local storage
+    var fetchCocktail = JSON.parse(localStorage.getItem('cocktailName'));
+
+    //Set cocktail card information using retrieved cocktail information
+    cocktailImageEl.setAttribute("src", fetchCocktail.image);
+    cocktailNameEl.textContent = fetchCocktail.name;
+    instructionContentEl.textContent = fetchCocktail.instructions;
+
+    //Remove hidden class
+    renderCardEl.classList.remove("hidden");
+
+    //Return button functionality
+    var returnUrl = './index.html'; 
+    //When user clicks the return button, they return to the main html.
+    btn.addEventListener('click', function(){
+    document.location.replace(returnUrl);
+})
     
     } else {
     clearList()
@@ -521,9 +564,7 @@ function removeNonAns(ans) {
       
 
   }
-}
- 
-
+} 
 
 
 }
@@ -557,18 +598,16 @@ function callPopDrinks (cocktailArray) {
   for (i in drinksSaved) {
     
     objID = drinksSaved[i].idDrink;
-    console.log(drinksSaved[i])
-    uniqueObject[objID] = drinksSaved[i]
-
+    uniqueObject[objID] = drinksSaved[i];
   
   }
 
   for (i in uniqueObject) {
-    cocktailArray.push(uniqueObject[i])
+    cocktailArray.push(uniqueObject[i]);
   }
 
-  console.log(uniqueObject[1])
-  console.log(cocktailArray)
+  console.log(uniqueObject[1]);
+  console.log(cocktailArray);
   
   // for (let i = 0; i < drinksSaved.length; i++) {
   //   var checkDupe = cocktailArray.includes(drinksSaved[i].idDrink)
@@ -609,11 +648,10 @@ function callPopDrinks (cocktailArray) {
   // console.log(drinkData)
   
     writeCatButton(cocktailArray, questionIndex)
+    
 }
 
   
 loadCocktails(drinksSaved);
 
-
-//
 
