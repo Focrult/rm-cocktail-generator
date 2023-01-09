@@ -435,8 +435,11 @@ function writeCatButton(cocktailArray, questionIndex) {
         questionCount++;
         setCounterText();
   })
+
   // }
 }
+createButtonEventListener()
+
 }
 
   //------------------------Fetch Character---------------------------------
@@ -563,13 +566,19 @@ function removeNonAns(ans) {
 
 
 // Answer event listener 
-quizLi.addEventListener("click", function(event)  { 
+function createButtonEventListener () {
+
+  console.log(quizLi.childElementCount)
+for (let i = 0; i < quizLi.childElementCount; i++) {
+quizLi.children[i].addEventListener("click", function(event)  { 
   var ans =  event.target.textContent
   
   // Remove objects not containing answer
   removeNonAns(ans)
 
-})    
+})
+}    
+}
 
 
 // Popular Drinks API Call
