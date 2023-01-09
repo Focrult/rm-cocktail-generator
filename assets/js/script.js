@@ -26,8 +26,8 @@ var cocktailArray = [];
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
-  for (var i = 0; i < 10; i++) {
-
+  for (var i = 0; i < 2; i++) {
+    var callIndex = 0
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
     fetch(APIUrl)
@@ -35,7 +35,7 @@ function loadCocktails(drinksSaved) {
      return response.json();
     })
     .then(function(data){
-      // console.log(data.drinks)
+      console.log(data.drinks)
       for (var i =  0; i < 10; i++){
         drinksSaved.push(data.drinks[i]);
       }
@@ -44,6 +44,7 @@ function loadCocktails(drinksSaved) {
   console.log(drinksSaved)
 }
 
+var cocktailArray = []
 
 //Added redirect URL request if error occurs
 var redirectURL = './404.html'
@@ -365,7 +366,7 @@ const questions = [
 
 
   
-var questionIndex = 0
+var questionIndex = 1
 
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
@@ -394,25 +395,25 @@ close2.addEventListener('click', function() {
 //When user clicks start quiz
 function writeCatButton(cocktailArray, questionIndex) {
   var quizLst = []
-  if (questionIndex == 0) {
-    for (let i = 0; i < cocktailArray.length; i++ ) {
-      // Check if value is already a child
+  // if (questionIndex == 0) {
+  //   for (let i = 0; i < cocktailArray.length; i++ ) {
+  //     // Check if value is already a child
 
-      var checkValue = quizLst.includes(cocktailArray[i].strCategory)
+  //     var checkValue = quizLst.includes(cocktailArray[i].strCategory)
 
-      if (!checkValue) {
-      var answerEl = document.createElement('button');
-      answerEl.textContent = cocktailArray[i].strCategory
+  //     if (!checkValue) {
+  //     var answerEl = document.createElement('button');
+  //     answerEl.textContent = cocktailArray[i].strCategory
       
-      quizLi.append(answerEl)
-      quizLst.push(cocktailArray[i].strCategory)
+  //     quizLi.append(answerEl)
+  //     quizLst.push(cocktailArray[i].strCategory)
       
-    }
+  //   }
 
-  }
-  }
+  // }
+  // }
   
-  else {
+  // else {
 
  
   for (let i = 0; i < cocktailArray.length; i++ ) {
@@ -434,8 +435,11 @@ function writeCatButton(cocktailArray, questionIndex) {
         questionCount++;
         setCounterText();
   })
-  }
+
+  // }
 }
+createButtonEventListener()
+
 }
 
   //------------------------Fetch Character---------------------------------
@@ -490,36 +494,28 @@ function writeCatButton(cocktailArray, questionIndex) {
 
 function removeNonAns(ans) {
   var childCount = cocktailArray.length - 1
+
   
-  if (questionIndex == 0 ) {
-    for (let i = childCount; i >=0; i--) {
-      var drinkVal = cocktailArray[i].strCategory
   
-      var checkAnsMatch = ans === drinkVal
-      if (!checkAnsMatch) {
+  for (let i = childCount; i >=0; i--) {
+
+
+    var drinkIngVal = [cocktailArray[i].strIngredient1, cocktailArray[i].strIngredient2, cocktailArray[i].strIngredient3, cocktailArray[i].strIngredient4]
+
+    console.log(drinkIngVal)
+      console.log(drinkIngVal)
+      console.log(!drinkIngVal.includes(ans))
+      
+      if (!drinkIngVal.includes(ans)){
         cocktailArray.splice(i, 1)
       }
     }
-   
-    if (cocktailArray.length <= 1) {
-      clearList()
-      // Display drink
-      console.log(cocktailArray)
-      } else {
-      clearList()
-      questionIndex++
-      writeCatButton(cocktailArray, questionIndex)
-    }
-  
-  } else {
-  for (let i = childCount; i >=0; i--) {
-    var drinkVal = eval('cocktailArray[i].strIngredient' + questionIndex )
 
-    var checkAnsMatch = ans === drinkVal
-    if (!checkAnsMatch) {
-      cocktailArray.splice(i, 1)
-    }
-  }
+    // var checkAnsMatch = ans === drinkVal
+    // if (!checkAnsMatch) {
+    //   cocktailArray.splice(i, 1)
+    
+  
  
   if (cocktailArray.length <= 1) {
 
@@ -554,8 +550,8 @@ function removeNonAns(ans) {
     var returnUrl = './index.html'; 
     //When user clicks the return button, they return to the main html.
     btn.addEventListener('click', function(){
-    document.location.replace(returnUrl);
-})
+      document.location.replace(returnUrl);
+    })
     
     } else {
     clearList()
@@ -564,19 +560,25 @@ function removeNonAns(ans) {
       
 
   }
-} 
-
-
+ 
 }
 
+
+
 // Answer event listener 
-quizLi.addEventListener("click", function(event)  { 
+function createButtonEventListener () {
+
+  console.log(quizLi.childElementCount)
+for (let i = 0; i < quizLi.childElementCount; i++) {
+quizLi.children[i].addEventListener("click", function(event)  { 
   var ans =  event.target.textContent
   
   // Remove objects not containing answer
   removeNonAns(ans)
 
-})    
+})
+}    
+}
 
 
 // Popular Drinks API Call
@@ -592,7 +594,6 @@ function callPopDrinks (cocktailArray) {
   //     console.log('dupe detected')
   //   }
   // })
-
   //using object variable
   var uniqueObject = {};
   for (i in drinksSaved) {
