@@ -26,7 +26,7 @@ var cocktailArray = [];
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 50; i++) {
 
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
