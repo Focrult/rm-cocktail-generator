@@ -204,14 +204,44 @@ body{
     transform: translate(-50%, -50%);
     width: 45%;
     height: 45%;
+<<<<<<< HEAD
+    z-index: -1;
+=======
     visibility: hidden;
     /* z-index: -1; */
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
 }
 #question-container{
       /* border: solid green; */
     color: white;
     position: inline;
 }
+<<<<<<< HEAD
+#overlay2{ /*Adding shade over background image SECTION-1*/
+    background: rgba(0,0,0,1);
+    width:100%;
+    height:100%;
+    /* background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)); */
+    background-size: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+#QuizImg{
+    position: absolute;
+    z-index: -3;
+    width: 100%;
+    height: 98%;
+    background-size: cover;
+    object-fit: cover;
+    overflow: hidden;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+
+=======
 #question-count{
     background: none;;
     position: absolute;
@@ -219,11 +249,20 @@ body{
     right: 0;
     color: white;
 }
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
 /*Try key frames again for the fade effects*/ 
 .fadeinanimated{
     animation: fadeIn 10s ease-in-out;
 }
 .fadeOut{
+<<<<<<< HEAD
+    animation: fadeOut 7s ease-in-out;
+}
+body {
+    animation: fadeOut 3s ease-in-out;
+}
+@keyframes fadeOut{
+=======
     animation: fadeIn 7s ease-in-out;
 }
 body {
@@ -253,10 +292,13 @@ body {
     animation: fadeIn 500ms forwards;
 }
 @keyframes fadeIn{
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
+<<<<<<< HEAD
+=======
 @keyframes fadeCard{
     from{
         opacity: 1;
@@ -362,6 +404,7 @@ ul {
 #cocktail-card:hover {     
     box-shadow: 5px 5px 60px #f7633e;
 }
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
 .card {
     width: 20%;
     height: 70%;
@@ -408,4 +451,7 @@ ul {
     box-shadow: 5px 5px 60px #f7633e;
 
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
