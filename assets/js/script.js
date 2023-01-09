@@ -10,7 +10,7 @@ var cocktailArray = []
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 10; i++) {
 
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
@@ -252,18 +252,10 @@ const questions = [
   //     //   .then(function(data){
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
   //     //     for(var i =  0; i < 10; i++){
   //     //       cocktailArray.push(data.drinks[i]);
   //     //     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
           
   //     //     console.log(cocktailArray);
 
@@ -273,10 +265,6 @@ const questions = [
       
       
       
-<<<<<<< HEAD
-=======
-
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
   //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
   
   //   }
@@ -299,12 +287,9 @@ const questions = [
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
   //           if(data.drinks == "None Found"){
   //             document.location.replace("./404.html");
 
@@ -331,10 +316,6 @@ const questions = [
   //           }
          
   //       });
-<<<<<<< HEAD
-=======
-
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
 
   // }
  
@@ -443,12 +424,6 @@ function writeCatButton(cocktailArray, questionIndex) {
       
     }
 
-      //Update page count element textcontent with page increment values
-      countEl.texcontent = questionCount;
-      answerEl.addEventListener("click", function(){
-        questionCount++;
-        setCounterText();
-  })
   }
   }
   
@@ -517,7 +492,7 @@ function removeNonAns(ans) {
     // Display drink
 
     console.log("Drink Data Reached!");
-    console.log(drinkData.drinks[0]);
+    console.log(cocktailArray.drinks[0]);
 
     var cocktailObject = {
       name: drinkData.drinks[0].strDrink,
@@ -573,6 +548,7 @@ function callPopDrinks (cocktailArray) {
   for (i in drinksSaved) {
     
     objID = drinksSaved[i].idDrink;
+    console.log(objID);
     console.log(drinksSaved[i])
     uniqueObject[objID] = drinksSaved[i]
 
