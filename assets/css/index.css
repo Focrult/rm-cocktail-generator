@@ -21,9 +21,14 @@
     color: #232137	rgb(35, 33, 55);
 }
 
-#render-page{ /*HIDDEN RENDER PAGE*/
+.hidden{ 
     visibility: hidden;
 }
+
+#render-page { 
+    justify-content: center;
+}
+
 /*Main Page*/
 body{
     background-color: black;
@@ -271,46 +276,11 @@ body{
     position: inline;
 }
 
-#question-count {
-
-
-#overlay2{ /*Adding shade over background image SECTION-1*/
-    background: rgba(0,0,0,1);
-    width:100%;
-    height:100%;
-    /* background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)); */
-    background-size: cover;
-    object-fit: cover;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -1;
-}
-#QuizImg{
-    position: absolute;
-    z-index: -3;
-    width: 100%;
-    height: 98%;
-    background-size: cover;
-    object-fit: cover;
-    overflow: hidden;
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
-}
-
-
-    background: none;;
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: white;
-}
 
 /*Try key frames again for the fade effects*/ 
 .fadeinanimated {
     animation: fadeIn 10s ease-in-out;
 }
-
 
 .fadeOut {
 
@@ -569,3 +539,60 @@ ul {
 
 }
 
+/* Return Button from Result Cards */
+#returnBtn{ /*Button styles and position*/
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+/* Styling of button */
+    border: none;
+    padding: 10px 20px;
+    background-color: #f7633e;
+    color: white;
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 300ms ease-out;
+}
+#returnBtn:hover{ /*Hover effect for the return button*/
+    font-size: 18px;
+    transition: font-size .2s ease;
+    transition: 300ms ease-out;
+    transition: 300ms ease-in;
+    cursor:pointer;
+}
+/*ISSUE HERE, */
+@media only screen and (max-width: 680px) {
+
+    #returnBtn{/*moved button into max width*/
+    top: 95%;
+    display: flex;
+    flex-wrap: nowrap;
+    }
+  }
+@media only screen and (max-width: 1050px) {
+    h1,h3{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center; /*h1 wouldn't center on a certain size, this fixes that problem*/
+    }
+    #returnBtn{/*moved button into max width*/
+    top: 85%;
+    display: flex;
+    flex-wrap: nowrap;
+    }
+    p{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        top: 90%;
+    }
+  }
+  @media only screen and (max-height: 769px) {
+    p{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+  }

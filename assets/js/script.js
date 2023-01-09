@@ -4,10 +4,25 @@ const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
+var renderCardEl = document.querySelector("#render-page")
+const btn = document.getElementById('returnBtn');
+//Cocktail Card Elements
+var cocktailImageEl = document.querySelector("#cocktail-image");
+var cocktailNameEl = document.querySelector("#cocktail-name");
+var instructionContentEl = document.querySelector("#instruction-content");
+//Character Card Elements
+var characterImageEl = document.querySelector("#character-image");
+var characterNameEl = document.querySelector("#character-name");
+var characterSpeciesEl = document.querySelector("#species");
+var characterGenderEl = document.querySelector("#gender");
+var characterOriginEl = document.querySelector("#origin");
+
 
 var APIKey = "9973533";
 var drinksSaved = [];
 var cocktailArray = [];
+
+
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
@@ -424,8 +439,7 @@ function writeCatButton(cocktailArray, questionIndex) {
 }
 
   //------------------------Fetch Character---------------------------------
-  var fetchCocktail = JSON.parse(localStorage.getItem('cocktailName'));
-  console.log(fetchCocktail);
+  
 
   var randomNumber = Math.floor(Math.random() * 825);
 
@@ -450,8 +464,23 @@ function writeCatButton(cocktailArray, questionIndex) {
               image: data.image,
             }
 
+            //Set Character Object to  local storage
             console.log(characterObject);
             localStorage.setItem("characterName", JSON.stringify(characterObject));
+
+            //Retrieve character Object from local storage
+            var retrieveCharacter = JSON.parse(localStorage.getItem('characterName'));
+
+            //Update Character Card details based on retrieved values
+            characterImageEl.setAttribute("src", retrieveCharacter.image);
+            characterNameEl.textContent = retrieveCharacter.name;
+            characterSpeciesEl.textContent = retrieveCharacter.species;
+            characterGenderEl.textContent = retrieveCharacter.gender;
+            characterOriginEl.textContent = retrieveCharacter.origin;
+
+            
+
+
         });
 
     
@@ -509,7 +538,24 @@ function removeNonAns(ans) {
 
     console.log(cocktailObject);
     localStorage.setItem("cocktailName", JSON.stringify(cocktailObject));
-    
+
+    //Retrieve cocktail information from local storage
+    var fetchCocktail = JSON.parse(localStorage.getItem('cocktailName'));
+
+    //Set cocktail card information using retrieved cocktail information
+    cocktailImageEl.setAttribute("src", fetchCocktail.image);
+    cocktailNameEl.textContent = fetchCocktail.name;
+    instructionContentEl.textContent = fetchCocktail.instructions;
+
+    //Remove hidden class
+    renderCardEl.classList.remove("hidden");
+
+    //Return button functionality
+    var returnUrl = './index.html'; 
+    //When user clicks the return button, they return to the main html.
+    btn.addEventListener('click', function(){
+    document.location.replace(returnUrl);
+})
     
     } else {
     clearList()
