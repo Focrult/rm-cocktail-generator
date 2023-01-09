@@ -374,14 +374,14 @@ const overlay = document.getElementById('overlay');
 const instructions = document.getElementById('instructions');
 const title = document.getElementById('body');
 
-// setTimeout(function () {
 
-// },4000);
-
+setTimeout(function () {
+  console.log("instructions displayed");
+  overlay.style.visibility = 'visible';
+},3000);
 
 function Instructions(){ //function to reveal pop-up after a few seconds
- console.log("instructions displayed");
- overlay.style.visibility = 'visible';
+console.log("passing");
 };
 //Add click event when user clicks lets go
 close2.addEventListener('click', function() {
@@ -653,13 +653,5 @@ function callPopDrinks (cocktailArray) {
 
   
 loadCocktails(drinksSaved);
-
-
-
-
-
-
-  
-  
 
 
