@@ -64,29 +64,36 @@
         <div class="card-image"> 
             <img id="cocktail-image"> 
         </div> 
-        <div class="title"> 
-            <h2 id="cocktail-name"></h2>
+
+        <div class="text-cocktail-container">
+            <div class="title"> 
+                <h2 id="cocktail-name"></h2>
+            </div> 
+            <div class="card-text"> 
+                <ul> 
+                    <li>Instructions: </li>
+                    <li id="instruction-content"></li>
+                </ul> 
+            </div>
         </div> 
-        <div class="card-text"> 
-            <ul> 
-                <li>Instructions: </li>
-                <li id="instruction-content"></li>
-            </ul> 
-        </div>
     </div>
+
     <div class = "card" id="character-card"> 
         <div class="card-image"> 
             <img id="character-image"> 
-        </div> 
-        <div class="title" id="character-name"> 
-            <h2 id="character-name"></h2>
-        </div> 
-        <div class="card-ul" id="character-card-ul"> 
-            <ul> 
-                <li>Species: <span id="species"></span></li>
-                <li>Gender: <span id="gender"></span></li>
-                <li>Origin: <span id="origin"></span></li>
-            </ul>
+        </div>
+
+        <div class="text-character-container">
+            <div class="title" id="character-name"> 
+                <h2 id="character-name"></h2>
+            </div> 
+            <div class="card-ul" id="character-card-ul"> 
+                <ul> 
+                    <li>Species: <span id="species"></span></li>
+                    <li>Gender: <span id="gender"></span></li>
+                    <li>Origin: <span id="origin"></span></li>
+                </ul>
+            </div>
         </div>
     </div>
     <button id="returnBtn">Return Home</button>
