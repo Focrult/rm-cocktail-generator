@@ -9,7 +9,7 @@ const btn = document.getElementById('returnBtn');
 //Cocktail Card Elements
 var cocktailImageEl = document.querySelector("#cocktail-image");
 var cocktailNameEl = document.querySelector("#cocktail-name");
-var instructionContentEl = document.querySelector("#instruction-content");
+
 //Character Card Elements
 var characterImageEl = document.querySelector("#character-image");
 var characterNameEl = document.querySelector("#character-name");
@@ -360,7 +360,6 @@ function removeNonAns(ans) {
     //Set cocktail card information using retrieved cocktail information
     cocktailImageEl.setAttribute("src", fetchCocktail.image);
     cocktailNameEl.textContent = fetchCocktail.name;
-    instructionContentEl.textContent = fetchCocktail.instructions;
 
     //Remove hidden class
     renderCardEl.classList.remove("hidden");
