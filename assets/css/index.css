@@ -183,53 +183,6 @@ body{
     grid-template-columns: repeat(2, auto);
     align-items: center;
 }
-<<<<<<< HEAD
-.card {     
-    width: 20%;     
-    height: 70%;     
-    background-color: white;     
-    border-radius: 10px;     
-    margin: 40px;	     
-    display: inline-block; 
-}  
-
-.card:hover {     
-    box-shadow: 5px 5px 60px rgb(49, 139, 190);	 
-}  
-
-.title {     
-    text-align: center;     
-    text-decoration: underline;     
-    text-decoration-color: #f7633e;     
-    padding: 15px; 
-}  
-
-.card-ul {     
-    text-decoration: underline;     
-    text-decoration-color: #f7633e; 
-}  
-
-#character-card-ul {     
-    text-decoration-color: rgb(49, 139, 190);
-}  
-
-#character-name {      
-    text-decoration-color: rgb(49, 139, 190);
-}  
-
-ul {     
-    list-style: none; 
-}  
-
-.card-image img {     
-    width: 100%;     
-    border-radius: 10px; 
-}  
-
-#cocktail-card:hover {     
-    box-shadow: 5px 5px 60px #f7633e;
-}
-=======
 #quiz-container{
     /* border: solid green; */
     position: absolute;
@@ -331,4 +284,3 @@ ul {
     box-shadow: 5px 5px 60px #f7633e;
 
 }
->>>>>>> 95bae25d6c74856b8869cdbf1f329156a5dec2dc
