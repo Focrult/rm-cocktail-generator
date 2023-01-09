@@ -518,14 +518,7 @@ function removeNonAns(ans) {
       
 
   }
-}
-
-
-
-
-  
-  
- 
+} 
 
 
 }

@@ -1,9 +1,9 @@
  *{ /*Universal declarations*/
-    padding: 0;
-    margin: 0;
-    font-family: 'Hanalei Fill', cursive;
-    font-family: 'Space Mono', monospace;
- }
+        padding: 0;
+        margin: 0;
+        font-family: 'Hanalei Fill', cursive; 
+        font-family: 'Space Mono', monospace;
+    }
 :root {
        --brown: #44281d (68,40,29);
        --salmonpink: #e4a788 (228,167,136);
@@ -11,6 +11,7 @@
        --green: #97ce4c (151,206,76);
        --pink: #e89ac7 (232,154,199);
     }
+
 .blue-colours { /* blueish colours that we can use: "https://www.color-hex.com/color-palette/10375" */  
     color: #318bbe	rgb(49, 139, 190);
     color: #92c5dd	rgb(146, 197, 221);
@@ -19,6 +20,7 @@
     color: #80acbb	rgb(128, 172, 187);
     color: #232137	rgb(35, 33, 55);
 }
+
 #render-page{ /*HIDDEN RENDER PAGE*/
     visibility: hidden;
 }
@@ -26,10 +28,12 @@
 body{
     background-color: black;
 }
+
 #logo{
     color: white;
     text-align: center;
 }
+
 #startBtn{
     border: none;
     padding: 20px 40px;
@@ -41,6 +45,7 @@ body{
     transition: 300ms ease-out;
     align-items: center;
 }
+
 #main-btn{
     position: absolute;
     top: 80%;
@@ -48,7 +53,8 @@ body{
     transform: translate(-50%, -50%);
     text-align: center;
 }
-.container{
+
+.container {
     vertical-align: middle;
     text-align: center;
     width: 100%;
@@ -60,7 +66,8 @@ body{
     top: 0;
     bottom: 0;
 }
-#startBtn:hover{
+
+#startBtn:hover {
     font-size: 22px;
     transition: font-size .2s ease;
     transition: 300ms ease-out;
@@ -68,7 +75,7 @@ body{
     cursor:pointer;
 }
 /*Start of pop-up*/
-#overlay{ 
+#overlay { 
     transition: 200ms ease-in;
     width:100%;
     height:100%;
@@ -79,9 +86,10 @@ body{
     z-index: 3;
     visibility: hidden;
 }
+
 #instructions{
     background-color: rgb(197, 196, 196);
-    position: absolute;
+    position: relative;
     width: 30%;
     height: 50%;
     color: black;
@@ -91,54 +99,96 @@ body{
     box-shadow: 2px rgb(48, 48, 48);
     transition: 200ms ease-in;
     border-radius: 20px;
+    border: solid 5px rgb(66,113,201);
  
 }
-.strong-overlay{
+
+.strong-overlay {
   animation: fadeIn 3s ease-in;
   opacity: 1;
 }
-.text h2{
+
+.text h2 {
    text-align: center;
 }
-.text{
+
+.text {
     position: absolute;
     width: 50%;
     margin-left: 30px;
 }
-#closeBtn{
-    padding: 20px 20px 20px 20px;
+
+#closeBtn { 
+    padding: 20px 20px;
     position: absolute;
     color: rgb(197, 196, 196);
-    background: linear-gradient(rgba(1, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+    background: linear-gradient(rgb(52,240,106),rgba(0, 0, 0, 0.7));
     border: none;
     transition: 300ms ease-out;
-    bottom: 50%;
-    left: 65%;
+    /* bottom: 50%; doesn't do anything*/
+    left: 60%;
     border-radius: 10px;
     font-size: larger;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    text-shadow:
+    0 0 0.125em hsl(0, 0%, 30% / 0.1), 
+    0 0 0.25em rgb(52,240,106);
+    box-shadow: 
+        inset 0 0 0.5em 0 rgb(52,240,106),
+        0 0 0.5em 0 rgb(52,240,106);
+    
 }
-#closeBtn:hover{
+
+#closeBtn:hover {
+    text-shadow: none;
     opacity: 60%;
     transition: 300ms ease-out;
     transition: 300ms ease-in;
     cursor: pointer;
+
 }
-#closeBtn:active{
-    background-color: white;
+
+#closeBtn:active {
+    background-color: rgb(52,240,106);
 }
-.h1-popup{
+
+.h1-popup {
     font-weight: 100px;
     font-size: 50px;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
     margin-bottom: 10px;
     padding-left: 2px;
     padding-right: 2px;
 }
-#instructions li{
+
+.the {
+
+    color: rgb(244,69,229);
+}
+
+.creep {
+    color: rgb(96,20,228);
+}
+
+.morty {
+    color: rgb(244,69,229);
+}
+
+#instructions li {
+    /* list-style: square; */
     padding: 10px;
     padding-bottom: 25px;
+    list-style: none;
 }
+
+#instructions li:before{
+    content: " \25B7";
+    color: #f7633e;
+
+}
+
 /*End of pop-up*/
 /*Portal Animation*/
 .portal{
@@ -151,11 +201,13 @@ body{
     top: 70%;
     left: 50%;
 }
-.portal:hover{
+
+.portal:hover {
     transition: 300ms ease-out;
     transition: 300ms ease-in;
     opacity: 70%;
 }
+
 @keyframes spin {
     from {
       transform: rotate( 0deg ); /*starting position*/
@@ -163,13 +215,14 @@ body{
     to {
       transform: rotate( -360deg );/*full 360*/
     }
-  }
+}
   /*End of portal*/
   /*Quiz page*/
-  #quiz-container{
+#quiz-container {
     background-image: url('./assets/media/bar image.webp');
-  }
-  #quiz-list button{
+}
+
+#quiz-list button{
     border: none;
     padding: 10px 20px;
     background-color: #f7633e;
@@ -180,7 +233,8 @@ body{
     /* display: grid;
     grid-template-columns: repeat(2);
     gap: 10px; */
-  }
+}
+
 #quiz-list button:hover{
     font-size: 18px;
     transition: font-size .2s ease;
@@ -188,6 +242,7 @@ body{
     transition: 300ms ease-in;
     cursor:pointer;
 }
+
 #quiz-list{
     margin: 20px 0;
     gap: 10px;
@@ -195,6 +250,7 @@ body{
     grid-template-columns: repeat(2, auto);
     align-items: center;
 }
+
 #quiz-container{
     /* border: solid green; */
     position: absolute;
@@ -204,19 +260,20 @@ body{
     transform: translate(-50%, -50%);
     width: 45%;
     height: 45%;
-<<<<<<< HEAD
-    z-index: -1;
-=======
+
     visibility: hidden;
     /* z-index: -1; */
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
+
 }
-#question-container{
+#question-container {
       /* border: solid green; */
     color: white;
     position: inline;
 }
-<<<<<<< HEAD
+
+#question-count {
+
+
 #overlay2{ /*Adding shade over background image SECTION-1*/
     background: rgba(0,0,0,1);
     width:100%;
@@ -241,34 +298,37 @@ body{
     filter: blur(10px);
 }
 
-=======
-#question-count{
+
     background: none;;
     position: absolute;
     top: 0;
     right: 0;
     color: white;
 }
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
+
 /*Try key frames again for the fade effects*/ 
-.fadeinanimated{
+.fadeinanimated {
     animation: fadeIn 10s ease-in-out;
 }
-.fadeOut{
-<<<<<<< HEAD
+
+
+.fadeOut {
+
     animation: fadeOut 7s ease-in-out;
 }
 body {
     animation: fadeOut 3s ease-in-out;
 }
 @keyframes fadeOut{
-=======
+
     animation: fadeIn 7s ease-in-out;
 }
+
 body {
     animation: fadeIn 3s ease-in-out;
 }
-#background{
+
+#background {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -279,39 +339,51 @@ body {
     bottom: 0;
     z-index: -5;
 }
-#logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+#logo {
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
-#question-count{
+
+#question-count {
     visibility: hidden;
 }
-.BlackCoverChange{
+
+.BlackCoverChange {
     transition-delay: 2s;
     animation: fadeIn 500ms forwards;
 }
-@keyframes fadeIn{
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
+
+
+@keyframes fadeIn {
+
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-<<<<<<< HEAD
-=======
-@keyframes fadeCard{
+
+@keyframes fadeCard {
+
     from{
         opacity: 1;
     }to{
         opacity: 0;
     }
 }
-@media only screen and (max-height: 900px){
+
+@media only screen and (max-height: 900px) {
     #closeBtn{
         bottom: 30%
     }
 }
-@media only screen and (max-height: 1050px){
+
+@media only screen and (max-height: 1050px) {
     #logo{
         position: static;
         display: flex;
@@ -323,42 +395,87 @@ body {
         bottom: 35%
     }
 }
-@media only screen and (max-width: 2505px){
+
+@media only screen and (max-width: 2505px) {
     .closeBtn{
-    position: static;
-    display: flex;
-    flex-wrap: nowrap;
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
     }
     .text{
         font-size: 15px;
     }
 }
-@media only screen and (max-width: 2250px){
-.text{
-    font-size: 14px;
-}
-}
-@media only screen and (max-width: 1440px){
- .h1-popup{
-    font-size: 30px;
- }
+
+@media only screen and (max-width: 2250px) {
+    .text {
+        font-size: 14px;
     }
-@media only screen and (max-width: 1050px){
-#logo{
-    position: static;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
 }
+
+@media only screen and (max-width: 1920px), only screen and (max-width: 2250px), only screen and (max-width:2500px) {
+    #logo   {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    /* .closeBtn   {
+        padding: 20px 20px;
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+    } */
+
+    #instructions {
+        width: 30%;
+        height: 65%;
+        color: black;
+        top: 45%;
+        left: 50%;
+
+    }
+
 }
-@media only screen and (max-width: 680px) {
-    #logo{
+
+@media only screen and (max-width: 1040px) {
+
+    #logo {
+        position: static;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    #instructions {
+        width: 30%;
+        height: 65%;
+        color: black;
+        top: 45%;
+        left: 50%;
+
+    }
+}
+
+@media only screen and (max-width: 1440px){
+    .h1-popup   {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 1050px), only screen and (max-width: 680px)  {
+    
+    #logo   {
         position: static;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
     }
-  }
+}
+
 .card {     
     width: 20%;     
     height: 70%;     
@@ -404,7 +521,7 @@ ul {
 #cocktail-card:hover {     
     box-shadow: 5px 5px 60px #f7633e;
 }
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
+
 .card {
     width: 20%;
     height: 70%;
@@ -451,7 +568,4 @@ ul {
     box-shadow: 5px 5px 60px #f7633e;
 
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
