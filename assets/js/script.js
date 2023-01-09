@@ -4,13 +4,13 @@ const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
-var drinkData = []
+var drinksSaved = []
 var APIKey = "9973533";
 var cocktailArray = []
 
 // Load Cocktail Array when program starts
-function loadCocktails(cocktailArray) {
-  for (var i = 0; i < 10; i++) {
+function loadCocktails(drinksSaved) {
+  for (var i = 0; i < 50; i++) {
 
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
@@ -22,12 +22,12 @@ function loadCocktails(cocktailArray) {
     })
     .then(function(data){
       console.log(data.drinks)
-      for(var i =  0; i < 10; i++){
-        cocktailArray.push(data.drinks[i]);
+      for (var i =  0; i < 10; i++){
+        drinksSaved.push(data.drinks[i]);
       }
     })
   }
-  console.log(cocktailArray)
+  console.log(drinksSaved)
 }
 
 
@@ -131,20 +131,28 @@ function writeIngredientBtn(questionIndex) {
           setCounterText();
     })
     }
-
-    
-    
 }
 
 // Start quiz call
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
+  const quizContainer = document.getElementById('quiz-container');
   const test = document.documentElement;
   var op = document.getElementById("overlay2");
+  const stars = document.getElementById("stars");
+  const logo = document.getElementById("logo");
+const instructions = document.getElementById("instructions");
+
+
+
+  // const logo = document.getElementById("logo")
+  instructions.classList.add("BlackCoverChange");
+  logo.style.display = "none";
   startBtn.style.visibility = "hidden";
+  quizContainer.style.visibility = "visible";
   // test.classList.add('fadeOut');
-    op.style.opacity = 0.8;
+    // op.style.opacity = 0.5;
     startQuiz();
   
     document.getElementById('main-btn').classList.add('hide');
@@ -154,97 +162,14 @@ startBtn.addEventListener('click', function() {
 function startQuiz(){
 
     startBtn.classList.add('hide');
-    callPopDrinks()
+    callPopDrinks(cocktailArray)
     // writeIngredientBtn(questionIndex)
     // //reveals the first question
-    quizContainer.classlist.remove('hide');
+    quizContainer.classList.remove('hide');
 
     Instructions();
-    
-    
-    
-
     //another function to pass through questions?
 }
-
-//function to pass questions - show + hide
-// function showQuestion(){
-//   for(var i=0; i > questions.length; i++){
-//     question.classList.remove("hide");
-//     question.classList.add("hide")
-   
-//   }
-// }
-
-
-
-
-
-
-
-
-//Questions and where each would direct user
-//This will minimise html code and make it easier to assign questions to API requests
-//Review with team members
-//Get elements add attributes? try 
-
-// const questions = [
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//       ]
-//     },
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//       ]
-//     },
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false},
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//     ]
-//     },
-//     {
-//         question: 'Question Here',
-//         answers: [
-//           { text: 'Choice here', correct: true },
-//           { text: 'Choice here', correct: false},
-//           { text: 'Choice here', correct: false },
-//           { text: 'Choice here', correct: false }
-//         ]
-//     },
-//     {
-//         question: 'Question Here',
-//         answers: [
-//           { text: 'Choice here', correct: true },
-//           { text: 'Choice here', correct: false},
-//           { text: 'Choice here', correct: false },
-//           { text: 'Choice here', correct: false }
-//         ]
-//     },
-//     {
-//       question: 'Question Here',
-//       answers: [
-//         { text: 'Choice here', correct: true },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false },
-//         { text: 'Choice here', correct: false }
-//       ]
-//     }
-//   ]
-
 const questions = [
     {
       question: 'Question Here',
@@ -327,11 +252,18 @@ const questions = [
   //     //   .then(function(data){
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
   //     //     for(var i =  0; i < 10; i++){
   //     //       cocktailArray.push(data.drinks[i]);
   //     //     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
           
   //     //     console.log(cocktailArray);
 
@@ -341,6 +273,10 @@ const questions = [
       
       
       
+<<<<<<< HEAD
+=======
+
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
   //     // var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=" + ingredients;
   
   //   }
@@ -363,6 +299,12 @@ const questions = [
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
   //           if(data.drinks == "None Found"){
   //             document.location.replace("./404.html");
 
@@ -389,6 +331,10 @@ const questions = [
   //           }
          
   //       });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
 
   // }
  
@@ -453,7 +399,7 @@ const questions = [
 
 
   
-var questionIndex = 1
+var questionIndex = 0
 
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
@@ -462,8 +408,14 @@ const overlay = document.getElementById('overlay');
 const instructions = document.getElementById('instructions');
 const title = document.getElementById('body');
 
+// setTimeout(function () {
+
+// },4000);
+
+
 function Instructions(){ //function to reveal pop-up after a few seconds
-  overlay.style.visibility = 'visible';
+ console.log("instructions displayed");
+ overlay.style.visibility = 'visible';
 };
 //Add click event when user clicks lets go
 close2.addEventListener('click', function() {
@@ -475,9 +427,34 @@ close2.addEventListener('click', function() {
 
 //When user clicks start quiz
 function writeCatButton(cocktailArray, questionIndex) {
-  console.log(questionIndex)
-  console.log(cocktailArray)
   var quizLst = []
+  if (questionIndex == 0) {
+    for (let i = 0; i < cocktailArray.length; i++ ) {
+      // Check if value is already a child
+
+      var checkValue = quizLst.includes(cocktailArray[i].strCategory)
+
+      if (!checkValue) {
+      var answerEl = document.createElement('button');
+      answerEl.textContent = cocktailArray[i].strCategory
+      
+      quizLi.append(answerEl)
+      quizLst.push(cocktailArray[i].strCategory)
+      
+    }
+
+      //Update page count element textcontent with page increment values
+      countEl.texcontent = questionCount;
+      answerEl.addEventListener("click", function(){
+        questionCount++;
+        setCounterText();
+  })
+  }
+  }
+  
+  else {
+
+ 
   for (let i = 0; i < cocktailArray.length; i++ ) {
       
       // Check if value is already a child
@@ -499,12 +476,33 @@ function writeCatButton(cocktailArray, questionIndex) {
   })
   }
 }
+}
 
 
 function removeNonAns(ans) {
   var childCount = cocktailArray.length - 1
-  console.log(childCount)
-
+  
+  if (questionIndex == 0 ) {
+    for (let i = childCount; i >=0; i--) {
+      var drinkVal = cocktailArray[i].strCategory
+  
+      var checkAnsMatch = ans === drinkVal
+      if (!checkAnsMatch) {
+        cocktailArray.splice(i, 1)
+      }
+    }
+   
+    if (cocktailArray.length <= 1) {
+      clearList()
+      // Display drink
+      console.log(cocktailArray)
+      } else {
+      clearList()
+      questionIndex++
+      writeCatButton(cocktailArray, questionIndex)
+    }
+  
+  } else {
   for (let i = childCount; i >=0; i--) {
     var drinkVal = eval('cocktailArray[i].strIngredient' + questionIndex )
 
@@ -513,8 +511,7 @@ function removeNonAns(ans) {
       cocktailArray.splice(i, 1)
     }
   }
-  console.log(cocktailArray)
-  console.log(childCount)
+ 
   if (cocktailArray.length <= 1) {
     clearList()
     // Display drink
@@ -537,10 +534,11 @@ function removeNonAns(ans) {
     clearList()
     questionIndex++
     writeCatButton(cocktailArray, questionIndex)
-    
-    
-   
+      
+
   }
+}
+ 
 
 
 
@@ -548,7 +546,6 @@ function removeNonAns(ans) {
 
 // Answer event listener 
 quizLi.addEventListener("click", function(event)  { 
-  console.log(event.target.textContent)
   var ans =  event.target.textContent
   
   // Remove objects not containing answer
@@ -559,7 +556,47 @@ quizLi.addEventListener("click", function(event)  {
 
 // Popular Drinks API Call
 
-function callPopDrinks () {
+function callPopDrinks (cocktailArray) {
+ 
+  // for each method
+  // console.log(drinksSaved)
+  // drinksSaved.forEach(element => {
+  //   if (!cocktailArray.includes(element)) {
+  //     cocktailArray.push(element);
+  //   } else {
+  //     console.log('dupe detected')
+  //   }
+  // })
+
+  //using object variable
+  var uniqueObject = {};
+  for (i in drinksSaved) {
+    
+    objID = drinksSaved[i].idDrink;
+    console.log(drinksSaved[i])
+    uniqueObject[objID] = drinksSaved[i]
+
+  
+  }
+
+  for (i in uniqueObject) {
+    cocktailArray.push(uniqueObject[i])
+  }
+
+  console.log(uniqueObject[1])
+  console.log(cocktailArray)
+  
+  // for (let i = 0; i < drinksSaved.length; i++) {
+  //   var checkDupe = cocktailArray.includes(drinksSaved[i].idDrink)
+  //   console.log(checkDupe)
+  //   if (checkDupe) {
+  //     console.log('dupe detected')
+  //   } else {
+  //     cocktailArray.push(drinksSaved[i])
+  //   }
+
+    
+  // }
   // var cocktailArray = [];
 
   // for(var i = 0; i < 3; i++){
@@ -591,7 +628,7 @@ function callPopDrinks () {
 }
 
   
-loadCocktails(cocktailArray);
+loadCocktails(drinksSaved);
 
 
 

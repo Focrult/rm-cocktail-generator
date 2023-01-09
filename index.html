@@ -12,48 +12,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 </head>
-
-
-
-
-
-
-
 <section>
+    <img id="logo" src="logo.png">
+    <video id="background" autoplay loop muted src="Comp 4.mp4"></video>
 <div id="overlay">
     <div id="instructions">
         <h1 class="h1-popup">Welcome to our Quiz Game!</h1>
         <div class="text">
         <h2>What to do...</h2>
-        <li>Step 1: Press start to begin quiz.</li>
-        <li>Step 2: Pick your cocktail ingredients.</li>
-        <li>Step 3: After all the questions, your Rick & Morty Character and your drink will be revealed!</li>
+        <li>Step 1: Click on Start Quiz</li>
+        <li>Step 2: Select your cocktail ingredients</li>
+        <li>Step 3: After completed your cocktail and rick and morty character will be revealed!</li>
         </div>
     <button id="closeBtn">Let's Go!</button>
     </div>
 </div>
 </section>
-
-
-
-
-
-
-
-<body>
+    <div class="stars">
     <div id="overlay2">
-<header>
-    <h1 id="logo">INSERT LOGO</h1>
-</header>
     <main>
         <!--Main container-->
+        <h4 id="question-count">Question Count: <span id="count"></span></h4>
     <div class="container">
-    <div class="main-btn"> <!--Buttons for main page-->
+    <div id="main-btn">
 <!-- <img class="portal" src="./assets/media/rick and morty portal.png" alt="portal"> -->
         <button type="button" id="startBtn">Start Quiz</button>
-        <h4>Question Count: <span id="count"></span></h4>
-         </div>
-
+    </div>
     <div id="quiz-container" class="hide">
         <div id="question-container"></div>
             <ul id="quiz-list">
@@ -65,11 +49,22 @@
 </main>
 <p>Score: <span id="score-span"></span></p><!--To keep track of score?-->
 
+<<<<<<< HEAD
 <!--Error Page-->
 <section> 
     <div class="card" id="cocktail-card">
         <div class="card-image">
             <img id="cocktail-image">
+=======
+</div>
+
+
+<!--Render Page-->
+<section id="render-page"> 
+    <div class = "card" id="cocktail-card"> 
+        <div class="card-image"> 
+            <img id="cocktail-image"> 
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
         </div> 
         <div class="title"> 
             <h2>Cocktail name: <span id="cocktail-name"></span></h2>
@@ -83,8 +78,12 @@
             </ul> 
         </div>
     </div>
+<<<<<<< HEAD
 
     <div class="card" id="character-card"> 
+=======
+    <div class = "card" id="character-card"> 
+>>>>>>> 72c50ddbbc510229546f236d24a263069a7ea7b8
         <div class="card-image"> 
             <img id="character-image"> 
         </div> 
@@ -102,8 +101,6 @@
 </section>
 
 </body>
-
-
-
+</div>
 <script src="assets/js/script.js"></script>
 </html>
