@@ -10,6 +10,9 @@
        --yellow: #f0e14a (240,225,74);
        --green: #97ce4c (151,206,76);
        --pink: #e89ac7 (232,154,199);
+
+       /*New colours for the document*/
+       --white: white; 
     }
 
 .blue-colours { /* blueish colours that we can use: "https://www.color-hex.com/color-palette/10375" */  
@@ -20,50 +23,16 @@
     color: #80acbb	rgb(128, 172, 187);
     color: #232137	rgb(35, 33, 55);
 }
-
-.hidden{ 
+.hidden{ /*Class hidden for JS file*/
     visibility: hidden;
 }
-
-#render-page { 
-    justify-content: center;
-}
-
 /*Main Page*/
 body {
     text-align: center; /* To align the cards on the center of the page */
     background-color: black;
     animation: fadeIn 3s ease-in-out;
 }
-
-#logo{
-    color: white;
-    text-align: center;
-}
-
-#startBtn{
-    border: none;
-    padding: 20px 40px;
-    font-size: 17px;
-    background-color: #f7633e;
-    color: white;
-    border-radius: 50px;
-    font-weight: 800;
-    transition: 300ms ease-out;
-    align-items: center;
-}
-
-#main-btn{
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.container {
-    vertical-align: middle;
-    text-align: center;
+#background{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -72,8 +41,33 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: -5;
 }
-
+#logo {
+    position: static;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#startBtn{
+    border: none;
+    padding: 20px 40px;
+    font-size: 17px;
+    background-color: #f7633e;
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 300ms ease-out;
+    align-items: center;
+}
+#main-btn{ /*Container for the Start Btn*/
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 #startBtn:hover {
     font-size: 22px;
     transition: font-size .2s ease;
@@ -92,9 +86,7 @@ body {
     left: 0px;
     z-index: 3;
     visibility: hidden;
-
 }
-
 #instructions{
     background-color: rgb(197, 196, 196);
     position: relative;
@@ -110,119 +102,6 @@ body {
     border-radius: 20px;
     border: solid 5px rgb(66,113,201);
 }
-
-#instructions:hover{
-    outline-color: rgb(66,113,201);
-    box-shadow: 0px 0px 45px rgb(66,113,201), 0 0 100px rgb(66,113,201);
-}
-
-#instructions li {
-    /* list-style: square; */
-    padding: 10px;
-    padding-bottom: 25px;
-    list-style: none;
-}
-
-#instructions li:before{
-    text-shadow: 0px 0px 5px #f7633e, 0 0 5px #f7633e;
-    content: " \25B7";
-    color: #f7633e;
-}
-
-#instructions li:hover::before{
-    content: " \25B7";
-    text-shadow: 0px 0px 4px #bc4224, 0px 0px 10px #bc4224;
-}
-
-
-.the {
-    color: hsl(317 100% 54%);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
-    0 0 0.200em hsl(317 100% 54%);
-}
-
-.the:hover {
-    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
-    0 0 0.300em hsl(317 100% 54%);
-    /* box-shadow: 0px 0px 25px rgb(244,69,229), 0 0 10px rgb(244,69,229); */
-}
-
-.creep {
-    color: rgb(96,20,228);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
-    0 0 0.200em rgb(96,20,228);
-}
-
-.creep:hover {
-    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
-    0 0 0.300em rgb(96,20,228);
-}
-
-.morty {
-    color: hsl(317 100% 54%);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
-    0 0 0.200em hsl(317 100% 54%);
-}
-
-.morty:hover {
-    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
-    0 0 0.300em hsl(317 100% 54%);
-}
-
-.strong-overlay {
-  animation: fadeIn 3s ease-in;
-  opacity: 1;
-}
-
-.text h2 {
-   text-align: center;
-}
-
-.text {
-    position: absolute;
-    width: 50%;
-    margin-left: 30px;
-}
-
-#closeBtn { 
-    padding: 20px 20px;
-    position: absolute;
-    color: rgb(197, 196, 196);
-    background: linear-gradient(rgb(52,240,106),rgba(0, 0, 0, 0.7));
-    border: none;
-    transition: 300ms ease-out;
-    /* bottom: 50%; doesn't do anything*/
-    left: 60%;
-    border-radius: 10px;
-    font-size: larger;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    text-shadow:
-    0 0 0.125em hsl(0, 0%, 30% / 0.1), 
-    0 0 0.200em rgb(52,240,106);
-    box-shadow: 
-        inset 0 0 0.200em 0 rgb(52,240,106),
-        0 0 0.100em 0 rgb(52,240,106);
-        
-    
-}
-
-#closeBtn:hover {
-    box-shadow:  0px 0px 40px rgb(52,240,106), 0 0 50px rgb(52,240,106);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
-    0 0 0.200em rgb(52,240,106);
-    text-shadow: none;
-    opacity: 60%;
-    transition: 300ms ease-out;
-    transition: 300ms ease-in;
-    cursor: pointer;
-
-}
-
-#closeBtn:active {
-    background-color: rgb(52,240,106);
-}
-
 .h1-popup {
     font-weight: 100px;
     font-size: 50px;
@@ -232,134 +111,94 @@ body {
     padding-left: 2px;
     padding-right: 2px;
 }
-
-/*End of pop-up*/
-/*Portal Animation*/
-.portal{
-    animation: spin 150s linear infinite;
-    height: 250px;
-    border-radius: 100px;
-    position: absolute;
-    transition: 300ms ease-out;
-    text-align: center;
-    top: 70%;
-    left: 50%;
+#instructions:hover{
+    outline-color: rgb(66,113,201);
+    box-shadow: 0px 0px 45px rgb(66,113,201), 0 0 100px rgb(66,113,201);
 }
-
-.portal:hover {
+#instructions li {
+    padding: 10px;
+    padding-bottom: 25px;
+    list-style: none;
+}
+#instructions li:before{
+    text-shadow: 0px 0px 5px #f7633e, 0 0 5px #f7633e;
+    content: " \25B7";
+    color: #f7633e;
+}
+#instructions li:hover::before{
+    content: " \25B7";
+    text-shadow: 0px 0px 4px #bc4224, 0px 0px 10px #bc4224;
+}
+.the {
+    color: hsl(317 100% 54%);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em hsl(317 100% 54%);
+}
+.the:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em hsl(317 100% 54%);
+}
+.creep {
+    color: rgb(96,20,228);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em rgb(96,20,228);
+}
+.creep:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(96,20,228);
+}
+.morty {
+    color: hsl(317 100% 54%);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em hsl(317 100% 54%);
+}
+.morty:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em hsl(317 100% 54%);
+}
+.text h2 {
+   text-align: center;
+}
+.text {
+    position: absolute;
+    width: 50%;
+    margin-left: 30px;
+}
+#closeBtn { 
+    padding: 20px 20px;
+    position: absolute;
+    color: rgb(197, 196, 196);
+    background: linear-gradient(rgb(52,240,106),rgba(0, 0, 0, 0.7));
+    border: none;
+    transition: 300ms ease-out;
+    left: 60%;
+    border-radius: 10px;
+    font-size: larger;
+    text-shadow:
+    0 0 0.125em hsl(0, 0%, 30% / 0.1), 
+    0 0 0.200em rgb(52,240,106);
+    box-shadow: 
+        inset 0 0 0.200em 0 rgb(52,240,106),
+        0 0 0.100em 0 rgb(52,240,106);
+}
+#closeBtn:hover {
+    box-shadow:  0px 0px 40px rgb(52,240,106), 0 0 50px rgb(52,240,106);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em rgb(52,240,106);
+    text-shadow: none;
+    opacity: 60%;
     transition: 300ms ease-out;
     transition: 300ms ease-in;
-    opacity: 70%;
+    cursor: pointer;
 }
-
-@keyframes spin {
-    from {
-      transform: rotate( 0deg ); /*starting position*/
-    }
-    to {
-      transform: rotate( -360deg );/*full 360*/
-    }
+#closeBtn:active {
+    background-color: rgb(52,240,106);
 }
-  /*End of portal*/
-  /*Quiz page*/
-
-    #quiz-list button{
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 10px 20px;
-    background-color: #060a1b;
-    color: white;
-    font-weight: 800;
-
-    position:relative;
-    z-index: 1;
-    background: linear-gradient(45deg, rgb(4, 175, 4),#1a234d,#990a99) 0px 0px repeat-x;
-    /* animation: borderReturn 5s linear alternate infinite; */
-    transition: 3s ease-out;
-  }
-  #quiz-list button::before{
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: #060a1b;
-    z-index: -1;
-
-  }
-
-#quiz-list button:hover{
-    transition: 3s ease-in-out;
-    cursor:pointer;
-    box-shadow: 0 0 35px purple;
-    transition: all 2s ease-in-out;
-    /* animation: borderMove 3s linear alternate infinite; */
-    animation: filterColours 3s infinite;
-   
-}
-
-#quiz-list{
-    margin: 20px 0;
-    gap: 30px;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    align-items: center;
-    } 
-
-#quiz-container{
-    position: absolute;
+/*End of pop-up*/
+/*Container for the Main Page & Quiz Page*/
+.container {
+    vertical-align: middle;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    transition: 6s forwards linear;
-} 
-
-#question-container {
-
-      /* border: solid green; */
-    color: white;
-    position: inline;
-}
-
-#question-count{
-    background: none;;
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: white;
-}
-@keyframes filterColours{
-0%{filter: hue-rotate(0deg)}
-100%{filter: hue-rotate(360deg)}
-}
-@keyframes borderMove{
-    from{background-position: 0px 0px;}
-    to{background-position: 800px 0px;}
-  }
-@keyframes borderReturn{
-    from{background-position: 800px 0px}
-    to{background-position: 0px 0px;}
-}
-
-
-/*Try key frames again for the fade effects*/ 
-.fadeinanimated {
-    animation: fadeIn 10s ease-in-out;
-}
-
-.fadeOut {
-
-    animation: fadeOut 7s ease-in-out;
-}
-body {
-    animation: fadeOut 3s ease-in-out;
-}
-
-#background {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -368,169 +207,91 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: -5;
 }
-
-#logo {
-    
-    position: fixed;
+  /*Quiz page*/
+    #quiz-list button{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    background-color: #060a1b;
+    color: var(--white);
+    font-weight: 800;
+    position:relative;
+    z-index: 1;
+    background: linear-gradient(45deg, rgb(4, 175, 4),#1a234d,#990a99) 0px 0px repeat-x;
+    transition: 3s ease-out;
+  }
+  #quiz-list button::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #060a1b;
+    z-index: -1;
+  }
+#quiz-list button:hover{
+    transition: 3s ease-in-out;
+    cursor:pointer;
+    box-shadow: 0 0 35px purple;
+    transition: all 2s ease-in-out;
+    animation: filterColours 3s infinite;
+}
+#quiz-list{
+    margin: 20px 0;
+    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+} 
+#quiz-container{
+    position: absolute;
+    text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    /* margin-left: auto;
-    margin-right: auto; */
-}
-
-#question-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     visibility: hidden;
+    transition: 6s forwards linear;
+} 
+#question-container {
+    color: var(--white);
+    position: inline;
+}
+.fadeOut {
+    animation: fadeOut 7s ease-in-out;
 }
 
 .BlackCoverChange {
     transition-delay: 2s;
     animation: fadeIn 500ms forwards;
 }
-
-
-@keyframes fadeIn {
-
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/*Start of Render Page & Card Design*/
+#render-page { 
+    justify-content: center;
 }
-
-
-@keyframes fadeCard {
-
-    from{
-        opacity: 1;
-    }to{
-        opacity: 0;
-    }
-}
-
-@media only screen and (max-height: 900px) {
-    #closeBtn{
-        bottom: 30%
-    }
-}
-
-@media only screen and (max-height: 1050px) {
-    #logo{
-        position: static;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-        margin-top: -100px;
-    }
-    #closeBtn{
-        bottom: 35%
-    }
-}
-
-@media only screen and (max-width: 2505px) {
-    .closeBtn{
-        position: static;
-        display: flex;
-        flex-wrap: nowrap;
-    }
-    .text{
-        font-size: 15px;
-    }
-}
-
-@media only screen and (max-width: 2250px) {
-    .text {
-        font-size: 14px;
-    }
-}
-
-@media only screen and (max-width: 1920px), only screen and (max-width: 2250px), only screen and (max-width:2500px) {
-    #logo   {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    /* .closeBtn   {
-        padding: 20px 20px;
-        position: static;
-        display: flex;
-        flex-wrap: nowrap;
-    } */
-
-    #instructions {
-        width: 30%;
-        height: 65%;
-        color: black;
-        top: 45%;
-        left: 50%;
-
-    }
-
-}
-
-@media only screen and (max-width: 1040px) {
-
-    #logo {
-        position: static;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    #instructions {
-        width: 30%;
-        height: 65%;
-        color: black;
-        top: 45%;
-        left: 50%;
-
-    }
-}
-
-@media only screen and (max-width: 1440px){
-    .h1-popup   {
-        font-size: 30px;
-    }
-}
-
-@media only screen and (max-width: 1050px), only screen and (max-width: 680px)  {
-    
-    #logo   {
-        position: static;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-    }
-}
-
 .ingredient-title { 
     visibility: hidden;
 }
-
+.title {     
+    word-break: break-all;
+    text-align: center;     
+    padding: 15px; 
+}  
 .card {     
-    width: 23%;     /*The width has to be changed in order for the cards to stay static*/
+    width: 23%;
     height: 70%;     
     background-color: transparent;        
-    margin: auto;	/* margin was 40px*/     
+    margin: auto;	  
     display: inline-block; 
     box-shadow:  0px 0px 20px rgb(96,20,228), 0 0 50px rgb(96,20,228);
-    border-radius: 20px; /*Was 20px*/
+    border-radius: 20px;
     border: solid 5px rgb(96,20,228);
 }  
-
-#character-card:hover {
-    outline-color: rgb(96,20,228);
-    box-shadow: 0px 0px 45px rgb(96,20,228), 0 0 100px rgb(96,20,228);
+#cocktail-image {
+    border-radius: 5px;
+    border-bottom: solid 5px hsl(317 100% 54%);
 }
-
-.text-character-container {
-    padding-top: solid 5px rgb(66,113,201);
-} 
-
 #cocktail-card {
     width: 23%;     
     height: 70%;     
@@ -541,67 +302,52 @@ body {
     border-radius: 20px;
     border: solid 5px hsl(317 100% 54%);
 }
-
 #cocktail-card:hover {     
     outline-color: hsl(317 100% 54%);
     box-shadow: 0px 0px 45px hsl(317 100% 54%), 0 0 100px hsl(317 100% 54%);
 }
-
-
-#cocktail-name{
-    font-size: 20px;
-    white-space: normal;
-    color: hsl(317 100% 54%);
-}
-
-/* #cocktail-name:hover {
-    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
-    0 0 0.300em hsl(317 100% 54%);
-} */
-
-#character-name{
-    white-space: normal;
-    font-size: 20px;
-    color: rgb(11,220,239);
-}
-
-.title {     
-    word-break: break-all;
-    text-align: center;     
-
-    /* text-decoration: underline;     
-    text-decoration-color: #f7633e;      */
-    padding: 15px; 
-}  
-
 #cocktail-title {
     text-decoration: none;     
     text-decoration-color: hsl(317 100% 54%);
     text-shadow: 1px 1px 20px hsl(317 100% 54%);
 }
-
-#character-title {
-    text-decoration: none;     
-    text-decoration-color: rgb(11,220,239);;
-    text-shadow: 1px 1px 20px rgb(11,220,239);;
+#cocktail-name{
+    font-size: 20px;
+    white-space: normal;
+    color: hsl(317 100% 54%);
 }
-
 .card-ul2 {
     font-size: 15px;
     color: transparent;
     user-select: none;
 }
-
 #origin {
     word-break: break-all;
 }
-
 .card-ul {     
     font-size: 15px;
-    /* text-decoration: underline;     
-    text-decoration-color: #f7633e;  */
 }  
-
+#character-image {
+    border-radius: 5px;
+    border-bottom: solid 5px rgb(96,20,228);
+}
+#character-card:hover {
+    outline-color: rgb(96,20,228);
+    box-shadow: 0px 0px 45px rgb(96,20,228), 0 0 100px rgb(96,20,228);
+}
+.text-character-container {
+    padding-top: solid 5px rgb(66,113,201);
+} 
+#character-title {
+    text-decoration: none;     
+    text-decoration-color: rgb(11,220,239);;
+    text-shadow: 1px 1px 20px rgb(11,220,239);;
+}
+#character-name{
+    white-space: normal;
+    font-size: 20px;
+    color: rgb(11,220,239);
+}
 #character-card-ul {  
     font-size: 15px;
     text-decoration-color: none;
@@ -609,144 +355,83 @@ body {
     text-decoration-color: rgb(85,169,237);
     text-shadow: 0px 0px 10px rgb(85,169,237);
 }  
-
-
-
 #species {
     color: rgb(39,219,54);
     text-shadow: 4px 1px 10px rgb(39,219,54);
     text-decoration: underline;
 }
-
 #species:hover {
     text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
     0 0 0.300em rgb(39,219,54);
 }
-
 #gender {
     color: rgb(215,24,97);
     text-shadow: 4px 1px 10px rgb(215,24,97);
     text-decoration: underline;
 }
-
 #gender:hover {
     text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
     0 0 0.300em rgb(215,24,97);
 }
-
 #origin {
     color: rgb(245,129,41);
     text-shadow: 4px 1px 10px rgb(245,129,41);
     text-decoration: underline;
 }
-
 #origin:hover {
     text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
     0 0 0.300em rgb(245,129,41);
 }
-
-
 ul {     
     position: relative;
     list-style: none; 
 }  
-
 .card-image img {     
     width: 100%;     
     border-radius: 10px; 
-    border-bottom: solid 5px white;
+    border-bottom: solid 5px var(--white);
 }  
-
-#cocktail-image {
-    border-radius: 5px;
-    border-bottom: solid 5px hsl(317 100% 54%);
-}
-
-#character-image {
-    border-radius: 5px;
-    border-bottom: solid 5px rgb(96,20,228);
-}
-/* .card {
-    width: 20%;
-    height: auto;
-    background-color: white;
-    border-radius: 10px;
-    margin: 40px;	
-    display: inline-block;
-} */
-
-/* .card:hover {
-    box-shadow: 5px 5px 60px rgb(49, 139, 190);	
-} */
-
-/* .text-character-container {
-
-    width: 51%;
-} */
-
-/* .title {
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-color: #f7633e;
-    padding: 15px;
-} */
-
-/* .card-text {
-    text-decoration: underline;
-    text-decoration-color: #f7633e;
-} */
-
-/* #character-card-text {
-    text-decoration-color: rgb(49, 139, 190);
-} */
-
-/* #character-title { 
-    text-decoration-color: rgb(49, 139, 190);
-} */
-
-/* ul {
-    list-style: none;
-} */
-/* 
-.card-image img{
-    width: 100%;
-    border-radius: 10px;
-} */
-/* 
-#cocktail-card:hover{
-    box-shadow: 5px 5px 60px #f7633e; */
-/* } */
-
-
+/*End of Render Card Design*/
 /* Return Button from Result Cards */
-#returnBtn{ /*Button styles and position*/
+#returnBtn{ 
     position: absolute;
     top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
-/* Styling of button */
     border: none;
     padding: 10px 20px;
     background-color: #f7633e;
-    color: white;
+    color: var(--white);
     border-radius: 50px;
     font-weight: 800;
     transition: 300ms ease-out;
 }
-#returnBtn:hover{ /*Hover effect for the return button*/
+#returnBtn:hover{ 
     font-size: 18px;
     transition: font-size .2s ease;
     transition: 300ms ease-out;
     transition: 300ms ease-in;
     cursor:pointer;
 }
-/*ISSUE HERE, */
+/*End of Return Button*/
+/*Animations & Media Queries*/
+@keyframes filterColours{
+    0%{filter: hue-rotate(0deg)}
+    100%{filter: hue-rotate(360deg)}
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeCard {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
 @media only screen and (max-width: 680px) {
-
-    #returnBtn{/*moved button into max width*/
-    top: 95%;
-    display: flex;
-    flex-wrap: nowrap;
+    #returnBtn{
+        top: 95%;
+        display: flex;
+        flex-wrap: nowrap;
     }
   }
 @media only screen and (max-width: 1050px) {
@@ -754,12 +439,12 @@ ul {
         position: static;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: center; /*h1 wouldn't center on a certain size, this fixes that problem*/
+        justify-content: center;
     }
-    #returnBtn{/*moved button into max width*/
-    top: 85%;
-    display: flex;
-    flex-wrap: nowrap;
+    #returnBtn{
+        top: 85%;
+        display: flex;
+        flex-wrap: nowrap;
     }
     p{
         position: static;
@@ -775,3 +460,81 @@ ul {
         flex-wrap: nowrap;
     }
   }
+  @media only screen and (max-height: 1050px) {
+    #logo{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+      
+    }
+    #closeBtn{
+        bottom: 35%
+    }
+}
+@media only screen and (max-height: 900px) {
+    #closeBtn{
+        bottom: 30%
+    }
+}
+@media only screen and (max-width: 2505px) {
+    .closeBtn{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .text{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 2250px) {
+    .text {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 1920px), only screen and (max-width: 2250px), only screen and (max-width:2500px) {
+    #logo   {
+        position: static;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    #instructions {
+        width: 30%;
+        height: 65%;
+        color: black;
+        top: 45%;
+        left: 50%;
+    }
+}
+@media only screen and (max-width: 1040px) {
+    #logo {
+        position: static;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    #instructions {
+        width: 30%;
+        height: 65%;
+        color: black;
+        top: 45%;
+        left: 50%;
+    }
+}
+@media only screen and (max-width: 1440px){
+    .h1-popup   {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 1050px), only screen and (max-width: 680px)  {
+    #logo   {
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+}
+/*End of Animations & Keyframes*/

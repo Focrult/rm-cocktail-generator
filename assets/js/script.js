@@ -469,6 +469,8 @@ function callPopDrinks (cocktailArray) {
     
 }
 
+
+  
+loadCocktails(drinksSaved);
 }
 
-loadCocktails(drinksSaved);
