@@ -410,7 +410,7 @@ function removeNonAns(ans) {
   }
  
 }
-}
+
 
 
 // Answer event listener 
