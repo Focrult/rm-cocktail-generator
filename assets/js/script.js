@@ -261,7 +261,14 @@ function writeCatButton(cocktailArray, questionIndex) {
 
       if (!checkValue) {
       var answerEl = document.createElement('button');
-      answerEl.textContent = eval('cocktailArray[i].strIngredient'+questionIndex)
+
+      if (eval('cocktailArray[i].strIngredient'+questionIndex) == null) {
+        answerEl.textContent = "I don't want to add anything else"
+      } else {
+        answerEl.textContent = eval('cocktailArray[i].strIngredient'+questionIndex)
+        
+      }
+      
       quizLi.append(answerEl)
       quizLst.push(eval('cocktailArray[i].strIngredient'+questionIndex))
       }
