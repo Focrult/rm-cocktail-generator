@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+# group-project-1 
+
+ test test test
+=======
 ## The-Creepy-Morty
 
 # Project Description
@@ -41,3 +46,4 @@ Team Members: Joao, William, Ryan and Aedan.
 
 # License
 MIT License - Visible in the repo under LICENSE.
+>>>>>>> 25ed34851a560703e8efb862c35a376d4e7e793d
