@@ -26,7 +26,7 @@ N/A
 The usage for this application is to enable users and their friends to go through a series of cocktail related quesions. After all the relevant questions have been answered, the user will be displayed their created cocktail and discover their Rick & Morty character.
 
 # Screeshots + Link
-Link to the deployed application: https://cableman687.github.io/rm-cocktail-generator/
+Link to the deployed application: https://focrult.github.io/rm-cocktail-generator/
 ![img1](https://user-images.githubusercontent.com/114898970/211573590-cfbf366a-b223-4ec1-b1d1-c7da7da69abe.png)
 ![img2](https://user-images.githubusercontent.com/114898970/211573601-bee5e563-9699-4591-95d9-3b94adcec118.png)
 ![img3](https://user-images.githubusercontent.com/114898970/211573606-6e41bee4-934d-4ab5-8041-5652a0e56f6c.png)
