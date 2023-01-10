@@ -465,9 +465,9 @@ createButtonEventListener()
     var returnUrl = './index.html'; 
     console.log(resetBtn)
     //When user clicks the return button, they return to the main html.
-    returnBtn.addEventListener('click', function(){
-      document.location.replace(returnUrl);
-    })
+    // returnBtn.addEventListener('click', function(){
+    //   document.location.replace(returnUrl);
+    // })
     
     } else {
     clearList()
