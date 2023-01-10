@@ -226,7 +226,7 @@ const title = document.getElementById('body');
 setTimeout(function () {
   console.log("instructions displayed");
   overlay.style.visibility = 'visible';
-},3000);
+},1000);
 
 function Instructions(){ //function to reveal pop-up after a few seconds
 console.log("passing");
@@ -469,6 +469,8 @@ function callPopDrinks (cocktailArray) {
     
 }
 
+
   
 loadCocktails(drinksSaved);
 }
+

@@ -261,6 +261,7 @@ body {
 .fadeOut {
     animation: fadeOut 7s ease-in-out;
 }
+
 .BlackCoverChange {
     transition-delay: 2s;
     animation: fadeIn 500ms forwards;
