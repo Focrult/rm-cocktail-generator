@@ -47,7 +47,7 @@ body {
 #logo {
     text-align: center;
 }
-#startBtn{
+.startBtn{
     border: none;
     padding: 20px 40px;
     font-size: 17px;
@@ -61,7 +61,7 @@ body {
     position: relative;
     top: 80%;
 }
-#startBtn:hover {
+.startBtn:hover {
     font-size: 22px;
     transition: font-size .2s ease;
     transition: 300ms ease-out;
@@ -403,7 +403,7 @@ ul {
 }  
 /*End of Render Card Design*/
 /* Return Button from Result Cards */
-#returnBtn{ 
+.returnBtn{ 
     position: absolute;
     top: 85%;
     left: 50%;
@@ -416,12 +416,106 @@ ul {
     font-weight: 800;
     transition: 300ms ease-out;
 }
-#returnBtn:hover{ 
+.returnBtn:hover{ 
     font-size: 18px;
     transition: font-size .2s ease;
     transition: 300ms ease-out;
     transition: 300ms ease-in;
     cursor:pointer;
+}
+
+#results {
+    display: none;
+    justify-content: center ;
+  
+}
+
+
+#prev-cocktail-image {
+    border-radius: 5px;
+    border-bottom: solid 5px hsl(317 100% 54%);
+}
+#prev-cocktail-card {
+    width: 23%;     
+    height: 70%;     
+    background-color: transparent;     
+    margin: 40px;	     
+    display: inline-block; 
+    box-shadow:  0px 0px 20px hsl(317 100% 54%), 0 0 50px hsl(317 100% 54%);
+    border-radius: 20px;
+    border: solid 5px hsl(317 100% 54%);
+}
+#prev-cocktail-card:hover {     
+    outline-color: hsl(317 100% 54%);
+    box-shadow: 0px 0px 45px hsl(317 100% 54%), 0 0 100px hsl(317 100% 54%);
+}
+#prev-cocktail-title {
+    text-decoration: none;     
+    text-decoration-color: hsl(317 100% 54%);
+    text-shadow: 1px 1px 20px hsl(317 100% 54%);
+}
+#prev-cocktail-name{
+    font-size: 20px;
+    white-space: normal;
+    color: hsl(317 100% 54%);
+}
+
+#prev-origin {
+    word-break: break-all;
+}
+
+#prev-character-image {
+    border-radius: 5px;
+    border-bottom: solid 5px rgb(96,20,228);
+}
+#prev-character-card:hover {
+    outline-color: rgb(96,20,228);
+    box-shadow: 0px 0px 45px rgb(96,20,228), 0 0 100px rgb(96,20,228);
+}
+ 
+#prev-character-title {
+    text-decoration: none;     
+    text-decoration-color: rgb(11,220,239);;
+    text-shadow: 1px 1px 20px rgb(11,220,239);;
+}
+#prev-character-name{
+    white-space: normal;
+    font-size: 20px;
+    color: rgb(11,220,239);
+}
+#prev-character-card-ul {  
+    font-size: 15px;
+    text-decoration-color: none;
+    color: rgb(85,169,237);
+    text-decoration-color: rgb(85,169,237);
+    text-shadow: 0px 0px 10px rgb(85,169,237);
+}  
+#prev-species {
+    color: rgb(39,219,54);
+    text-shadow: 4px 1px 10px rgb(39,219,54);
+    text-decoration: underline;
+}
+#prev-species:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(39,219,54);
+}
+#prev-gender {
+    color: rgb(215,24,97);
+    text-shadow: 4px 1px 10px rgb(215,24,97);
+    text-decoration: underline;
+}
+#prev-gender:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(215,24,97);
+}
+#prev-origin {
+    color: rgb(245,129,41);
+    text-shadow: 4px 1px 10px rgb(245,129,41);
+    text-decoration: underline;
+}
+#prev-origin:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(245,129,41);
 }
 /*End of Return Button*/
 /*Animations & Media Queries*/
@@ -451,7 +545,8 @@ ul {
         flex-wrap: nowrap;
         justify-content: center;
     }
-    #returnBtn{
+    
+    .returnBtn{
         top: 85%;
         display: flex;
         flex-wrap: nowrap;
@@ -534,4 +629,4 @@ ul {
             top: 90%;
         }
         }
-/*End of Animations & Keyframes*/
+/*End of Animations & Keyframes
