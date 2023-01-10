@@ -46,8 +46,6 @@ body {
 }
 #logo {
     text-align: center;
-   
- 
 }
 #startBtn{
     border: none;
@@ -60,7 +58,7 @@ body {
     transition: 300ms ease-out;
 }
 #main-btn{ 
-    position : relative;
+    position: relative;
     top: 80%;
 }
 #startBtn:hover {
@@ -473,13 +471,6 @@ ul {
     }
   }
   @media only screen and (max-height: 1050px) {
-    /* #logo{
-        position: static;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-      
-    } */
     #closeBtn{
         bottom: 35%
     }
@@ -528,7 +519,19 @@ ul {
         font-size: 30px;
     }
 }
-@media only screen and (max-width: 1050px), only screen and (max-width: 680px)  {
-
+@media only screen and (max-width: 1850px), only screen and (max-width: 680px)  {
+#main-btn{
+    top: 90%;
 }
+}
+@media only screen and (max-width: 1900px),(max-width: 2200px) {
+    #main-btn{
+        top: 90%;
+    }
+    }
+    @media only screen and (max-height: 1000px){
+        #main-btn{
+            top: 90%;
+        }
+        }
 /*End of Animations & Keyframes*/
