@@ -25,6 +25,9 @@
 .hidden{ /*Class hidden for JS file*/
     visibility: hidden;
 }
+.visible{
+    visibility: visible;
+}
 /*Main Page*/
 body {
     text-align: center; /* To align the cards on the center of the page */
@@ -46,6 +49,7 @@ body {
 #logo {
     text-align: center;
 }
+
 #startBtn{
     border: none;
     padding: 20px 40px;
@@ -57,9 +61,24 @@ body {
     transition: 300ms ease-out;
    
 }
+#helpBtn{
+    border: none;
+    padding: 20px 40px;
+    font-size: 17px;
+    background-color: #f7633e;
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 300ms ease-out;
+}
 #main-btn{ 
+
     position: relative; 
     top: 80%;
+#help-btn{ 
+    position: relative;
+    text-align: left;
+
 }
 #startBtn:hover {
     font-size: 22px;
@@ -68,6 +87,14 @@ body {
     transition: 300ms ease-in;
     cursor:pointer;
 }
+#helpBtn:hover {
+    font-size: 22px;
+    transition: font-size .2s ease;
+    transition: 300ms ease-out;
+    transition: 300ms ease-in;
+    cursor:pointer;
+}
+
 /*Start of pop-up*/
 #overlay { 
     transition: 200ms ease-in;
@@ -78,7 +105,7 @@ body {
     top: 0px;
     left: 0px;
     z-index: 3;
-    visibility: hidden;
+    
 }
 #instructions{
     background-color: rgb(197, 196, 196);
@@ -200,6 +227,9 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
+
+    
+
 }
   /*Quiz page*/
     #quiz-list button{
