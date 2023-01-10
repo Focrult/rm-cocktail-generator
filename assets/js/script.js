@@ -260,6 +260,8 @@ function writeCatButton(cocktailArray, questionIndex) {
   
   // else {
 
+
+  var quizLst = [];
  
   for (let i = 0; i < cocktailArray.length; i++ ) {
       
@@ -344,11 +346,21 @@ function removeNonAns(ans) {
   for (let i = childCount - 1 ; i >=0; i--) {
     var drinkIngVal = [cocktailArray[i].strIngredient1, cocktailArray[i].strIngredient2, cocktailArray[i].strIngredient3, cocktailArray[i].strIngredient4]
 
+
     console.log(drinkIngVal)
       console.log(drinkIngVal)
       console.log(!drinkIngVal.includes(ans))
-      
+
+      if (ans === "I don't want to add anything else") {
+        if (i = 0) {
+          cocktailArray.splice(1, 1)
+        } else {
+          cocktailArray.splice(0, 1)
+        }
+
+      } else
       if (!drinkIngVal.includes(ans)){
+
         cocktailArray.splice(i, 1)
       }
     }
@@ -398,7 +410,7 @@ function removeNonAns(ans) {
   }
  
 }
-
+}
 
 
 // Answer event listener 
