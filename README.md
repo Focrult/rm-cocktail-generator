@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-# group-project-1 
+# Rick & Morty Cocktail Generator
 
- test test test
-=======
 ## The-Creepy-Morty
 
-# Project Description
+## Project Description
 ### What is this project?
 This is a collaborative project where our group is tasked to create an application that solves a real-world problem! Using our knowledge gained from the past six modules we have developed a real-world front-end application that can be showcased to potential employers. This application takes full advantage of two server-side APIs, based around Rick & Morty, as well as cocktails! A user will be presented a page titled "The Creepy Morty", as well as a "Start Quiz" button. A modal will be displayed to provide the user a set of instructions. Afterwhich the user will need to go through a series of cocktail ingredients, and after completion, a card of a cocktail as well as a Rick & Morty character are displayed! Each with a unique description and/or details. 
 
@@ -46,4 +43,3 @@ Team Members: Joao, William, Ryan and Aedan.
 
 # License
 MIT License - Visible in the repo under LICENSE.
->>>>>>> 25ed34851a560703e8efb862c35a376d4e7e793d
