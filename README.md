@@ -1,5 +1,4 @@
 ## The-Creepy-Morty
-# Project-1
 
 # Project Description
 ### What is this project?
@@ -14,13 +13,9 @@ Throughout this project our team has heavily worked on a variety of files. Inclu
 In addition, several images and a video were utilised to create the appropriate atmosphere for the webpage. 
 
 ### Challenges
-Ryan:
-
-William:
-
-Aedan:
-
-Joao:
+Correct Styling - We went through several design changes.
+Ingredient options - Shift from static options to dynamic options due to limited results and poor successful combinations.
+Merge conflicts - First time having to deal with merge conflicts, sometimes leading to unexpected main branch issues.
 
 # Installation
 N/A
@@ -29,8 +24,8 @@ N/A
 The usage for this application is to enable users and their friends to go through a series of cocktail related quesions. After all the relevant questions have been answered, the user will be displayed their created cocktail and discover their Rick & Morty character.
 
 # Screeshots + Link
-Link to the deployed application: 
-
+Link to the deployed application: https://cableman687.github.io/group-project-1/
+![FRONTPAGE](https://user-images.githubusercontent.com/114898970/211534883-12abd214-e85d-48f5-b7d4-57f124e0dc87.png)
 
 # Credits
 Rick & Morty API: https://rickandmortyapi.com/
