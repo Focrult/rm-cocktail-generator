@@ -81,17 +81,13 @@ body {
     color: var(--white);
     border-radius: 50px;
     font-weight: 800;
-    transition: 300ms ease-out;
 }
 #main-btn{ 
-
     position: relative; 
     top: 80%;
 }
 #help-btn{ 
-    position: relative;
     text-align: left;
-
 }
 #startBtn:hover {
     font-size: 22px;
