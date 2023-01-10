@@ -83,6 +83,7 @@ body {
     font-weight: 800;
     transition: 300ms ease-out;
 }
+
 #main-btn{ 
 
     position: relative; 
@@ -650,6 +651,19 @@ ul {
         top: 45%;
         left: 50%;
     }
+
+    #logo {
+        width: 70%;
+        height: 65%;
+        top: 45%;
+        left: 50%;
+    }
+
+    #main-btn {
+        position: sticky; 
+    }
+
+
 }
 @media only screen and (max-width: 1040px) {
 
@@ -662,6 +676,14 @@ ul {
     }
 }
 @media only screen and (max-width: 1440px){
+
+    #logo {
+        width: 70%;
+        height: 65%;
+        top: 45%;
+        left: 50%;
+    }
+
     .h1-popup   {
         font-size: 30px;
     }
@@ -671,12 +693,12 @@ ul {
     top: 90%;
 }
 }
-@media only screen and (max-width: 1900px),(max-width: 2200px) {
+@media only screen and (max-width: 1900px),(max-width:1920),(max-width: 2200px) {
     #main-btn{
         top: 90%;
     }
     }
-    @media only screen and (max-height: 1000px){
+    @media only screen and (max-height: 1020px){
         #main-btn{
             top: 90%;
         }
