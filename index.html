@@ -8,17 +8,22 @@
     <title>The Creepy Morty  </title> <!-- bar's name from an episode -->
     <!-- <link rel="stylesheet" href="./assets/css/reset.css">  I'll leave this link as a comment just in case we need to use a reset.css, 
     if we do there's already a css file attached to it.-->
+
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="./dist/output.css" rel="stylesheet" type="text/css">
+  
 </head>
+<body>
 
 <section>
     <img id="logo" src="./assets/media/logo sus.png">
+   
     <video id="background" autoplay loop muted src="./assets/media/video.mp4"></video>
-
     <div id="overlay">
+
         <div id="instructions">
             <h1 class="h1-popup">Welcome to 
                 <span class="the">The </span>
@@ -37,14 +42,19 @@
 </section>
 
     <main>
+
         <!--Main container-->
-        <h4 id="question-count">Question Count: <span id="count"></span></h4>
     <div class="container">
-   
+
+      <div id="help-btn">
+        <button type="button" id="helpBtn">Help</button>
+    </div>    
         <div id="main-btn">
             <button type="button" class ='startBtn' id="startBtn">Start Quiz</button>
             <button type="button" class ='startBtn' id="show-results">Show Previous Results</button>
         </div>
+
+
     <div id="quiz-container" class="hide">
         <div id="question-container"></div>
         <div class="ingredient-container">

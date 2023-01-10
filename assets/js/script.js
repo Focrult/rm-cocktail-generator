@@ -75,8 +75,6 @@ function loadCocktails(drinksSaved) {
   console.log(drinksSaved)
 }
 
-var cocktailArray = []
-
 //Added redirect URL request if error occurs
 var redirectURL = './404.html'
 
@@ -149,12 +147,6 @@ function writeIngredientBtn(questionIndex) {
 
         quizLi.append(answerEl)
 
-        //Update page count element textcontent with page increment values
-        countEl.texcontent = questionCount;
-        answerEl.addEventListener("click", function(){
-          questionCount++;
-          
-    })
     }
 }
 
@@ -269,15 +261,27 @@ var questionIndex = 1;
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
 const close2 = document.getElementById('closeBtn');
+const helpBtnEl = document.getElementById('helpBtn');
 const overlay = document.getElementById('overlay');
 const instructions = document.getElementById('instructions');
 const title = document.getElementById('body');
 
+var retrieveData = JSON.parse(localStorage.getItem('characterName'));
 
-setTimeout(function () {
-  console.log("instructions displayed");
-  overlay.style.visibility = 'visible';
-},1000);
+console.log("Results:! " + retrieveData);
+
+if(retrieveData == null){
+
+  setTimeout(function () {
+    console.log("instructions displayed");
+    // overlay.style.visibility = 'visible';
+    overlay.classList.remove('hidden');
+
+  },1000);
+
+} else {};
+
+
 
 function Instructions(){ //function to reveal pop-up after a few seconds
 console.log("passing");
@@ -285,9 +289,17 @@ console.log("passing");
 //Add click event when user clicks lets go
 close2.addEventListener('click', function() {
   console.log('User clicked lets go!');
-    overlay.style.display = "none"; //Makes overlay + Instructions disappear
+  // overlay.style.display = "none"; //Makes overlay + Instructions disappear
+  overlay.classList.add('hidden');
+   
+
 });
 //End of popup
+
+helpBtnEl.addEventListener('click', function() {
+  console.log('User clicked Help');
+  overlay.classList.remove('hidden');
+});
 
 
 //When user clicks start quiz
@@ -336,13 +348,7 @@ function writeCatButton(cocktailArray, questionIndex) {
       quizLst.push(eval('cocktailArray[i].strIngredient'+questionIndex))
       }
 
-      //Update page count element textcontent with page increment values
-      countEl.texcontent = questionCount;
-      answerEl.addEventListener("click", function(){
-        questionCount++;
-  })
-
-  // }
+  
 }
 createButtonEventListener()
 
@@ -399,7 +405,7 @@ createButtonEventListener()
   }
 
 
-function removeNonAns(ans) {
+  function removeNonAns(ans) {
   var childCount = cocktailArray.length - 1
 
   
@@ -479,8 +485,8 @@ function removeNonAns(ans) {
 function createButtonEventListener () {
 
   console.log(quizLi.childElementCount)
-for (let i = 0; i < quizLi.childElementCount; i++) {
-quizLi.children[i].addEventListener("click", function(event)  { 
+  for (let i = 0; i < quizLi.childElementCount; i++) {
+  quizLi.children[i].addEventListener("click", function(event)  { 
   var ans =  event.target.textContent
   
   // Remove objects not containing answer
