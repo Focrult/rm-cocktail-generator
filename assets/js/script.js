@@ -53,7 +53,8 @@ function createRuturnBtns () {
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
-  for (var i = 0; i < 2; i++) {
+// Set number of times random cocktail array is called
+  for (var i = 0; i < 5; i++) {
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
     fetch(APIUrl)
@@ -250,7 +251,7 @@ function getCharacter(){
 
 function removeNonAns(ans) {
   var childCount = cocktailArray.length - 1
-  for (let i = childCount; i >=0; i--) {
+  for (let i = childCount; i > 0; i--) {
     var drinkIngVal = [ cocktailArray[i].strIngredient1, cocktailArray[i].strIngredient2, 
                         cocktailArray[i].strIngredient3, cocktailArray[i].strIngredient4, 
                         cocktailArray[i].strIngredient5, cocktailArray[i].strIngredient6, 

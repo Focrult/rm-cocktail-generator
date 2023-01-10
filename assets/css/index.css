@@ -84,8 +84,12 @@ body {
     transition: 300ms ease-out;
 }
 #main-btn{ 
+<<<<<<< Updated upstream
 
     position: relative; 
+=======
+    position: sticky; 
+>>>>>>> Stashed changes
     top: 80%;
 }
 #help-btn{ 
