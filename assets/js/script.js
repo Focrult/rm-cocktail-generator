@@ -135,19 +135,17 @@ function writeIngredientBtn(questionIndex) {
 startBtn.addEventListener('click', function() {
   const quizContainer = document.getElementById('quiz-container');
   const test = document.documentElement;
-  var op = document.getElementById("overlay2");
   const stars = document.getElementById("stars");
   const logo = document.getElementById("logo");
 const instructions = document.getElementById("instructions");
 
 
-  // const logo = document.getElementById("logo")
+ 
   instructions.classList.add("BlackCoverChange");
   logo.style.display = "none";
   startBtn.style.visibility = "hidden";
   quizContainer.style.visibility = "visible";
-  // test.classList.add('fadeOut');
-    // op.style.opacity = 0.5;
+ 
     startQuiz();
   
     document.getElementById('main-btn').classList.add('hide');
