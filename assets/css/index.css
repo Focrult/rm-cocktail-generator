@@ -84,6 +84,7 @@ body {
 }
 #main-btn{ 
     position: relative; 
+    position: sticky; 
     top: 80%;
 }
 #help-btn{ 
