@@ -40,11 +40,21 @@ var cocktailArray = [];
 console.log(returnBtn)
 
 function createRuturnBtns () {
- for (i in returnBtn) {
-  console.log(returnBtn[i])
- } 
+  var returnUrl = './index.html'; 
+  console.log(returnBtn)
+  returnBtn.forEach((item => {
+    item.addEventListener('click', function() {
+      document.location.replace(returnUrl);
+  })
+}))
 }
-createRuturnBtns()
+
+    
+
+
+createRuturnBtns() 
+ 
+
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
   for (var i = 0; i < 2; i++) {
