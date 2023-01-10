@@ -1,11 +1,12 @@
 // //Global Declarations
 const startBtn = document.getElementById('startBtn');
+const showRst = document.getElementById('show-results');
 const resetBtn = document.getElementById('resetBtn');
 const quizContainer = document.getElementById('quiz-container');
 var scoreSpan = document.getElementById('score-span');
 var countEl = document.querySelector("#count");
 var renderCardEl = document.querySelector("#render-page")
-const btn = document.getElementById('returnBtn');
+var returnBtn = document.querySelectorAll('.returnBtn');
 //Cocktail Card Elements
 var cocktailImageEl = document.querySelector("#cocktail-image");
 var cocktailNameEl = document.querySelector("#cocktail-name");
@@ -17,12 +18,42 @@ var characterSpeciesEl = document.querySelector("#species");
 var characterGenderEl = document.querySelector("#gender");
 var characterOriginEl = document.querySelector("#origin");
 
+// Prev Result card element
+var prevCocktailImageEl = document.querySelector("#prev-cocktail-image");
+var prevCocktailNameEl = document.querySelector("#prev-cocktail-name");
+
+// Prev Character Card Elements
+var prevCharacterImageEl = document.querySelector("#prev-character-image");
+var prevCharacterNameEl = document.querySelector("#prev-character-name");
+var prevCharacterSpeciesEl = document.querySelector("#prev-species");
+var prevCharacterGenderEl = document.querySelector("#prev-gender");
+var prevCharacterOriginEl = document.querySelector("#prev-origin");
+
+var resultsEL = document.getElementById("results")
+
+
 
 var APIKey = "9973533";
 var drinksSaved = [];
 var cocktailArray = [];
 
+console.log(returnBtn)
 
+function createRuturnBtns () {
+  var returnUrl = './index.html'; 
+  console.log(returnBtn)
+  returnBtn.forEach((item => {
+    item.addEventListener('click', function() {
+      document.location.replace(returnUrl);
+  })
+}))
+}
+
+    
+
+
+createRuturnBtns() 
+ 
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
@@ -123,6 +154,7 @@ function writeIngredientBtn(questionIndex) {
 
 // //Start the game state
 startBtn.addEventListener('click', function() {
+
   const quizContainer = document.getElementById('quiz-container');
   const test = document.documentElement;
   const stars = document.getElementById("stars");
@@ -134,11 +166,34 @@ const instructions = document.getElementById("instructions");
   instructions.classList.add("BlackCoverChange");
   logo.style.display = "none";
   startBtn.style.visibility = "hidden";
+  showRst.style.visibility = "hidden";
+  
   quizContainer.style.visibility = "visible";
+  resultsEL.style.visibility = 'hidden';
  
     startQuiz();
   
     document.getElementById('main-btn').classList.add('hide');
+
+})
+
+showRst.addEventListener('click', function() {
+
+  const quizContainer = document.getElementById('quiz-container');
+  const test = document.documentElement;
+  const stars = document.getElementById("stars");
+  const logo = document.getElementById("logo");
+const instructions = document.getElementById("instructions");
+
+
+ 
+  instructions.classList.add("BlackCoverChange");
+  logo.style.display = "none";
+  startBtn.style.visibility = "hidden";
+  showRst.style.display = "none";
+
+  resultsEL.style.display = 'block'
+
 
 })
 // //Initiate the quiz
@@ -339,7 +394,8 @@ createButtonEventListener()
             characterGenderEl.textContent = retrieveCharacter.gender;
             characterOriginEl.textContent = retrieveCharacter.origin;
 
-            
+            // Save character to local storage
+            localStorage.setItem('character', JSON.stringify(characterObject));
 
 
         });
@@ -407,8 +463,9 @@ createButtonEventListener()
 
     //Return button functionality
     var returnUrl = './index.html'; 
+    console.log(resetBtn)
     //When user clicks the return button, they return to the main html.
-    btn.addEventListener('click', function(){
+    returnBtn.addEventListener('click', function(){
       document.location.replace(returnUrl);
     })
     
@@ -489,3 +546,29 @@ function callPopDrinks (cocktailArray) {
     
 }  
 loadCocktails(drinksSaved);
+
+function displayPreResults(prevDrink, prevChar){
+console.log(prevDrink)
+prevCharacterImageEl.setAttribute("src", prevChar.image);
+prevCharacterNameEl.textContent = prevChar.name;
+prevCharacterSpeciesEl.textContent = prevChar.species;
+prevCharacterGenderEl.textContent = prevChar.gender;
+prevCharacterOriginEl.textContent = prevChar.origin;
+
+prevCocktailImageEl.setAttribute('src', prevDrink.image);
+prevCocktailNameEl.textContent = prevDrink.name;
+
+}
+
+function checkPrevResults() {
+  var prevDrink = JSON.parse(localStorage.getItem('cocktailName'))
+  var prevChar = JSON.parse(localStorage.getItem('character'))
+
+  if (prevDrink != null && prevChar != null){
+    resultsEL.classList.remove('hidden')
+
+    displayPreResults(prevDrink, prevChar)
+  }
+}
+checkPrevResults()
+console.log(resultsEL)

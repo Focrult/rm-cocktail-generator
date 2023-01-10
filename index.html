@@ -45,12 +45,16 @@
 
         <!--Main container-->
     <div class="container">
-    <div id="help-btn">
+
+      <div id="help-btn">
         <button type="button" id="helpBtn">Help</button>
     </div>    
-    <div id="main-btn">
-        <button type="button" id="startBtn">Start Quiz</button>
-    </div>
+        <div id="main-btn">
+            <button type="button" class ='startBtn' id="startBtn">Start Quiz</button>
+            <button type="button" class ='startBtn' id="show-results">Show Previous Results</button>
+        </div>
+
+
     <div id="quiz-container" class="hide">
         <div id="question-container"></div>
         <div class="ingredient-container">
@@ -62,6 +66,44 @@
 </main>
 </div>
 
+<!-- Prev Results Page -->
+<article id="results" class="hidden">
+    <div id="prev-cocktail-card"> 
+        <div class="card-image"> 
+            <img id="prev-cocktail-image"> 
+        </div> 
+
+        <div class="text-cocktail-container">
+            <div class="title" id="prev-cocktail-title"> 
+                <h1 id="prev-cocktail-name"></h1>
+            </div> 
+            <div class="card-ul2"> 
+                <ul> 
+                    <li>Species:</li>
+                    <li>Gender:</li>
+                    <li>Origin:</li>
+                </ul>
+            </div>
+        </div> 
+    </div>
+    <div class = "card" id="prev-character-card" class="hide"> 
+        <div class="card-image"> 
+            <img id="prev-character-image"> 
+        </div>
+
+        <div class="text-character-container">
+            <div class="title" id="prev-character-title"> 
+                <h2 id="prev-character-name"></h2>
+            </div> 
+            <div class="card-ul" id="prev-character-card-ul"> 
+                <ul> 
+                    <li>Species: <span id="prev-species"></span></li>
+                    <li>Gender: <span id="prev-gender"></span></li>
+                    <li>Origin: <span id="prev-origin"></span></li>
+                </ul>
+            </div>
+            <button class="returnBtn">Return Home</button>
+  </article>
 
 <!--Render Page-->
 <section class="hidden" id="render-page"> 
@@ -102,7 +144,7 @@
             </div>
         </div>
     </div>
-    <button id="returnBtn">Return Home</button>
+    <button class="returnBtn">Return Home</button>
 </section>
 
 </body>
