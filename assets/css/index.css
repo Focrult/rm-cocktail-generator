@@ -44,10 +44,6 @@ body {
     z-index: -5;
 }
 #logo {
-    position: static;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
 }
 #startBtn{
@@ -461,13 +457,13 @@ ul {
     }
   }
   @media only screen and (max-height: 1050px) {
-    #logo{
+    /* #logo{
         position: static;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
       
-    }
+    } */
     #closeBtn{
         bottom: 35%
     }
@@ -493,13 +489,13 @@ ul {
     }
 }
 @media only screen and (max-width: 1920px), only screen and (max-width: 2250px), only screen and (max-width:2500px) {
-    #logo   {
+    /* #logo   {
         position: static;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-    }
+    } */
     #instructions {
         width: 30%;
         height: 65%;
@@ -509,13 +505,13 @@ ul {
     }
 }
 @media only screen and (max-width: 1040px) {
-    #logo {
+    /* #logo {
         position: static;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-    }
+    } */
     #instructions {
         width: 30%;
         height: 65%;
@@ -530,11 +526,11 @@ ul {
     }
 }
 @media only screen and (max-width: 1050px), only screen and (max-width: 680px)  {
-    #logo   {
+    /* #logo   {
         position: static;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
-    }
+    } */
 }
 /*End of Animations & Keyframes*/
