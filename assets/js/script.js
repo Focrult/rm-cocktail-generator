@@ -46,8 +46,6 @@ function loadCocktails(drinksSaved) {
   console.log(drinksSaved)
 }
 
-var cocktailArray = []
-
 //Added redirect URL request if error occurs
 var redirectURL = './404.html'
 
@@ -120,12 +118,6 @@ function writeIngredientBtn(questionIndex) {
 
         quizLi.append(answerEl)
 
-        //Update page count element textcontent with page increment values
-        countEl.texcontent = questionCount;
-        answerEl.addEventListener("click", function(){
-          questionCount++;
-          
-    })
     }
 }
 
@@ -262,13 +254,7 @@ function writeCatButton(cocktailArray, questionIndex) {
       quizLst.push(eval('cocktailArray[i].strIngredient'+questionIndex))
       }
 
-      //Update page count element textcontent with page increment values
-      countEl.texcontent = questionCount;
-      answerEl.addEventListener("click", function(){
-        questionCount++;
-  })
-
-  // }
+  
 }
 createButtonEventListener()
 
@@ -323,7 +309,7 @@ createButtonEventListener()
     
   }
 
-function removeIng(cocktailArray) {
+  function removeIng(cocktailArray) {
    for (let i = cocktailArray.length - 1; i > 0 ; i --) {}
 
 
@@ -333,7 +319,7 @@ function removeIng(cocktailArray) {
   
 
 
-function removeNonAns(ans) {
+  function removeNonAns(ans) {
   var childCount = cocktailArray.length - 1
 
   
@@ -407,8 +393,8 @@ function removeNonAns(ans) {
 function createButtonEventListener () {
 
   console.log(quizLi.childElementCount)
-for (let i = 0; i < quizLi.childElementCount; i++) {
-quizLi.children[i].addEventListener("click", function(event)  { 
+  for (let i = 0; i < quizLi.childElementCount; i++) {
+  quizLi.children[i].addEventListener("click", function(event)  { 
   var ans =  event.target.textContent
   
   // Remove objects not containing answer
