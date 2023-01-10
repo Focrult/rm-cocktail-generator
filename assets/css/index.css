@@ -358,10 +358,6 @@ body {
 body {
     animation: fadeOut 3s ease-in-out;
 }
-@keyframes fadeOut{
-
-    animation: fadeIn 7s ease-in-out;
-}
 
 #background {
     width: 100%;
