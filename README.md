@@ -27,7 +27,10 @@ The usage for this application is to enable users and their friends to go throug
 
 # Screeshots + Link
 Link to the deployed application: https://cableman687.github.io/group-project-1/
-![FRONTPAGE](https://user-images.githubusercontent.com/114898970/211534883-12abd214-e85d-48f5-b7d4-57f124e0dc87.png)
+![img1](https://user-images.githubusercontent.com/114898970/211573590-cfbf366a-b223-4ec1-b1d1-c7da7da69abe.png)
+![img2](https://user-images.githubusercontent.com/114898970/211573601-bee5e563-9699-4591-95d9-3b94adcec118.png)
+![img3](https://user-images.githubusercontent.com/114898970/211573606-6e41bee4-934d-4ab5-8041-5652a0e56f6c.png)
+![img4](https://user-images.githubusercontent.com/114898970/211573611-a8b8a532-6bc0-4c5b-9abd-9aad4ee63661.png)
 
 # Credits
 Rick & Morty API: https://rickandmortyapi.com/
