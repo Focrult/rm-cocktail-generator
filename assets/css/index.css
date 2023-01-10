@@ -14,7 +14,6 @@
        /*New colours for the document*/
        --white: white; 
     }
-
 .blue-colours { /* blueish colours that we can use: "https://www.color-hex.com/color-palette/10375" */  
     color: #318bbe	rgb(49, 139, 190);
     color: #92c5dd	rgb(146, 197, 221);
@@ -56,9 +55,10 @@ body {
     border-radius: 50px;
     font-weight: 800;
     transition: 300ms ease-out;
+   
 }
 #main-btn{ 
-    position: relative;
+    position: relative; 
     top: 80%;
 }
 #startBtn:hover {
