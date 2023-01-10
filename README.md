@@ -8,14 +8,16 @@ This is a collaborative project where our group is tasked to create an applicati
 Throughout this project our team has heavily worked on a variety of files. Including;
 - Two HTML files being the index.html and the 404.html.
 - Two CSS files being the index.css and 404.css.
-- Two JavaScript files titled script.js and 404.js
+- Two JavaScript files titled script.js and 404.js.
+- Output.css was modified to prevent its changes to damage our application. 
+- Addtional files included are associated with the Tailwind CSS framework.
 
-In addition, several images and a video were utilised to create the appropriate atmosphere for the webpage. 
+Furthermore, several images and a video were utilised to create the appropriate atmosphere for the webpage. 
 
 ### Challenges
-Correct Styling - We went through several design changes.
-Ingredient options - Shift from static options to dynamic options due to limited results and poor successful combinations.
-Merge conflicts - First time having to deal with merge conflicts, sometimes leading to unexpected main branch issues.
+Our team endured a few challenges throughout our coding journeys. Firstly choosing a final style/design for the web application was a time consuming task. We went over three major design changes until we unanimously agreed on a final version. Next was the issue with the ingredient options. Our team shifted from static cocktail button options to a more dynamic version. This was due to the application producing limited results, repeatability of button choices and poor successful combinations. This was resolved from an iterative process of identifying bugs, programming solutions through the agile development process. Lastly merge conflicts were evident, leading to unexpected main branch issues when merged incorrectly. However, after maintaining consistent communication between team members, we managed to prevent this issue persisting. 
+
+Additionally due to time constraints and last minute decisions, we could not fully incorporate Tailwind CSS into the entire application. 
 
 # Installation
 N/A
