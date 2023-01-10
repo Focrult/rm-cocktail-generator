@@ -400,7 +400,7 @@ function removeNonAns(ans) {
   }
  
 }
-
+}
 
 
 // Answer event listener 
@@ -467,10 +467,5 @@ function callPopDrinks (cocktailArray) {
 
 
     
-}
-
-
-  
+}  
 loadCocktails(drinksSaved);
-}
-
