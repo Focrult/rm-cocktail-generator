@@ -81,21 +81,14 @@ body {
     color: var(--white);
     border-radius: 50px;
     font-weight: 800;
-    transition: 300ms ease-out;
 }
 #main-btn{ 
-<<<<<<< Updated upstream
-
     position: relative; 
-=======
     position: sticky; 
->>>>>>> Stashed changes
     top: 80%;
 }
 #help-btn{ 
-    position: relative;
     text-align: left;
-
 }
 #startBtn:hover {
     font-size: 22px;
