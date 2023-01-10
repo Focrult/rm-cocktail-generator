@@ -26,9 +26,7 @@ var cocktailArray = [];
 
 // Load Cocktail Array when program starts
 function loadCocktails(drinksSaved) {
-
-  for (var i = 0; i < 10; i++) {
-
+  for (var i = 0; i < 2; i++) {
     var callIndex = 0
     var APIUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php";
 
@@ -127,19 +125,17 @@ function writeIngredientBtn(questionIndex) {
 startBtn.addEventListener('click', function() {
   const quizContainer = document.getElementById('quiz-container');
   const test = document.documentElement;
-  var op = document.getElementById("overlay2");
   const stars = document.getElementById("stars");
   const logo = document.getElementById("logo");
 const instructions = document.getElementById("instructions");
 
 
-  // const logo = document.getElementById("logo")
+ 
   instructions.classList.add("BlackCoverChange");
   logo.style.display = "none";
   startBtn.style.visibility = "hidden";
   quizContainer.style.visibility = "visible";
-  // test.classList.add('fadeOut');
-    // op.style.opacity = 0.5;
+ 
     startQuiz();
   
     document.getElementById('main-btn').classList.add('hide');
@@ -233,6 +229,27 @@ close2.addEventListener('click', function() {
 
 //When user clicks start quiz
 function writeCatButton(cocktailArray, questionIndex) {
+  var quizLst = []
+  // if (questionIndex == 0) {
+  //   for (let i = 0; i < cocktailArray.length; i++ ) {
+  //     // Check if value is already a child
+
+  //     var checkValue = quizLst.includes(cocktailArray[i].strCategory)
+
+  //     if (!checkValue) {
+  //     var answerEl = document.createElement('button');
+  //     answerEl.textContent = cocktailArray[i].strCategory
+      
+  //     quizLi.append(answerEl)
+  //     quizLst.push(cocktailArray[i].strCategory)
+      
+  //   }
+
+  // }
+  // }
+  
+  // else {
+
 
   var quizLst = [];
  
@@ -244,12 +261,7 @@ function writeCatButton(cocktailArray, questionIndex) {
 
       if (!checkValue) {
       var answerEl = document.createElement('button');
-      if (eval('cocktailArray[i].strIngredient'+questionIndex) == null) {
-        answerEl.textContent = "I don't want to add anything else"
-      } else {
-        answerEl.textContent = eval('cocktailArray[i].strIngredient'+questionIndex)
-        
-      }
+      answerEl.textContent = eval('cocktailArray[i].strIngredient'+questionIndex)
       quizLi.append(answerEl)
       quizLst.push(eval('cocktailArray[i].strIngredient'+questionIndex))
       }
@@ -309,25 +321,19 @@ createButtonEventListener()
     
   }
 
-  function removeIng(cocktailArray) {
-   for (let i = cocktailArray.length - 1; i > 0 ; i --) {}
-
-
-   writeCatButton(cocktailArray, questionIndex)  
-  }
-
-  
-
 
   function removeNonAns(ans) {
   var childCount = cocktailArray.length - 1
 
   
   
-  for (let i = childCount; i >=0; i--) {
-
-
+  for (let i = childCount - 1 ; i >=0; i--) {
     var drinkIngVal = [cocktailArray[i].strIngredient1, cocktailArray[i].strIngredient2, cocktailArray[i].strIngredient3, cocktailArray[i].strIngredient4]
+
+
+    console.log(drinkIngVal)
+      console.log(drinkIngVal)
+      console.log(!drinkIngVal.includes(ans))
 
       if (ans === "I don't want to add anything else") {
         if (i = 0) {
@@ -335,8 +341,10 @@ createButtonEventListener()
         } else {
           cocktailArray.splice(0, 1)
         }
-      } else {
-        if (!drinkIngVal.includes(ans)){
+
+      } else
+      if (!drinkIngVal.includes(ans)){
+
         cocktailArray.splice(i, 1)
       }
     }
@@ -386,7 +394,7 @@ createButtonEventListener()
   }
  
 }
-}
+
 
 
 // Answer event listener 
@@ -449,9 +457,8 @@ function callPopDrinks (cocktailArray) {
 
   // console.log(cocktailArray)
   // console.log(drinkData)
-    removeIng(cocktailArray)
-
-
+  
+    writeCatButton(cocktailArray, questionIndex)
     
 }  
 loadCocktails(drinksSaved);
