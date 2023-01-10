@@ -15,8 +15,8 @@
 </head>
 
 <section>
-    <img id="logo" src="logo.png">
-    <video id="background" autoplay loop muted src="Comp 4.mp4"></video>
+    <img id="logo" src="./assets/media/logo sus.png">
+    <video id="background" autoplay loop muted src="./assets/media/video.mp4"></video>
 
     <div id="overlay">
         <div id="instructions">
@@ -25,7 +25,6 @@
                 <span class="creep"> creepy</span><span class="morty"> morty!</span>
             </h1>
             <div class="text">
-                <!-- <h2>What to do...</h2>  -->
                 <ul> 
                     <li> Step 1: Click on Start Quiz</li>
                     <li> Step 2: Select your cocktail ingredients</li>
@@ -48,7 +47,7 @@
     </div>
     <div id="quiz-container" class="hide">
         <div id="question-container"></div>
-            <h2>Pick an Ingredient</h2>
+            <h2 class="ingredient-title">Pick an Ingredient</h2>
             <ul id="quiz-list">
 
             </ul><!--This will be emptied and replaced with text inside JS file-->
@@ -61,33 +60,41 @@
 
 <!--Render Page-->
 <section class="hidden" id="render-page"> 
-    <div class = "card" id="cocktail-card"> 
+    <div id="cocktail-card"> 
         <div class="card-image"> 
             <img id="cocktail-image"> 
         </div> 
-        <div class="title"> 
-            <h2 id="cocktail-name"></h2>
+
+        <div class="text-cocktail-container">
+            <div class="title" id="cocktail-title"> 
+                <h1 id="cocktail-name"></h1>
+            </div> 
+            <div class="card-ul2"> 
+                <ul> 
+                    <li>Species:</li>
+                    <li>Gender:</li>
+                    <li>Origin:</li>
+                </ul>
+            </div>
         </div> 
-        <div class="card-text"> 
-            <ul> 
-                <li>Instructions: </li>
-                <li id="instruction-content"></li>
-            </ul> 
-        </div>
     </div>
+
     <div class = "card" id="character-card"> 
         <div class="card-image"> 
             <img id="character-image"> 
-        </div> 
-        <div class="title" id="character-name"> 
-            <h2 id="character-name"></h2>
-        </div> 
-        <div class="card-ul" id="character-card-ul"> 
-            <ul> 
-                <li>Species: <span id="species"></span></li>
-                <li>Gender: <span id="gender"></span></li>
-                <li>Origin: <span id="origin"></span></li>
-            </ul>
+        </div>
+
+        <div class="text-character-container">
+            <div class="title" id="character-title"> 
+                <h2 id="character-name"></h2>
+            </div> 
+            <div class="card-ul" id="character-card-ul"> 
+                <ul> 
+                    <li>Species: <span id="species"></span></li>
+                    <li>Gender: <span id="gender"></span></li>
+                    <li>Origin: <span id="origin"></span></li>
+                </ul>
+            </div>
         </div>
     </div>
     <button id="returnBtn">Return Home</button>
