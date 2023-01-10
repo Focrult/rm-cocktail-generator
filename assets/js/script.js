@@ -206,15 +206,27 @@ var questionIndex = 1;
 //Start of popup 
 //GOAL make the pop-up appear after 2 seconds or user selects instructions tab?
 const close2 = document.getElementById('closeBtn');
+const helpBtnEl = document.getElementById('helpBtn');
 const overlay = document.getElementById('overlay');
 const instructions = document.getElementById('instructions');
 const title = document.getElementById('body');
 
+var retrieveData = JSON.parse(localStorage.getItem('characterName'));
 
-setTimeout(function () {
-  console.log("instructions displayed");
-  overlay.style.visibility = 'visible';
-},1000);
+console.log("Results:! " + retrieveData);
+
+if(retrieveData == null){
+
+  setTimeout(function () {
+    console.log("instructions displayed");
+    // overlay.style.visibility = 'visible';
+    overlay.classList.remove('hidden');
+
+  },1000);
+
+} else {};
+
+
 
 function Instructions(){ //function to reveal pop-up after a few seconds
 console.log("passing");
@@ -222,9 +234,17 @@ console.log("passing");
 //Add click event when user clicks lets go
 close2.addEventListener('click', function() {
   console.log('User clicked lets go!');
-    overlay.style.display = "none"; //Makes overlay + Instructions disappear
+  // overlay.style.display = "none"; //Makes overlay + Instructions disappear
+  overlay.classList.add('hidden');
+   
+
 });
 //End of popup
+
+helpBtnEl.addEventListener('click', function() {
+  console.log('User clicked Help');
+  overlay.classList.remove('hidden');
+});
 
 
 //When user clicks start quiz
