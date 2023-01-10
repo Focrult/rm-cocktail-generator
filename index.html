@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creepy Morty  </title> <!-- bar's name from an episode -->
+    <!-- <link rel="stylesheet" href="./assets/css/reset.css">  I'll leave this link as a comment just in case we need to use a reset.css, 
+    if we do there's already a css file attached to it.-->
+
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="./dist/output.css" rel="stylesheet" type="text/css">
+  
+</head>
+<body>
+
+<section>
+    <img id="logo" src="./assets/media/logo sus.png">
+   
+    <video id="background" autoplay loop muted src="./assets/media/video.mp4"></video>
+    <div id="overlay" class="hidden">
+
+        <div id="instructions">
+            <h1 class="h1-popup">Welcome to 
+                <span class="the">The </span>
+                <span class="creep"> creepy</span><span class="morty"> morty!</span>
+            </h1>
+            <div class="text">
+                <ul> 
+                    <li> Step 1: Click on Start Quiz</li>
+                    <li> Step 2: Select your cocktail ingredients</li>
+                    <li> Step 3: After completed your cocktail and rick and morty character will be revealed!</li>
+                </ul>
+        </div>
+        <button id="closeBtn">Let's Go!</button>
+    </div>
+</div>
+</section>
+
+    <main>
+
+        <!--Main container-->
+    <div class="container">
+
+      <div id="help-btn">
+        <button type="button" id="helpBtn">Help</button>
+    </div>    
+        <div id="main-btn">
+            <button type="button" class ='startBtn' id="startBtn">Start Quiz</button>
+            <button type="button" class ='startBtn' id="show-results">Show Previous Results</button>
+        </div>
+
+
+    <div id="quiz-container" class="hide">
+        <div id="question-container"></div>
+        <div class="ingredient-container">
+            <h2 class="ingredient-title">Pick an Ingredient</h2>
+        </div>
+            <ul id="quiz-list">
+            </ul><!--This will be emptied and replaced with text inside JS file-->
+</div>
+</main>
+</div>
+
+<!-- Prev Results Page -->
+<article id="results" class="hidden">
+    <div id="prev-cocktail-card"> 
+        <div class="card-image"> 
+            <img id="prev-cocktail-image"> 
+        </div> 
+
+        <div class="text-cocktail-container">
+            <div class="title" id="prev-cocktail-title"> 
+                <h1 id="prev-cocktail-name"></h1>
+            </div> 
+            <div class="card-ul2"> 
+                <ul> 
+                    <li>Species:</li>
+                    <li>Gender:</li>
+                    <li>Origin:</li>
+                </ul>
+            </div>
+        </div> 
+    </div>
+    <div class = "card" id="prev-character-card" class="hide"> 
+        <div class="card-image"> 
+            <img id="prev-character-image"> 
+        </div>
+
+        <div class="text-character-container">
+            <div class="title" id="prev-character-title"> 
+                <h2 id="prev-character-name"></h2>
+            </div> 
+            <div class="card-ul" id="prev-character-card-ul"> 
+                <ul> 
+                    <li>Species: <span id="prev-species"></span></li>
+                    <li>Gender: <span id="prev-gender"></span></li>
+                    <li>Origin: <span id="prev-origin"></span></li>
+                </ul>
+            </div>
+            <button class="returnBtn">Return Home</button>
+  </article>
+
+<!--Render Page-->
+<section class="hidden" id="render-page"> 
+    <div id="cocktail-card"> 
+        <div class="card-image"> 
+            <img id="cocktail-image"> 
+        </div> 
+
+        <div class="text-cocktail-container">
+            <div class="title" id="cocktail-title"> 
+                <h1 id="cocktail-name"></h1>
+            </div> 
+            <div class="card-ul2"> 
+                <ul> 
+                    <li>Species:</li>
+                    <li>Gender:</li>
+                    <li>Origin:</li>
+                </ul>
+            </div>
+        </div> 
+    </div>
+
+    <div class = "card" id="character-card"> 
+        <div class="card-image"> 
+            <img id="character-image"> 
+        </div>
+
+        <div class="text-character-container">
+            <div class="title" id="character-title"> 
+                <h2 id="character-name"></h2>
+            </div> 
+            <div class="card-ul" id="character-card-ul"> 
+                <ul> 
+                    <li>Species: <span id="species"></span></li>
+                    <li>Gender: <span id="gender"></span></li>
+                    <li>Origin: <span id="origin"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button class="returnBtn">Return Home</button>
+</section>
+
+</body>
+</div>
+<script src="assets/js/script.js"></script>
+</html>

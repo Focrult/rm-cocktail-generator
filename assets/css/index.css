@@ -1,0 +1,684 @@
+ *{ /*Universal declarations*/
+        padding: 0;
+        margin: 0;
+        font-family: 'Hanalei Fill', cursive; 
+        font-family: 'Space Mono', monospace;
+    }
+:root {
+       --brown: #44281d (68,40,29);
+       --salmonpink: #e4a788 (228,167,136);
+       --yellow: #f0e14a (240,225,74);
+       --green: #97ce4c (151,206,76);
+       --pink: #e89ac7 (232,154,199);
+
+       /*New colours for the document*/
+       --white: white; 
+    }
+.blue-colours { /* blueish colours that we can use: "https://www.color-hex.com/color-palette/10375" */  
+    color: #318bbe	rgb(49, 139, 190);
+    color: #92c5dd	rgb(146, 197, 221);
+    color: #0f3c80	rgb(15, 60, 128);
+    color: #598fac	rgb(89, 143, 172);
+    color: #80acbb	rgb(128, 172, 187);
+    color: #232137	rgb(35, 33, 55);
+}
+.hidden{ /*Class hidden for JS file*/
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
+/*Main Page*/
+body {
+    text-align: center; /* To align the cards on the center of the page */
+    background-color: black;
+    animation: fadeIn 3s ease-in-out;
+    overflow:hidden;
+}
+#background{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -5;
+}
+#logo {
+    text-align: center;
+
+}
+#startBtn{
+    border: none;
+    padding: 20px 40px;
+    font-size: 17px;
+    background-color: #f7633e;
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 300ms ease-out;
+   
+}
+
+#show-results{
+    border: none;
+    padding: 20px 40px;
+    font-size: 17px;
+    background-color: #f7633e;
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 300ms ease-out;
+   
+}
+#helpBtn{
+    border: none;
+    padding: 20px 40px;
+    font-size: 17px;
+    background-color: #f7633e;
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 300ms ease-out;
+}
+#main-btn{ 
+
+    position: relative; 
+    top: 80%;
+}
+#help-btn{ 
+    position: relative;
+    text-align: left;
+
+}
+#startBtn:hover {
+    font-size: 22px;
+    transition: font-size .2s ease;
+    transition: 300ms ease-out;
+    transition: 300ms ease-in;
+    cursor:pointer;
+}
+
+#show-results:hover {
+    font-size: 22px;
+    transition: font-size .2s ease;
+    transition: 300ms ease-out;
+    transition: 300ms ease-in;
+    cursor:pointer;
+}
+
+#helpBtn:hover {
+    font-size: 22px;
+    transition: font-size .2s ease;
+    transition: 300ms ease-out;
+    transition: 300ms ease-in;
+    cursor:pointer;
+}
+
+/*Start of pop-up*/
+#overlay { 
+    transition: 200ms ease-in;
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.9)); 
+    position: absolute;    
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    
+}
+#instructions{
+    background-color: rgb(197, 196, 196);
+    position: relative;
+    width: 30%;
+    height: 50%;
+    color: black;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px rgb(48, 48, 48);
+    transition: 200ms ease-in;
+    box-shadow:  0px 0px 20px rgb(66,113,201), 0 0 50px rgb(66,113,201);
+    border-radius: 20px;
+    border: solid 5px rgb(66,113,201);
+}
+.h1-popup {
+    font-weight: 100px;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+#instructions:hover{
+    outline-color: rgb(66,113,201);
+    box-shadow: 0px 0px 45px rgb(66,113,201), 0 0 100px rgb(66,113,201);
+}
+#instructions li {
+    padding: 10px;
+    padding-bottom: 25px;
+    list-style: none;
+}
+#instructions li:before{
+    text-shadow: 0px 0px 5px #f7633e, 0 0 5px #f7633e;
+    content: " \25B7";
+    color: #f7633e;
+}
+#instructions li:hover::before{
+    content: " \25B7";
+    text-shadow: 0px 0px 4px #bc4224, 0px 0px 10px #bc4224;
+}
+.the {
+    color: hsl(317 100% 54%);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em hsl(317 100% 54%);
+}
+.the:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em hsl(317 100% 54%);
+}
+.creep {
+    color: rgb(96,20,228);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em rgb(96,20,228);
+}
+.creep:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(96,20,228);
+}
+.morty {
+    color: hsl(317 100% 54%);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em hsl(317 100% 54%);
+}
+.morty:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em hsl(317 100% 54%);
+}
+.text h2 {
+   text-align: center;
+}
+.text {
+    position: absolute;
+    width: 50%;
+    margin-left: 30px;
+}
+#closeBtn { 
+    padding: 20px 20px;
+    position: absolute;
+    color: rgb(197, 196, 196);
+    background: linear-gradient(rgb(52,240,106),rgba(0, 0, 0, 0.7));
+    border: none;
+    transition: 300ms ease-out;
+    left: 60%;
+    border-radius: 10px;
+    font-size: larger;
+    text-shadow:
+    0 0 0.125em hsl(0, 0%, 30% / 0.1), 
+    0 0 0.200em rgb(52,240,106);
+    box-shadow: 
+        inset 0 0 0.200em 0 rgb(52,240,106),
+        0 0 0.100em 0 rgb(52,240,106);
+}
+#closeBtn:hover {
+    box-shadow:  0px 0px 40px rgb(52,240,106), 0 0 50px rgb(52,240,106);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.200em rgb(52,240,106);
+    text-shadow: none;
+    opacity: 60%;
+    transition: 300ms ease-out;
+    transition: 300ms ease-in;
+    cursor: pointer;
+}
+#closeBtn:active {
+    background-color: rgb(52,240,106);
+}
+/*End of pop-up*/
+/*Container for the Main Page & Quiz Page*/
+.container {
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    
+
+}
+  /*Quiz page*/
+    #quiz-list button{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    background-color: #060a1b;
+    color: var(--white);
+    font-weight: 800;
+    position:relative;
+    z-index: 1;
+    background: linear-gradient(45deg, rgb(4, 175, 4),#1a234d,#990a99) 0px 0px repeat-x;
+    transition: 3s ease-out;
+  }
+  #quiz-list button::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #060a1b;
+    z-index: -1;
+  }
+#quiz-list button:hover{
+    transition: 3s ease-in-out;
+    cursor:pointer;
+    box-shadow: 0 0 35px purple;
+    transition: all 2s ease-in-out;
+    animation: filterColours 3s infinite;
+}
+#quiz-list{
+    overflow: visible;
+    margin: 20px 0;
+    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    align-items: center;
+} 
+#quiz-container{
+    position: absolute;
+    text-align: center;
+    top: 50%;   
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 6s forwards linear;
+} 
+#question-container {
+    color: var(--white);
+    position: inline;
+}
+.fadeOut {
+    animation: fadeOut 7s ease-in-out;
+}
+.BlackCoverChange {
+    transition-delay: 2s;
+    animation: fadeIn 500ms forwards;
+}
+.ingredient-container{
+    left: 10%;
+    position:absolute;
+    height: 300px;
+    width: 600px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.ingredient-title{
+    color: white;
+    font-size: 50px;
+    font-weight: 600px;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px rgb(153, 255, 0),
+    0 0 20px rgb(153, 255, 0),
+    0 0 40px rgb(153, 255, 0),
+    0 0 80px rgb(153, 255, 0),
+    0 0 120px rgb(153, 255, 0);
+}
+/*Start of Render Page & Card Design*/
+#render-page { 
+    justify-content: center;
+}
+.title {     
+    word-break: break-all;
+    text-align: center;     
+    padding: 15px; 
+}  
+.card {     
+    width: 23%;
+    height: 70%;     
+    background-color: transparent;        
+    margin: auto;	  
+    display: inline-block; 
+    box-shadow:  0px 0px 20px rgb(96,20,228), 0 0 50px rgb(96,20,228);
+    border-radius: 20px;
+    border: solid 5px rgb(96,20,228);
+}  
+#cocktail-image {
+    border-radius: 5px;
+    border-bottom: solid 5px hsl(317 100% 54%);
+}
+#cocktail-card {
+    width: 23%;     
+    height: 70%;     
+    background-color: transparent;     
+    margin: 40px;	     
+    display: inline-block; 
+    box-shadow:  0px 0px 20px hsl(317 100% 54%), 0 0 50px hsl(317 100% 54%);
+    border-radius: 20px;
+    border: solid 5px hsl(317 100% 54%);
+}
+#cocktail-card:hover {     
+    outline-color: hsl(317 100% 54%);
+    box-shadow: 0px 0px 45px hsl(317 100% 54%), 0 0 100px hsl(317 100% 54%);
+}
+#cocktail-title {
+    text-decoration: none;     
+    text-decoration-color: hsl(317 100% 54%);
+    text-shadow: 1px 1px 20px hsl(317 100% 54%);
+}
+#cocktail-name{
+    font-size: 20px;
+    white-space: normal;
+    color: hsl(317 100% 54%);
+}
+.card-ul2 {
+    font-size: 15px;
+    color: transparent;
+    user-select: none;
+}
+#origin {
+    word-break: break-all;
+}
+.card-ul {     
+    font-size: 15px;
+}  
+#character-image {
+    border-radius: 5px;
+    border-bottom: solid 5px rgb(96,20,228);
+}
+#character-card:hover {
+    outline-color: rgb(96,20,228);
+    box-shadow: 0px 0px 45px rgb(96,20,228), 0 0 100px rgb(96,20,228);
+}
+.text-character-container {
+    padding-top: solid 5px rgb(66,113,201);
+} 
+#character-title {
+    text-decoration: none;     
+    text-decoration-color: rgb(11,220,239);;
+    text-shadow: 1px 1px 20px rgb(11,220,239);;
+}
+#character-name{
+    white-space: normal;
+    font-size: 20px;
+    color: rgb(11,220,239);
+}
+#character-card-ul {  
+    font-size: 15px;
+    text-decoration-color: none;
+    color: rgb(85,169,237);
+    text-decoration-color: rgb(85,169,237);
+    text-shadow: 0px 0px 10px rgb(85,169,237);
+}  
+#species {
+    color: rgb(39,219,54);
+    text-shadow: 4px 1px 10px rgb(39,219,54);
+    text-decoration: underline;
+}
+#species:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(39,219,54);
+}
+#gender {
+    color: rgb(215,24,97);
+    text-shadow: 4px 1px 10px rgb(215,24,97);
+    text-decoration: underline;
+}
+#gender:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(215,24,97);
+}
+#origin {
+    color: rgb(245,129,41);
+    text-shadow: 4px 1px 10px rgb(245,129,41);
+    text-decoration: underline;
+}
+#origin:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(245,129,41);
+}
+ul {     
+    position: relative;
+    list-style: none; 
+}  
+.card-image img {     
+    width: 100%;     
+    border-radius: 10px; 
+    border-bottom: solid 5px var(--white);
+}  
+/*End of Render Card Design*/
+/* Return Button from Result Cards */
+.returnBtn{ 
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    padding: 10px 20px;
+    background-color: #f7633e;
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 300ms ease-out;
+}
+.returnBtn:hover{ 
+    font-size: 18px;
+    transition: font-size .2s ease;
+    transition: 300ms ease-out;
+    transition: 300ms ease-in;
+    cursor:pointer;
+}
+
+#results {
+    display: none;
+    justify-content: center ;
+  
+}
+
+
+#prev-cocktail-image {
+    border-radius: 5px;
+    border-bottom: solid 5px hsl(317 100% 54%);
+}
+#prev-cocktail-card {
+    width: 23%;     
+    height: 70%;     
+    background-color: transparent;     
+    margin: 40px;	     
+    display: inline-block; 
+    box-shadow:  0px 0px 20px hsl(317 100% 54%), 0 0 50px hsl(317 100% 54%);
+    border-radius: 20px;
+    border: solid 5px hsl(317 100% 54%);
+}
+#prev-cocktail-card:hover {     
+    outline-color: hsl(317 100% 54%);
+    box-shadow: 0px 0px 45px hsl(317 100% 54%), 0 0 100px hsl(317 100% 54%);
+}
+#prev-cocktail-title {
+    text-decoration: none;     
+    text-decoration-color: hsl(317 100% 54%);
+    text-shadow: 1px 1px 20px hsl(317 100% 54%);
+}
+#prev-cocktail-name{
+    font-size: 20px;
+    white-space: normal;
+    color: hsl(317 100% 54%);
+}
+
+#prev-origin {
+    word-break: break-all;
+}
+
+#prev-character-image {
+    border-radius: 5px;
+    border-bottom: solid 5px rgb(96,20,228);
+}
+#prev-character-card:hover {
+    outline-color: rgb(96,20,228);
+    box-shadow: 0px 0px 45px rgb(96,20,228), 0 0 100px rgb(96,20,228);
+}
+ 
+#prev-character-title {
+    text-decoration: none;     
+    text-decoration-color: rgb(11,220,239);;
+    text-shadow: 1px 1px 20px rgb(11,220,239);;
+}
+#prev-character-name{
+    white-space: normal;
+    font-size: 20px;
+    color: rgb(11,220,239);
+}
+#prev-character-card-ul {  
+    font-size: 15px;
+    text-decoration-color: none;
+    color: rgb(85,169,237);
+    text-decoration-color: rgb(85,169,237);
+    text-shadow: 0px 0px 10px rgb(85,169,237);
+}  
+#prev-species {
+    color: rgb(39,219,54);
+    text-shadow: 4px 1px 10px rgb(39,219,54);
+    text-decoration: underline;
+}
+#prev-species:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(39,219,54);
+}
+#prev-gender {
+    color: rgb(215,24,97);
+    text-shadow: 4px 1px 10px rgb(215,24,97);
+    text-decoration: underline;
+}
+#prev-gender:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(215,24,97);
+}
+#prev-origin {
+    color: rgb(245,129,41);
+    text-shadow: 4px 1px 10px rgb(245,129,41);
+    text-decoration: underline;
+}
+#prev-origin:hover {
+    text-shadow: 0 0 0.200em hsl(0 0% 100% / 0.5), 
+    0 0 0.300em rgb(245,129,41);
+}
+/*End of Return Button*/
+/*Animations & Media Queries*/
+@keyframes filterColours{
+    0%{filter: hue-rotate(0deg)}
+    100%{filter: hue-rotate(360deg)}
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeCard {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+@media only screen and (max-width: 680px) {
+    #returnBtn{
+        top: 95%;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+  }
+@media only screen and (max-width: 1050px) {
+    h1,h3{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    
+    .returnBtn{
+        top: 85%;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    p{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        top: 90%;
+    }
+  }
+  @media only screen and (max-height: 769px) {
+    p{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+  }
+  @media only screen and (max-height: 1050px) {
+    #closeBtn{
+        bottom: 35%
+    }
+}
+@media only screen and (max-height: 900px) {
+    #closeBtn{
+        bottom: 30%
+    }
+}
+@media only screen and (max-width: 2505px) {
+    .closeBtn{
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .text{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 2250px) {
+    .text {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 1920px), only screen and (max-width: 2250px), only screen and (max-width:2500px) {
+    #instructions {
+        width: 30%;
+        height: 65%;
+        color: black;
+        top: 45%;
+        left: 50%;
+    }
+}
+@media only screen and (max-width: 1040px) {
+
+    #instructions {
+        width: 30%;
+        height: 65%;
+        color: black;
+        top: 45%;
+        left: 50%;
+    }
+}
+@media only screen and (max-width: 1440px){
+    .h1-popup   {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 1850px), only screen and (max-width: 680px)  {
+#main-btn{
+    top: 90%;
+}
+}
+@media only screen and (max-width: 1900px),(max-width: 2200px) {
+    #main-btn{
+        top: 90%;
+    }
+    }
+    @media only screen and (max-height: 1000px){
+        #main-btn{
+            top: 90%;
+        }
+        }
+/*End of Animations & Keyframes
